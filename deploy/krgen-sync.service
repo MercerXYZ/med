@@ -1,0 +1,6 @@
+[Unit]
+Description=KRGen: синхронизация с GitHub
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/krgen-sync

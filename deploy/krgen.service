@@ -1,0 +1,21 @@
+[Unit]
+Description=KRGen - черновик КР из научных статей
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=krgen
+Group=krgen
+WorkingDirectory=/opt/krgen
+Environment=KRGEN_DATA=/var/lib/krgen
+Environment=KRGEN_CLAUDE_CLI=/home/krgen/.local/bin/claude
+Environment=PYTHONIOENCODING=utf-8
+Environment=PATH=/home/krgen/.local/bin:/opt/krgen/.venv/bin:/usr/local/bin:/usr/bin:/bin
+# токен подписки Claude (CLAUDE_CODE_OAUTH_TOKEN=...) задаётся командой krgen-set-token
+EnvironmentFile=-/etc/krgen/token.env
+ExecStart=/opt/krgen/.venv/bin/python -m krgen.server
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
