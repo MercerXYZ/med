@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KRGen — черновик КР из статей</title>
+<link rel="stylesheet" href="/static/style.css?v=5">
+<script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+</head>
+<body>
+<header>
+  <div class="brand">KRGen <span>черновик клинической рекомендации из научных статей</span></div>
+  <div class="proj">
+    <select id="projectSel"></select>
+    <button id="newProjBtn" class="ghost">+ Проект</button>
+  </div>
+</header>
+
+<section id="projBar" class="hidden">
+  <div class="pinfo">
+    <h1 id="pTitle"></h1>
+    <div id="pMeta" class="muted"></div>
+  </div>
+  <div class="runbox">
+    <label><input type="checkbox" id="optJudge" checked> LLM-рецензент</label>
+    <label><input type="checkbox" id="optFailed"> только сбойные фрагменты</label>
+    <button id="runBtn">▶ Обработать</button>
+  </div>
+  <div id="runStatus" class="runstatus"></div>
+  <div id="counts" class="counts"></div>
+</section>
+
+<nav id="tabs" class="hidden">
+  <button data-tab="runs">Прогоны</button>
+  <button data-tab="docs" class="active">Документы</button>
+  <button data-tab="cards">Карточки доказательств</button>
+  <button data-tab="conflicts">Противоречия</button>
+  <button data-tab="theses">Тезисы</button>
+  <button data-tab="draft">Черновик и экспорт</button>
+  <button data-tab="report">Отчёт</button>
+  <button data-tab="edits">Журнал правок</button>
+</nav>
+
+<main id="main"></main>
+
+<dialog id="newProj">
+  <form method="dialog" id="newProjForm">
+    <h2>Новый проект</h2>
+    <label>Тема (название КР)<input name="title" required value="Переломы дистального отдела костей предплечья"></label>
+    <label>Возрастная группа
+      <select name="age_category"><option value="mixed">Взрослые и дети</option><option value="adults">Взрослые</option><option value="children">Дети</option></select>
+    </label>
+    <label>Коды МКБ-10 (через запятую)<input name="icd" value="S52.5, S52.50, S52.51, S52.6, S52.60, S52.61, S52.8"></label>
+    <label>Организация-разработчик<input name="org" value="Ассоциация травматологов-ортопедов России (АТОР)"></label>
+    <div class="row"><button value="ok">Создать</button><button value="cancel" class="ghost" formnovalidate>Отмена</button></div>
+  </form>
+</dialog>
+<div id="toast"></div>
+<script src="/static/app.js?v=5"></script>
+</body>
+</html>

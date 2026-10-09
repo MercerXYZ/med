@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "krgen-export/1.0",
+  "title": "KRGen — полный экспорт проекта черновика клинической рекомендации",
+  "description": "Версионированная схема обмена (раздел 5 ТЗ). Правило null: поле присутствует всегда; null означает «в источнике не указано / не определено», а не «не проверялось». Для совместимости с моделью преподавателя дополнительно выгружается kr_recommendation.schema.json.",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "generator", "project", "documents", "evidence_cards",
+               "recommendations", "conflicts", "quality_criteria", "expert_edits", "processing_report"],
+  "properties": {
+    "schema_version": {"const": "krgen-export/1.0"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "generator": {
+      "type": "object", "required": ["model", "judge_model", "settings"],
+      "description": "Модель, промпты (версии) и параметры — для воспроизводимости.",
+      "properties": {"model": {"type": "string"}, "judge_model": {"type": "string"}, "settings": {"type": "object"}}
+    },
+    "project": {
+      "type": "object", "required": ["id", "title", "age_category", "icd_codes", "developer_org", "normative_basis"],
+      "properties": {
+        "id": {"type": "string"}, "title": {"type": "string"},
+        "age_category": {"enum": ["adults", "children", "mixed"]},
+        "icd_codes": {"type": "array", "items": {"type": "string", "pattern": "^[A-ZА-Я][0-9]{2}(\\.[0-9]{1,2})?$"}, "minItems": 1},
+        "developer_org": {"type": "string"}, "normative_basis": {"type": "string"}
+      }
+    },
+    "documents": {"type": "array", "items": {
+      "type": "object", "required": ["id", "filename", "sha256", "n_pages", "processing_status", "status_detail", "duplicate_of", "bibliography"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^doc_"}, "filename": {"type": "string"}, "sha256": {"type": "string"},
+        "n_pages": {"type": "integer", "minimum": 0},
+        "processing_status": {"enum": ["queued", "processing", "done", "done_empty", "partial", "error", "unsupported", "duplicate"],
+          "description": "done_empty — обработан без результатов; partial — обработан частично; error — обработка завершилась ошибкой"},
+        "status_detail": {"type": ["string", "null"]},
+        "duplicate_of": {"type": ["string", "null"]},
+        "bibliography": {"type": "object", "description": "title, authors, year, journal, doi, pmid, study_design, design_evidence, sample_size, population — только из текста документа; пусто/null, если не найдено"}
+      }}},
+    "evidence_cards": {"type": "array", "items": {"$ref": "#/$defs/card"}},
+    "recommendations": {"type": "array", "items": {"$ref": "#/$defs/thesis"}},
+    "conflicts": {"type": "array", "items": {
+      "type": "object", "required": ["id", "card_ids", "description", "kind", "status"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^cf_"}, "card_ids": {"type": "array", "items": {"type": "string"}, "minItems": 2},
+        "description": {"type": "string"}, "kind": {"enum": ["direction", "numbers", "population", "other"]},
+        "status": {"enum": ["open", "resolved"]}, "resolution": {"type": ["object", "null"]}, "origin": {"type": "string"}
+      }}},
+    "quality_criteria": {"type": "array", "items": {
+      "type": "object", "required": ["id", "thesis_id", "criterion_text", "status"],
+      "properties": {
+        "id": {"type": "string"}, "thesis_id": {"type": "string", "pattern": "^rec_"},
+        "criterion_text": {"type": "string", "description": "Прошедшее время: «Выполнена…», «Проведено…»"},
+        "applicable_stage": {"type": ["string", "null"]}, "auto_eligible": {"type": ["boolean", "null"]},
+        "status": {"enum": ["requires_expert_review", "approved"]}
+      }}},
+    "expert_edits": {"type": "array", "items": {
+      "type": "object", "required": ["entity", "entity_id", "action", "ts"],
+      "properties": {"entity": {"enum": ["card", "thesis", "conflict"]}, "entity_id": {"type": "string"},
+                     "action": {"type": "string"}, "before": {}, "after": {}, "comment": {"type": ["string", "null"]},
+                     "ts": {"type": "number"}}}},
+    "processing_report": {
+      "type": "object", "required": ["documents", "llm_by_purpose", "llm_total", "runs"],
+      "description": "Покрытие страниц и пропуски с причинами, ошибки, время, число запросов, токены, стоимость (эквивалент API; расходуются лимиты подписки)."
+    }
+  },
+  "$defs": {
+    "card": {
+      "type": "object",
+      "required": ["id", "doc_id", "statement_ru", "claim_type", "polarity", "source_quote", "pdf_page", "verification"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^ev_"},
+        "doc_id": {"type": "string"},
+        "statement_ru": {"type": "string"},
+        "claim_type": {"enum": ["source_recommendation", "study_finding", "background_fact"]},
+        "polarity": {"enum": ["positive", "negative", "conditional", "descriptive"]},
+        "negation": {"type": "boolean"},
+        "population": {"type": ["string", "null"]},
+        "age_group": {"enum": ["adults", "children", "mixed", "unspecified"]},
+        "intervention": {"type": ["string", "null"]}, "comparator": {"type": ["string", "null"]},
+        "outcome": {"type": ["string", "null"]}, "conditions": {"type": ["string", "null"]},
+        "dose": {"type": ["string", "null"]}, "timing": {"type": ["string", "null"]}, "thresholds": {"type": ["string", "null"]},
+        "intervention_type": {"enum": ["diagnostic", "therapeutic", "preventive", "rehab", "organizational", "descriptive", null]},
+        "kr_section": {"type": ["string", "null"]},
+        "topic_relevance": {"enum": ["direct", "indirect", "none", null]},
+        "secondary_citation": {"type": "boolean", "description": "Пересказ чужой работы — УДД статьи не присваивается"},
+        "source_quote": {"type": "string", "description": "Дословная цитата на языке источника"},
+        "pdf_page": {"type": "integer", "minimum": 1, "description": "Порядковый номер страницы PDF (с 1)"},
+        "verification": {
+          "type": "object", "required": ["status", "checks", "issues"],
+          "properties": {
+            "status": {"enum": ["verified", "needs_review", "unverified", "extracted"]},
+            "user_status": {"enum": ["confirmed", "rejected", "merged", "unmerged", null]},
+            "quote_match": {"enum": ["exact", "fuzzy", "partial", "not_found", "too_short", null]},
+            "quote_score": {"type": ["number", "null"]}, "quote_found_page": {"type": ["integer", "null"]},
+            "checks": {"type": "array"}, "judge": {"type": ["object", "null"]},
+            "issues": {"type": "array", "items": {"type": "string"}}, "conflicts": {"type": "array"}
+          }
+        },
+        "merged_into": {"type": ["string", "null"]},
+        "origin": {"enum": ["auto", "manual"]},
+        "edited_by_expert": {"type": "boolean"},
+        "auto_value": {"type": ["object", "null"], "description": "Неисправленный машинный результат (сохраняется до ручного исправления)"},
+        "pending_auto_update": {"type": "boolean"}
+      }
+    },
+    "thesis": {
+      "type": "object",
+      "required": ["id", "section", "kind", "statement", "evidence_ids", "status", "provenance", "review_flags"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^rec_"},
+        "section": {"type": "string"},
+        "kind": {"enum": ["recommendation", "narrative"]},
+        "statement": {"type": "string"},
+        "strength_phrase": {"enum": ["Рекомендуется", "Рекомендуется рассмотреть возможность", "Не рекомендуется", "Не рекомендуется рассматривать", null]},
+        "direction": {"enum": ["positive", "negative", null]},
+        "udd": {"type": ["integer", "null"], "minimum": 1, "maximum": 5, "description": "null — не определён (система сообщает об этом)"},
+        "uur": {"enum": ["A", "B", "C", null]},
+        "uur_preliminary": {"type": ["boolean", "null"]},
+        "grade_rationale": {"type": ["string", "null"]},
+        "evidence_ids": {"type": "array", "items": {"type": "string"}},
+        "expert_additions": {"type": ["array", "null"]},
+        "comment": {"type": ["string", "null"]},
+        "quality_criterion": {"type": ["object", "null"]},
+        "status": {"enum": ["draft", "approved", "rejected"]},
+        "provenance": {"enum": ["auto", "auto+expert_review", "manual"]},
+        "review_flags": {"type": "array", "items": {"type": "string"}},
+        "orphan": {"type": "boolean"},
+        "edited_by_expert": {"type": "boolean"},
+        "auto_value": {"type": ["object", "null"]},
+        "pending_auto_update": {"type": "boolean"}
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+ "project_id": "demo",
+ "project_title": "Переломы дистального отдела костей предплечья",
+ "run_id": "run_20261008_142318_722f",
+ "taken_at": 1791434537.7727952,
+ "documents": {
+  "done": 28,
+  "duplicate": 2,
+  "partial": 3
+ },
+ "n_documents": 33,
+ "pages": {
+  "total": 1397,
+  "done": 308
+ },
+ "cards": {
+  "needs_review": 784,
+  "unverified": 19,
+  "verified": 1594
+ },
+ "n_cards": 2397,
+ "theses": 457,
+ "theses_narrative": 96,
+ "theses_merged_away": 150,
+ "conflicts": 105,
+ "duplicates": 124,
+ "run_usage": {
+  "calls": 138,
+  "cache_hits": 0,
+  "input_tokens": 13541,
+  "output_tokens": 434911,
+  "cost_usd": 4.143,
+  "errors": 0
+ },
+ "project_usage": {
+  "calls": 1252,
+  "cache_hits": 126,
+  "input_tokens": 640244,
+  "output_tokens": 2490112,
+  "cost_usd": 27.627,
+  "errors": 0
+ }
+}

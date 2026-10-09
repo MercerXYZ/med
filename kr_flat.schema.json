@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://iacp.dvo.ru/schemas/kr_flat.schema.json",
+  "title": "Клиническая рекомендация МЗ РФ — плоская (одноуровневая) схема знаний",
+  "description": "Одноуровневый список знаний, извлечённых из научных статей для формирования КР МЗ РФ (приказ № 103н, ред. от 28.09.2023). Минимальная миграция с существующих триплетов. Каждый объект — одно знание целиком: метод + цель + доказательность + раздел КР. Соответствует справочнику INSTRUCTIONS.md, часть 1.",
+  "type": "array",
+  "items": { "$ref": "#/$defs/knowledge_item" },
+
+  "$defs": {
+    "knowledge_item": {
+      "type": "object",
+      "required": [
+        "method", "method_type", "diagnosis", "patient_group", "goal",
+        "recommendation_type", "kr_section", "statement"
+      ],
+      "additionalProperties": false,
+      "properties": {
+
+        "method": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Название метода/препарата без аббревиатур — полное клиническое название. Для препаратов — МНН."
+        },
+        "method_type": {
+          "type": "string",
+          "enum": ["surgery", "diagnostics", "drug", "procedure", "immobilization", "rehabilitation", "monitoring"],
+          "description": "Тип вмешательства."
+        },
+        "diagnosis": {
+          "type": "string",
+          "description": "Нозология или ситуация применения."
+        },
+        "patient_group": {
+          "type": "string",
+          "description": "Группа пациентов (возраст, сопутствующие, тип перелома) или 'все пациенты'."
+        },
+        "goal": {
+          "type": "string",
+          "description": "Конкретная цель — с симптомами/порогами/сроками из текста, не общие фразы."
+        },
+        "conditions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": [],
+          "description": "Условия применения, если есть."
+        },
+        "contraindications": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": [],
+          "description": "Противопоказания, только если явно написаны в тексте."
+        },
+        "timing": {
+          "type": ["string", "null"],
+          "description": "Конкретные сроки из текста ('не позднее 30 мин', '48 ч', '6–8 часов') или null."
+        },
+        "dosage": {
+          "type": ["string", "null"],
+          "description": "Доза, путь введения, кратность — дословно для препаратов — или null."
+        },
+        "recommendation_type": {
+          "type": "string",
+          "enum": ["recommended", "not_recommended", "conditional"],
+          "description": "Характер тезиса."
+        },
+
+        "evidence_level": {
+          "type": ["string", "null"],
+          "enum": ["А", "В", "С", null],
+          "description": "УУР — только кириллица А/В/С. Заполнять, только если указан явно (в исходной статье почти всегда null; присваивается при разработке КР)."
+        },
+        "evidence_grade": {
+          "type": ["integer", "null"],
+          "minimum": 1,
+          "maximum": 5,
+          "description": "УДД — цифра 1–5. Заполнять, только если указан явно, иначе null."
+        },
+        "source_quote": {
+          "type": "string",
+          "maxLength": 240,
+          "description": "Точная цитата из текста (рекомендуется ≤120 символов) — ключевая фраза рекомендации."
+        },
+
+        "kr_section": {
+          "type": "string",
+          "enum": ["1.5","1.6","2.1","2.2","2.3","2.4","2.5","3.1","3.2","3.3","4","5","6","7"],
+          "description": "Раздел КР по типовой структуре 103н. Главное поле для раскладки знаний по документу."
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 10,
+          "description": "Готовый текст тезиса целиком. Начинается с 'Рекомендуется' / 'Не рекомендуется' / 'Рекомендуется рассмотреть возможность'."
+        },
+        "consensus": {
+          "type": "string",
+          "enum": ["consistent", "conflicting", "single"],
+          "default": "single",
+          "description": "Согласованность источников: consistent — согласны; conflicting — противоречат (понижает УУР); single — источник один."
+        },
+        "grade_rationale": {
+          "type": "string",
+          "description": "Одна фраза: на чём основан УУР/УДД ('2 РКИ, согласованы' / 'мнение экспертов'). Для проверяемости."
+        },
+
+        "is_quality_criterion": {
+          "type": "boolean",
+          "default": false,
+          "description": "Попадает ли тезис в таблицу 'Критерии оценки качества медицинской помощи'."
+        },
+        "criterion_text": {
+          "type": ["string", "null"],
+          "description": "Формулировка для таблицы качества в прошедшем времени ('Выполнена рентгенография...'). НЕ копия statement. null, если не критерий."
+        },
+
+        "evidence_backed_core": {
+          "type": ["string", "null"],
+          "description": "Часть тезиса, прямо подтверждаемая источниками. Ядро без экспертных надстроек. null, если весь тезис доказателен."
+        },
+        "expert_additions": {
+          "type": "array",
+          "default": [],
+          "description": "Конкретные утверждения (пороги, сроки, оргтребования), НЕ выводимые напрямую из источников. Механизм отлова фабрикованных привязок.",
+          "items": {
+            "type": "object",
+            "required": ["claim", "basis"],
+            "additionalProperties": false,
+            "properties": {
+              "claim": { "type": "string", "description": "Добавочное утверждение (напр. 'оптимум 6–8 ч для травм <24 ч')." },
+              "basis": {
+                "type": "string",
+                "enum": ["expert_consensus", "evidence+expert", "guideline_cross_ref"],
+                "description": "Основание добавления."
+              }
+            }
+          }
+        },
+
+        "therapy_line": {
+          "type": ["string", "null"],
+          "description": "Линия терапии ('1-я линия', 'альтернатива'). Из AIPSS EvidenceItem.line. Опционально."
+        },
+        "atc_code": {
+          "type": ["string", "null"],
+          "description": "Группа АТХ (не код препарата), напр. 'M01AE'. Заполнять только если явно есть в источнике. Не обязателен по 103н, нужен для построения стандарта медпомощи."
+        }
+      },
+
+      "allOf": [
+        {
+          "$comment": "Если is_quality_criterion=true, нужна формулировка критерия.",
+          "if": { "properties": { "is_quality_criterion": { "const": true } } },
+          "then": { "required": ["criterion_text"] }
+        }
+      ]
+    }
+  }
+}

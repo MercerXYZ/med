@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "krgen-test",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "set KRGEN_DATA=C:\\Users\\Savki\\AppData\\Local\\Temp\\claude\\krtest&& set PYTHONIOENCODING=utf8&& python -m krgen.server"],
+      "port": 8765
+    },
+    {
+      "name": "krgen",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "krgen.server"],
+      "port": 8765
+    }
+  ]
+}

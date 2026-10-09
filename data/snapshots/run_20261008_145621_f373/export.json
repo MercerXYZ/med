@@ -1,0 +1,3627 @@
+{
+ "schema_version": "krgen-export/1.0",
+ "generated_at": "2026-10-08T14:57:31",
+ "generator": {
+  "model": "claude-haiku-4-5",
+  "judge_model": "claude-haiku-4-5",
+  "settings": {
+   "model": "claude-haiku-4-5",
+   "judge_model": "claude-haiku-4-5",
+   "cli_path": null,
+   "force_subscription": true,
+   "concurrency": 4,
+   "max_retries": 2,
+   "call_timeout_s": 240,
+   "use_cache": true,
+   "thinking_budget": 0,
+   "judge_thinking_budget": 0,
+   "chunk_chars": 9000,
+   "chunk_max_pages": 3,
+   "max_pages_per_doc": 60,
+   "min_page_chars": 80,
+   "quote_exact_threshold": 100.0,
+   "quote_fuzzy_threshold": 90.0,
+   "quote_partial_threshold": 75.0,
+   "judge_batch": 15,
+   "cluster_batch": 45,
+   "fail_after_calls": null,
+   "prompt_versions": {
+    "biblio": "b3",
+    "keywords": "k2",
+    "extract": "e7",
+    "judge": "j6",
+    "cluster": "c4",
+    "synth": "s9",
+    "match": "m2",
+    "merge": "g1"
+   },
+   "schema_version": "krgen-export/1.0"
+  }
+ },
+ "project": {
+  "id": "prj_d55c27c2",
+  "title": "Переломы дистального отдела костей предплечья",
+  "age_category": "mixed",
+  "icd_codes": [
+   "S52.5",
+   "S52.50",
+   "S52.51",
+   "S52.6",
+   "S52.60",
+   "S52.61",
+   "S52.8"
+  ],
+  "developer_org": "Ассоциация травматологов-ортопедов России (АТОР)",
+  "normative_basis": "Приказ Минздрава России от 28.02.2019 № 103н (ред. от 28.09.2023)"
+ },
+ "documents": [
+  {
+   "id": "doc_a9b19f06d87a_202ef1",
+   "filename": "311.pdf",
+   "sha256": "a9b19f06d87a06bfa4e2350f4b123553700730f2d2f730fac74a309034749688",
+   "n_pages": 2,
+   "processing_status": "done",
+   "status_detail": "фрагментов 1/1; карточек 18",
+   "duplicate_of": null,
+   "bibliography": {
+    "title": "",
+    "authors": [
+     "Willem-Jan Metsemakers",
+     "Charalampos Zalavras"
+    ],
+    "year": null,
+    "journal": "",
+    "doi": "",
+    "language": "en",
+    "study_design": "clinical_guideline",
+    "design_evidence": "RECOMMENDATION: The use of prophylactic antibiotics for open fractures of long bones has a protective effect against early infection.",
+    "sample_size": null,
+    "population": "patients with open fractures of long bones",
+    "is_clinical_guideline": true,
+    "pmid": ""
+   }
+  }
+ ],
+ "evidence_cards": [
+  {
+   "id": "ev_0fcf63d98a46",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "Использование профилактических антибиотиков при открытых переломах костей имеет защитный эффект против ранней инфекции.",
+   "claim_type": "source_recommendation",
+   "polarity": "positive",
+   "negation": false,
+   "population": "пациенты с открытыми переломами костей",
+   "age_group": "unspecified",
+   "intervention": "профилактическое введение антибиотиков",
+   "comparator": "отсутствие антибиотиков или плацебо",
+   "outcome": "снижение риска ранней инфекции",
+   "conditions": "открытые переломы костей",
+   "dose": null,
+   "timing": null,
+   "thresholds": null,
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": false,
+   "source_quote": "The use of prophylactic antibiotics for open fractures of long bones has a protective effect against early infection.",
+   "pdf_page": 1,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "exact",
+    "quote_score": 100.0,
+    "quote_found_page": 1,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена дословно"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": false,
+      "severity": "soft",
+      "detail": "В цитате есть отрицание («against»), в формулировке — нет",
+      "resolved_by_judge": true
+     },
+     {
+      "name": "recommendation_marker",
+      "ok": false,
+      "severity": "soft",
+      "detail": "Тип «рекомендация источника», но в цитате нет рекомендательного маркера (возможно, результат исследования выдан за рекомендацию)",
+      "resolved_by_judge": true
+     }
+    ],
+    "judge": {
+     "card_id": "ev_0fcf63d98a46",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": []
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "The use of prophylactic antibiotics for open fractures of long bones has a protective effect against early infection.",
+    "page": 1,
+    "statement_ru": "Использование профилактических антибиотиков при открытых переломах костей имеет защитный эффект против ранней инфекции.",
+    "claim_type": "source_recommendation",
+    "polarity": "positive",
+    "population": "пациенты с открытыми переломами костей",
+    "age_group": "unspecified",
+    "intervention": "профилактическое введение антибиотиков",
+    "comparator": "отсутствие антибиотиков или плацебо",
+    "outcome": "снижение риска ранней инфекции",
+    "conditions": "открытые переломы костей",
+    "dose": "",
+    "timing": "",
+    "thresholds": "",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": false
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_20795b869871",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "При переломах III типа мы рекомендуем 72 часа введения антибиотиков или 24 часа после закрытия или закрытия мягких тканей раны в соответствии с имеющимися рекомендациями.",
+   "claim_type": "source_recommendation",
+   "polarity": "positive",
+   "negation": false,
+   "population": "пациенты с открытыми переломами III типа",
+   "age_group": "unspecified",
+   "intervention": "введение профилактических антибиотиков при переломах III типа",
+   "comparator": "более короткие схемы профилактики",
+   "outcome": "профилактика инфекции",
+   "conditions": "открытые переломы III типа",
+   "dose": null,
+   "timing": "72 часа или 24 часа после закрытия или закрытия мягких тканей раны",
+   "thresholds": "72 часа",
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": false,
+   "source_quote": "In type III fractures we recommend 72 hours of antibiotic administration or 24 hours after closure or soft tissue coverage of the wound, in agreement with existing guidelines.",
+   "pdf_page": 2,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "fuzzy",
+    "quote_score": 99.3,
+    "quote_found_page": 2,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена после нормализации (сходство 99.3%)"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     },
+     {
+      "name": "recommendation_marker",
+      "ok": true,
+      "severity": "ok",
+      "detail": "В цитате есть рекомендательная формулировка"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_20795b869871",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": [
+      "Дублирование слова 'закрытия' в русском переводе ('закрытия или закрытия мягких тканей')."
+     ]
+    },
+    "issues": [],
+    "conflicts": []
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "In type III fractures we recommend 72 hours of antibiotic administration or 24 hours after closure or soft tissue coverage of the wound, in agreement with existing guidelines.",
+    "page": 2,
+    "statement_ru": "При переломах III типа мы рекомендуем 72 часа введения антибиотиков или 24 часа после закрытия или закрытия мягких тканей раны в соответствии с имеющимися рекомендациями.",
+    "claim_type": "source_recommendation",
+    "polarity": "positive",
+    "population": "пациенты с открытыми переломами III типа",
+    "age_group": "unspecified",
+    "intervention": "введение профилактических антибиотиков при переломах III типа",
+    "comparator": "более короткие схемы профилактики",
+    "outcome": "профилактика инфекции",
+    "conditions": "открытые переломы III типа",
+    "dose": "",
+    "timing": "72 часа или 24 часа после закрытия или закрытия мягких тканей раны",
+    "thresholds": "72 часа",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": false
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_29430e2e3133",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "Исследование 616 открытых переломов большеберцовой кости I и II типов показало, что бактериальное загрязнение области перелома состояло из грамположительных организмов (75–78%) и грамотрицательных видов (22–26%) при поступлении, в начале операции и при закрытии раны.",
+   "claim_type": "study_finding",
+   "polarity": "descriptive",
+   "negation": false,
+   "population": "пациенты с открытыми переломами большеберцовой кости I и II типов (n=616)",
+   "age_group": "unspecified",
+   "intervention": "исследование микробиологии раны при открытых переломах",
+   "comparator": null,
+   "outcome": "микробиологический состав бактериального загрязнения при открытых переломах",
+   "conditions": "открытые переломы большеберцовой кости I и II типов",
+   "dose": null,
+   "timing": "при поступлении, в начале операции, при закрытии раны",
+   "thresholds": "грамположительные 75–78%, грамотрицательные 22–26%",
+   "intervention_type": "diagnostic",
+   "kr_section": "1.6",
+   "topic_relevance": "indirect",
+   "secondary_citation": true,
+   "source_quote": "A study of 616 type I and II open fractures of the tibia reported that bacterial contamination at the fracture site consisted of a similar distribution of gram-positive (75 to 78%) and gram-negative (22 to 26%) species upon arrival at the emergency department, at the start of the operation, and at wound closure.",
+   "pdf_page": 1,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "fuzzy",
+    "quote_score": 99.6,
+    "quote_found_page": 1,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена после нормализации (сходство 99.6%)"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_29430e2e3133",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": []
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "A study of 616 type I and II open fractures of the tibia reported that bacterial contamination at the fracture site consisted of a similar distribution of gram-positive (75 to 78%) and gram-negative (22 to 26%) species upon arrival at the emergency department, at the start of the operation, and at wound closure.",
+    "page": 1,
+    "statement_ru": "Исследование 616 открытых переломов большеберцовой кости I и II типов показало, что бактериальное загрязнение области перелома состояло из грамположительных организмов (75–78%) и грамотрицательных видов (22–26%) при поступлении, в начале операции и при закрытии раны.",
+    "claim_type": "study_finding",
+    "polarity": "descriptive",
+    "population": "пациенты с открытыми переломами большеберцовой кости I и II типов (n=616)",
+    "age_group": "unspecified",
+    "intervention": "исследование микробиологии раны при открытых переломах",
+    "comparator": "",
+    "outcome": "микробиологический состав бактериального загрязнения при открытых переломах",
+    "conditions": "открытые переломы большеберцовой кости I и II типов",
+    "dose": "",
+    "timing": "при поступлении, в начале операции, при закрытии раны",
+    "thresholds": "грамположительные 75–78%, грамотрицательные 22–26%",
+    "intervention_type": "diagnostic",
+    "kr_section": "1.6",
+    "topic_relevance": "indirect",
+    "secondary_citation": true
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_477ac0833c91",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "Таким образом, введение цефалоспорина первого поколения рекомендуется при переломах Gustilo I и II типов, а дополнительное введение антибиотика с хорошим действием на грамотрицательные организмы рекомендуется при переломах Gustilo III типа (например, аминогликозид или цефалоспорины 3-го поколения).",
+   "claim_type": "source_recommendation",
+   "polarity": "positive",
+   "negation": false,
+   "population": "пациенты с открытыми переломами Gustilo I, II и III типов",
+   "age_group": "unspecified",
+   "intervention": "введение цефалоспорина первого поколения при Gustilo I и II; дополнительное введение аминогликозида или цефалоспорина 3-го поколения при Gustilo III",
+   "comparator": "отсутствие дополнительной антибактериальной терапии",
+   "outcome": "профилактика инфекции",
+   "conditions": "открытые переломы Gustilo I, II и III типов",
+   "dose": null,
+   "timing": null,
+   "thresholds": null,
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": false,
+   "source_quote": "Therefore, administration of a first-generation cephalosporin is recommended for Gustilo I and II fractures and additional administration of an antibiotic with good gram-negative coverage is recommended in Gustilo type III (e.g., aminoglycoside or 3rd generation cephalosporins).",
+   "pdf_page": 2,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "fuzzy",
+    "quote_score": 97.5,
+    "quote_found_page": 2,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена после нормализации (сходство 97.5%)"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     },
+     {
+      "name": "recommendation_marker",
+      "ok": true,
+      "severity": "ok",
+      "detail": "В цитате есть рекомендательная формулировка"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_477ac0833c91",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": []
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "Therefore, administration of a first-generation cephalosporin is recommended for Gustilo I and II fractures and additional administration of an antibiotic with good gram-negative coverage is recommended in Gustilo type III (e.g., aminoglycoside or 3rd generation cephalosporins).",
+    "page": 2,
+    "statement_ru": "Таким образом, введение цефалоспорина первого поколения рекомендуется при переломах Gustilo I и II типов, а дополнительное введение антибиотика с хорошим действием на грамотрицательные организмы рекомендуется при переломах Gustilo III типа (например, аминогликозид или цефалоспорины 3-го поколения).",
+    "claim_type": "source_recommendation",
+    "polarity": "positive",
+    "population": "пациенты с открытыми переломами Gustilo I, II и III типов",
+    "age_group": "unspecified",
+    "intervention": "введение цефалоспорина первого поколения при Gustilo I и II; дополнительное введение аминогликозида или цефалоспорина 3-го поколения при Gustilo III",
+    "comparator": "отсутствие дополнительной антибактериальной терапии",
+    "outcome": "профилактика инфекции",
+    "conditions": "открытые переломы Gustilo I, II и III типов",
+    "dose": "",
+    "timing": "",
+    "thresholds": "",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": false
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_5331e73d68ce",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "По данным Pannell и соавт., использование гентамицина при лечении открытых переломов не приводит к увеличению частоты почечной дисфункции при применении у пациентов с нормальной исходной функцией почек.",
+   "claim_type": "study_finding",
+   "polarity": "positive",
+   "negation": false,
+   "population": "пациенты с нормальной исходной функцией почек, получающие гентамицин при открытых переломах",
+   "age_group": "unspecified",
+   "intervention": "введение гентамицина при открытых переломах",
+   "comparator": "отсутствие введения гентамицина",
+   "outcome": "отсутствие развития почечной дисфункции",
+   "conditions": "нормальная исходная функция почек",
+   "dose": null,
+   "timing": null,
+   "thresholds": null,
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": true,
+   "source_quote": "Pannell et al. reported that gentamicin use during treatment of open fractures does not lead to increased rates of renal dysfunction when used in patients with normal baseline renal function.",
+   "pdf_page": 2,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "fuzzy",
+    "quote_score": 99.4,
+    "quote_found_page": 2,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена после нормализации (сходство 99.4%)"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_5331e73d68ce",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": [
+     "cf_0926e05872"
+    ]
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "Pannell et al. reported that gentamicin use during treatment of open fractures does not lead to increased rates of renal dysfunction when used in patients with normal baseline renal function.",
+    "page": 2,
+    "statement_ru": "По данным Pannell и соавт., использование гентамицина при лечении открытых переломов не приводит к увеличению частоты почечной дисфункции при применении у пациентов с нормальной исходной функцией почек.",
+    "claim_type": "study_finding",
+    "polarity": "positive",
+    "population": "пациенты с нормальной исходной функцией почек, получающие гентамицин при открытых переломах",
+    "age_group": "unspecified",
+    "intervention": "введение гентамицина при открытых переломах",
+    "comparator": "отсутствие введения гентамицина",
+    "outcome": "отсутствие развития почечной дисфункции",
+    "conditions": "нормальная исходная функция почек",
+    "dose": "",
+    "timing": "",
+    "thresholds": "",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": true
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_60b20dc57d11",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "При отсутствии дополнительных данных для открытых переломов I и II типов мы рекомендуем введение антибиотиков не менее чем на 24 часа после закрытия раны, но не превышая 72 часа.",
+   "claim_type": "source_recommendation",
+   "polarity": "positive",
+   "negation": false,
+   "population": "пациенты с открытыми переломами I и II типов",
+   "age_group": "unspecified",
+   "intervention": "введение профилактических антибиотиков после закрытия раны",
+   "comparator": "более длительные схемы профилактики",
+   "outcome": "профилактика инфекции",
+   "conditions": "открытые переломы I и II типов",
+   "dose": null,
+   "timing": "24–72 часа после закрытия раны",
+   "thresholds": "не менее 24 часов, не более 72 часов",
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": false,
+   "source_quote": "In the absence of additional data for type I and II open fractures we would recommend administration of antibiotics for at least 24 hours after wound closure, but not to exceed 72 hours.",
+   "pdf_page": 2,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "exact",
+    "quote_score": 100.0,
+    "quote_found_page": 2,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена дословно"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     },
+     {
+      "name": "recommendation_marker",
+      "ok": true,
+      "severity": "ok",
+      "detail": "В цитате есть рекомендательная формулировка"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_60b20dc57d11",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": [
+     "cf_a097358b18"
+    ]
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "In the absence of additional data for type I and II open fractures we would recommend administration of antibiotics for at least 24 hours after wound closure, but not to exceed 72 hours.",
+    "page": 2,
+    "statement_ru": "При отсутствии дополнительных данных для открытых переломов I и II типов мы рекомендуем введение антибиотиков не менее чем на 24 часа после закрытия раны, но не превышая 72 часа.",
+    "claim_type": "source_recommendation",
+    "polarity": "positive",
+    "population": "пациенты с открытыми переломами I и II типов",
+    "age_group": "unspecified",
+    "intervention": "введение профилактических антибиотиков после закрытия раны",
+    "comparator": "более длительные схемы профилактики",
+    "outcome": "профилактика инфекции",
+    "conditions": "открытые переломы I и II типов",
+    "dose": "",
+    "timing": "24–72 часа после закрытия раны",
+    "thresholds": "не менее 24 часов, не более 72 часов",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": false
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_6323baf0688e",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "Покрытие против анаэробов (например, пенициллин, клиндамицин или метронидазол) рекомендуется при потенциальном загрязнении клостридиями (например, фекальное загрязнение или сельскохозяйственные травмы).",
+   "claim_type": "source_recommendation",
+   "polarity": "conditional",
+   "negation": false,
+   "population": "пациенты с открытыми переломами с потенциальным загрязнением клостридиями",
+   "age_group": "unspecified",
+   "intervention": "введение антибиотиков против анаэробов (пенициллин, клиндамицин, метронидазол)",
+   "comparator": "отсутствие анаэробного покрытия",
+   "outcome": "профилактика анаэробной инфекции",
+   "conditions": "потенциальное загрязнение клостридиями (фекальное загрязнение или сельскохозяйственные травмы)",
+   "dose": null,
+   "timing": null,
+   "thresholds": null,
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": false,
+   "source_quote": "Anaerobic coverage (e.g., penicillin, clindamycin or metronidazole) is recommended in the presence of potential clostridial contamination (e.g., fecal contamination or farm-related injuries).",
+   "pdf_page": 2,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "fuzzy",
+    "quote_score": 99.4,
+    "quote_found_page": 2,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена после нормализации (сходство 99.4%)"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     },
+     {
+      "name": "recommendation_marker",
+      "ok": true,
+      "severity": "ok",
+      "detail": "В цитате есть рекомендательная формулировка"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_6323baf0688e",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": []
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "Anaerobic coverage (e.g., penicillin, clindamycin or metronidazole) is recommended in the presence of potential clostridial contamination (e.g., fecal contamination or farm-related injuries).",
+    "page": 2,
+    "statement_ru": "Покрытие против анаэробов (например, пенициллин, клиндамицин или метронидазол) рекомендуется при потенциальном загрязнении клостридиями (например, фекальное загрязнение или сельскохозяйственные травмы).",
+    "claim_type": "source_recommendation",
+    "polarity": "conditional",
+    "population": "пациенты с открытыми переломами с потенциальным загрязнением клостридиями",
+    "age_group": "unspecified",
+    "intervention": "введение антибиотиков против анаэробов (пенициллин, клиндамицин, метронидазол)",
+    "comparator": "отсутствие анаэробного покрытия",
+    "outcome": "профилактика анаэробной инфекции",
+    "conditions": "потенциальное загрязнение клостридиями (фекальное загрязнение или сельскохозяйственные травмы)",
+    "dose": "",
+    "timing": "",
+    "thresholds": "",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": false
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_6e1e23eba522",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "Антибиотики должны вводиться как можно скорее после травмы.",
+   "claim_type": "source_recommendation",
+   "polarity": "positive",
+   "negation": false,
+   "population": "пациенты с открытыми переломами костей",
+   "age_group": "unspecified",
+   "intervention": "ранее введение профилактических антибиотиков",
+   "comparator": "позднее введение",
+   "outcome": "снижение риска инфекции",
+   "conditions": "открытые переломы костей",
+   "dose": null,
+   "timing": "как можно скорее после травмы",
+   "thresholds": null,
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": false,
+   "source_quote": "Antibiotics should be administered as soon as possible after the injury.",
+   "pdf_page": 1,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "exact",
+    "quote_score": 100.0,
+    "quote_found_page": 1,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена дословно"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     },
+     {
+      "name": "recommendation_marker",
+      "ok": true,
+      "severity": "ok",
+      "detail": "В цитате есть рекомендательная формулировка"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_6e1e23eba522",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": []
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "Antibiotics should be administered as soon as possible after the injury.",
+    "page": 1,
+    "statement_ru": "Антибиотики должны вводиться как можно скорее после травмы.",
+    "claim_type": "source_recommendation",
+    "polarity": "positive",
+    "population": "пациенты с открытыми переломами костей",
+    "age_group": "unspecified",
+    "intervention": "ранее введение профилактических антибиотиков",
+    "comparator": "позднее введение",
+    "outcome": "снижение риска инфекции",
+    "conditions": "открытые переломы костей",
+    "dose": "",
+    "timing": "как можно скорее после травмы",
+    "thresholds": "",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": false
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_773e7fbda054",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "В ретроспективном исследовании открытых переломов большеберцовой кости III типа введение системных антибиотиков более чем через 66 минут после травмы было значимо и независимо связано с глубокой инфекцией (ОШ 3,78, 95% ДИ 1,16–12,31).",
+   "claim_type": "study_finding",
+   "polarity": "negative",
+   "negation": true,
+   "population": "пациенты с открытыми переломами большеберцовой кости III типа",
+   "age_group": "unspecified",
+   "intervention": "введение системных антибиотиков более чем через 66 минут",
+   "comparator": "введение менее чем через 66 минут",
+   "outcome": "развитие глубокой инфекции",
+   "conditions": "открытые переломы большеберцовой кости III типа",
+   "dose": null,
+   "timing": "более 66 минут после травмы",
+   "thresholds": "ОШ 3,78 (95% ДИ 1,16–12,31)",
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": true,
+   "source_quote": "In a retrospective study of type III open tibial fractures by Lack et al., administration of systemic antibiotics more than 66 minutes after injury was significantly and independently associated with deep infection (odds ratio (OR), 3.78, 95% CI, 1.16 to 12.31).",
+   "pdf_page": 1,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "fuzzy",
+    "quote_score": 99.5,
+    "quote_found_page": 1,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена после нормализации (сходство 99.5%)"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": false,
+      "severity": "soft",
+      "detail": "Полярность negative, но отрицания нет ни в цитате, ни в формулировке",
+      "resolved_by_judge": true
+     }
+    ],
+    "judge": {
+     "card_id": "ev_773e7fbda054",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": []
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "In a retrospective study of type III open tibial fractures by Lack et al., administration of systemic antibiotics more than 66 minutes after injury was significantly and independently associated with deep infection (odds ratio (OR), 3.78, 95% CI, 1.16 to 12.31).",
+    "page": 1,
+    "statement_ru": "В ретроспективном исследовании открытых переломов большеберцовой кости III типа введение системных антибиотиков более чем через 66 минут после травмы было значимо и независимо связано с глубокой инфекцией (ОШ 3,78, 95% ДИ 1,16–12,31).",
+    "claim_type": "study_finding",
+    "polarity": "negative",
+    "population": "пациенты с открытыми переломами большеберцовой кости III типа",
+    "age_group": "unspecified",
+    "intervention": "введение системных антибиотиков более чем через 66 минут",
+    "comparator": "введение менее чем через 66 минут",
+    "outcome": "развитие глубокой инфекции",
+    "conditions": "открытые переломы большеберцовой кости III типа",
+    "dose": "",
+    "timing": "более 66 минут после травмы",
+    "thresholds": "ОШ 3,78 (95% ДИ 1,16–12,31)",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": true
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_80244e0cab05",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "Антибиотики не должны продолжаться более 72 часов после закрытия раны.",
+   "claim_type": "source_recommendation",
+   "polarity": "negative",
+   "negation": true,
+   "population": "пациенты с открытыми переломами костей",
+   "age_group": "unspecified",
+   "intervention": "профилактическое введение антибиотиков более 72 часов",
+   "comparator": "введение антибиотиков до 72 часов",
+   "outcome": "снижение риска осложнений",
+   "conditions": "открытые переломы костей",
+   "dose": null,
+   "timing": "более 72 часов после закрытия раны",
+   "thresholds": "72 часа",
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": false,
+   "source_quote": "Antibiotics should not be continued for more than 72 hours after wound closure.",
+   "pdf_page": 1,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "exact",
+    "quote_score": 100.0,
+    "quote_found_page": 1,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена дословно"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     },
+     {
+      "name": "recommendation_marker",
+      "ok": true,
+      "severity": "ok",
+      "detail": "В цитате есть рекомендательная формулировка"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_80244e0cab05",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": []
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "Antibiotics should not be continued for more than 72 hours after wound closure.",
+    "page": 1,
+    "statement_ru": "Антибиотики не должны продолжаться более 72 часов после закрытия раны.",
+    "claim_type": "source_recommendation",
+    "polarity": "negative",
+    "population": "пациенты с открытыми переломами костей",
+    "age_group": "unspecified",
+    "intervention": "профилактическое введение антибиотиков более 72 часов",
+    "comparator": "введение антибиотиков до 72 часов",
+    "outcome": "снижение риска осложнений",
+    "conditions": "открытые переломы костей",
+    "dose": "",
+    "timing": "более 72 часов после закрытия раны",
+    "thresholds": "72 часа",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": false
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_97cc963b7563",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "Однако РКИ, сравнивавшее ванкомицин и цефазолин в сравнении с цефазолином отдельно у 101 пациента с открытыми переломами, не выявило различий в частоте инфекции между группами: 19% в группе с ванкомицином и цефазолином против 15% в группе только с цефазолином.",
+   "claim_type": "study_finding",
+   "polarity": "descriptive",
+   "negation": false,
+   "population": "пациенты с открытыми переломами (n=101)",
+   "age_group": "unspecified",
+   "intervention": "введение ванкомицина и цефазолина",
+   "comparator": "введение только цефазолина",
+   "outcome": "частота инфекции",
+   "conditions": "открытые переломы",
+   "dose": null,
+   "timing": null,
+   "thresholds": "19% против 15%",
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": true,
+   "source_quote": "However, a randomized controlled trial comparing vancomycin and cefazolin versus only cefazolin in 101 patients with open fractures found no difference in the infection rates between the groups: 19% in the group receiving vancomycin and cefazolin versus 15% in the cefazolin only group.",
+   "pdf_page": 2,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "fuzzy",
+    "quote_score": 99.6,
+    "quote_found_page": 2,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена после нормализации (сходство 99.6%)"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_97cc963b7563",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": [
+     "cf_1fcb3ca1d5"
+    ]
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "However, a randomized controlled trial comparing vancomycin and cefazolin versus only cefazolin in 101 patients with open fractures found no difference in the infection rates between the groups: 19% in the group receiving vancomycin and cefazolin versus 15% in the cefazolin only group.",
+    "page": 2,
+    "statement_ru": "Однако РКИ, сравнивавшее ванкомицин и цефазолин в сравнении с цефазолином отдельно у 101 пациента с открытыми переломами, не выявило различий в частоте инфекции между группами: 19% в группе с ванкомицином и цефазолином против 15% в группе только с цефазолином.",
+    "claim_type": "study_finding",
+    "polarity": "descriptive",
+    "population": "пациенты с открытыми переломами (n=101)",
+    "age_group": "unspecified",
+    "intervention": "введение ванкомицина и цефазолина",
+    "comparator": "введение только цефазолина",
+    "outcome": "частота инфекции",
+    "conditions": "открытые переломы",
+    "dose": "",
+    "timing": "",
+    "thresholds": "19% против 15%",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": true
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_b987b9403434",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "Аминогликозиды могут вызвать нефротоксичность, особенно при заболевании или дисфункции почек; поэтому функцию почек следует оценить заранее.",
+   "claim_type": "background_fact",
+   "polarity": "descriptive",
+   "negation": false,
+   "population": "пациенты, получающие аминогликозиды при открытых переломах",
+   "age_group": "unspecified",
+   "intervention": "введение аминогликозидов",
+   "comparator": null,
+   "outcome": "развитие нефротоксичности",
+   "conditions": "заболевание или дисфункция почек",
+   "dose": null,
+   "timing": null,
+   "thresholds": null,
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": false,
+   "source_quote": "Aminoglycosides may cause nephrotoxicity, especially in the setting of renal disease or dysfunction; therefore, renal function should be considered beforehand.",
+   "pdf_page": 2,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "exact",
+    "quote_score": 100.0,
+    "quote_found_page": 2,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена дословно"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_b987b9403434",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": [
+     "cf_0926e05872"
+    ]
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "Aminoglycosides may cause nephrotoxicity, especially in the setting of renal disease or dysfunction; therefore, renal function should be considered beforehand.",
+    "page": 2,
+    "statement_ru": "Аминогликозиды могут вызвать нефротоксичность, особенно при заболевании или дисфункции почек; поэтому функцию почек следует оценить заранее.",
+    "claim_type": "background_fact",
+    "polarity": "descriptive",
+    "population": "пациенты, получающие аминогликозиды при открытых переломах",
+    "age_group": "unspecified",
+    "intervention": "введение аминогликозидов",
+    "comparator": "",
+    "outcome": "развитие нефротоксичности",
+    "conditions": "заболевание или дисфункция почек",
+    "dose": "",
+    "timing": "",
+    "thresholds": "",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": false
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_bd0a6256aa7b",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "Оба исследования сообщили, что частота инфекции была сходна в группе одного дня и в группе пяти дней и выступали против профилактического введения антибиотиков в течение пяти дней.",
+   "claim_type": "study_finding",
+   "polarity": "negative",
+   "negation": true,
+   "population": "пациенты с открытыми переломами",
+   "age_group": "unspecified",
+   "intervention": "профилактическое введение антибиотиков в течение пяти дней",
+   "comparator": "профилактическое введение антибиотиков один день",
+   "outcome": "отсутствие различий в частоте инфекции",
+   "conditions": "открытые переломы костей",
+   "dose": null,
+   "timing": "пять дней",
+   "thresholds": null,
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": true,
+   "source_quote": "Both studies reported that the infection rates were similar in the one-day and the five-day groups and advocated against the prophylactic administration of antibiotics for five days.",
+   "pdf_page": 2,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "exact",
+    "quote_score": 100.0,
+    "quote_found_page": 2,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена дословно"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": false,
+      "severity": "soft",
+      "detail": "В цитате есть отрицание («against»), в формулировке — нет",
+      "resolved_by_judge": true
+     }
+    ],
+    "judge": {
+     "card_id": "ev_bd0a6256aa7b",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": []
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "Both studies reported that the infection rates were similar in the one-day and the five-day groups and advocated against the prophylactic administration of antibiotics for five days.",
+    "page": 2,
+    "statement_ru": "Оба исследования сообщили, что частота инфекции была сходна в группе одного дня и в группе пяти дней и выступали против профилактического введения антибиотиков в течение пяти дней.",
+    "claim_type": "study_finding",
+    "polarity": "negative",
+    "population": "пациенты с открытыми переломами",
+    "age_group": "unspecified",
+    "intervention": "профилактическое введение антибиотиков в течение пяти дней",
+    "comparator": "профилактическое введение антибиотиков один день",
+    "outcome": "отсутствие различий в частоте инфекции",
+    "conditions": "открытые переломы костей",
+    "dose": "",
+    "timing": "пять дней",
+    "thresholds": "",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": true
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_c27820d87b98",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "Использование антибиотиков имело защитный эффект против ранней инфекции по сравнению с отсутствием антибиотиков или плацебо (RR 0,43, 95% ДИ 0,29–0,65, абсолютное снижение риска 0,07 [95% ДИ 0,03–0,10]).",
+   "claim_type": "study_finding",
+   "polarity": "positive",
+   "negation": false,
+   "population": "1106 участников в 8 исследованиях",
+   "age_group": "unspecified",
+   "intervention": "введение антибиотиков",
+   "comparator": "отсутствие антибиотиков или плацебо",
+   "outcome": "снижение риска ранней инфекции при открытых переломах",
+   "conditions": "открытые переломы костей",
+   "dose": null,
+   "timing": null,
+   "thresholds": "RR 0,43 (95% ДИ 0,29–0,65)",
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": true,
+   "source_quote": "The use of antibiotics had a protective effect against early infection compared with no antibiotics or placebo (risk ratio (RR) 0.43, 95% confidence interval (CI) 0.29 to 0.65, absolute risk reduction 0.07 [95% CI 0.03 to 0.10]).",
+   "pdf_page": 1,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "exact",
+    "quote_score": 100.0,
+    "quote_found_page": 1,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена дословно"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_c27820d87b98",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": []
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "The use of antibiotics had a protective effect against early infection compared with no antibiotics or placebo (risk ratio (RR) 0.43, 95% confidence interval (CI) 0.29 to 0.65, absolute risk reduction 0.07 [95% CI 0.03 to 0.10]).",
+    "page": 1,
+    "statement_ru": "Использование антибиотиков имело защитный эффект против ранней инфекции по сравнению с отсутствием антибиотиков или плацебо (RR 0,43, 95% ДИ 0,29–0,65, абсолютное снижение риска 0,07 [95% ДИ 0,03–0,10]).",
+    "claim_type": "study_finding",
+    "polarity": "positive",
+    "population": "1106 участников в 8 исследованиях",
+    "age_group": "unspecified",
+    "intervention": "введение антибиотиков",
+    "comparator": "отсутствие антибиотиков или плацебо",
+    "outcome": "снижение риска ранней инфекции при открытых переломах",
+    "conditions": "открытые переломы костей",
+    "dose": "",
+    "timing": "",
+    "thresholds": "RR 0,43 (95% ДИ 0,29–0,65)",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": true
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_d3a61fbf71b9",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "Ретроспективное исследование случай–контроль 1492 открытых переломов по Dunkel и соавт. показало после многомерного анализа, что не было значимого различия в риске инфекции для однодневной профилактики в сравнении с более длительными схемами.",
+   "claim_type": "study_finding",
+   "polarity": "descriptive",
+   "negation": false,
+   "population": "пациенты с открытыми переломами (n=1492)",
+   "age_group": "unspecified",
+   "intervention": "однодневная профилактика антибиотиками",
+   "comparator": "более длительные схемы антибиотикопрофилактики",
+   "outcome": "отсутствие различий в риске инфекции",
+   "conditions": "открытые переломы",
+   "dose": null,
+   "timing": "один день",
+   "thresholds": null,
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": true,
+   "source_quote": "A retrospective case control study of 1,492 open fractures by Dunkel et al. showed after multivariate analysis that there was no significant difference in infection risk for one-day prophylaxis compared with longer regimens.",
+   "pdf_page": 2,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "needs_review",
+    "user_status": null,
+    "quote_match": "fuzzy",
+    "quote_score": 99.5,
+    "quote_found_page": 2,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена после нормализации (сходство 99.5%)"
+     },
+     {
+      "name": "numbers_absent",
+      "ok": false,
+      "severity": "warning",
+      "detail": "Числа формулировки не найдены ни в цитате, ни рядом с ней: 1492"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_d3a61fbf71b9",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [
+     "Числа формулировки не найдены ни в цитате, ни рядом с ней: 1492"
+    ],
+    "conflicts": [
+     "cf_a097358b18"
+    ]
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "A retrospective case control study of 1,492 open fractures by Dunkel et al. showed after multivariate analysis that there was no significant difference in infection risk for one-day prophylaxis compared with longer regimens.",
+    "page": 2,
+    "statement_ru": "Ретроспективное исследование случай–контроль 1492 открытых переломов по Dunkel и соавт. показало после многомерного анализа, что не было значимого различия в риске инфекции для однодневной профилактики в сравнении с более длительными схемами.",
+    "claim_type": "study_finding",
+    "polarity": "descriptive",
+    "population": "пациенты с открытыми переломами (n=1492)",
+    "age_group": "unspecified",
+    "intervention": "однодневная профилактика антибиотиками",
+    "comparator": "более длительные схемы антибиотикопрофилактики",
+    "outcome": "отсутствие различий в риске инфекции",
+    "conditions": "открытые переломы",
+    "dose": "",
+    "timing": "один день",
+    "thresholds": "",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": true
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_df1af7fef237",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "Дополнительное покрытие против грамотрицательных организмов следует рассмотреть для пациентов с высокоэнергетическими открытыми переломами.",
+   "claim_type": "source_recommendation",
+   "polarity": "conditional",
+   "negation": false,
+   "population": "пациенты с высокоэнергетическими открытыми переломами костей",
+   "age_group": "unspecified",
+   "intervention": "дополнительное введение антибиотика против грамотрицательных организмов",
+   "comparator": "монотерапия против грамположительных",
+   "outcome": "профилактика инфекции",
+   "conditions": "высокоэнергетические открытые переломы",
+   "dose": null,
+   "timing": null,
+   "thresholds": null,
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": false,
+   "source_quote": "Additional coverage for gram-negative organisms should be considered for patients with high-energy open fractures.",
+   "pdf_page": 1,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "exact",
+    "quote_score": 100.0,
+    "quote_found_page": 1,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена дословно"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     },
+     {
+      "name": "recommendation_marker",
+      "ok": true,
+      "severity": "ok",
+      "detail": "В цитате есть рекомендательная формулировка"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_df1af7fef237",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": []
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "Additional coverage for gram-negative organisms should be considered for patients with high-energy open fractures.",
+    "page": 1,
+    "statement_ru": "Дополнительное покрытие против грамотрицательных организмов следует рассмотреть для пациентов с высокоэнергетическими открытыми переломами.",
+    "claim_type": "source_recommendation",
+    "polarity": "conditional",
+    "population": "пациенты с высокоэнергетическими открытыми переломами костей",
+    "age_group": "unspecified",
+    "intervention": "дополнительное введение антибиотика против грамотрицательных организмов",
+    "comparator": "монотерапия против грамположительных",
+    "outcome": "профилактика инфекции",
+    "conditions": "высокоэнергетические открытые переломы",
+    "dose": "",
+    "timing": "",
+    "thresholds": "",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": false
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_e205b1a37d9a",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "Выбранный антибиотик должен охватывать грамположительные организмы.",
+   "claim_type": "source_recommendation",
+   "polarity": "positive",
+   "negation": false,
+   "population": "пациенты с открытыми переломами костей",
+   "age_group": "unspecified",
+   "intervention": "введение антибиотика, действующего на грамположительные организмы",
+   "comparator": null,
+   "outcome": "профилактика инфекции",
+   "conditions": "открытые переломы костей",
+   "dose": null,
+   "timing": null,
+   "thresholds": null,
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": false,
+   "source_quote": "The antibiotic of choice should target gram-positive organisms.",
+   "pdf_page": 1,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "exact",
+    "quote_score": 100.0,
+    "quote_found_page": 1,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена дословно"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     },
+     {
+      "name": "recommendation_marker",
+      "ok": true,
+      "severity": "ok",
+      "detail": "В цитате есть рекомендательная формулировка"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_e205b1a37d9a",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": []
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "The antibiotic of choice should target gram-positive organisms.",
+    "page": 1,
+    "statement_ru": "Выбранный антибиотик должен охватывать грамположительные организмы.",
+    "claim_type": "source_recommendation",
+    "polarity": "positive",
+    "population": "пациенты с открытыми переломами костей",
+    "age_group": "unspecified",
+    "intervention": "введение антибиотика, действующего на грамположительные организмы",
+    "comparator": "",
+    "outcome": "профилактика инфекции",
+    "conditions": "открытые переломы костей",
+    "dose": "",
+    "timing": "",
+    "thresholds": "",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": false
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  },
+  {
+   "id": "ev_fd79e4fdbd4d",
+   "doc_id": "doc_a9b19f06d87a_202ef1",
+   "statement_ru": "Таким образом, рутинное использование ванкомицина при открытых переломах не может быть рекомендовано на основе имеющихся данных.",
+   "claim_type": "source_recommendation",
+   "polarity": "negative",
+   "negation": true,
+   "population": "пациенты с открытыми переломами",
+   "age_group": "unspecified",
+   "intervention": "рутинное введение ванкомицина",
+   "comparator": "отсутствие ванкомицина",
+   "outcome": "профилактика инфекции",
+   "conditions": "открытые переломы",
+   "dose": null,
+   "timing": null,
+   "thresholds": null,
+   "intervention_type": "preventive",
+   "kr_section": "3.3",
+   "topic_relevance": "indirect",
+   "secondary_citation": false,
+   "source_quote": "As a result, the routine use of vancomycin in open fractures cannot be recommended based on available data.",
+   "pdf_page": 2,
+   "pdf_page_note": "порядковый номер страницы в файле PDF (с 1)",
+   "verification": {
+    "status": "verified",
+    "user_status": null,
+    "quote_match": "exact",
+    "quote_score": 100.0,
+    "quote_found_page": 2,
+    "checks": [
+     {
+      "name": "quote_found",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Цитата найдена дословно"
+     },
+     {
+      "name": "numbers",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Все числа формулировки есть в цитате"
+     },
+     {
+      "name": "negation",
+      "ok": true,
+      "severity": "ok",
+      "detail": "Отрицания согласованы"
+     },
+     {
+      "name": "recommendation_marker",
+      "ok": true,
+      "severity": "ok",
+      "detail": "В цитате есть рекомендательная формулировка"
+     }
+    ],
+    "judge": {
+     "card_id": "ev_fd79e4fdbd4d",
+     "entailment": "supported",
+     "numbers_ok": true,
+     "negation_ok": true,
+     "population_ok": true,
+     "claim_type_ok": true,
+     "issues": []
+    },
+    "issues": [],
+    "conflicts": [
+     "cf_1fcb3ca1d5"
+    ]
+   },
+   "merged_into": null,
+   "origin": "auto",
+   "edited_by_expert": false,
+   "auto_value": {
+    "quote": "As a result, the routine use of vancomycin in open fractures cannot be recommended based on available data.",
+    "page": 2,
+    "statement_ru": "Таким образом, рутинное использование ванкомицина при открытых переломах не может быть рекомендовано на основе имеющихся данных.",
+    "claim_type": "source_recommendation",
+    "polarity": "negative",
+    "population": "пациенты с открытыми переломами",
+    "age_group": "unspecified",
+    "intervention": "рутинное введение ванкомицина",
+    "comparator": "отсутствие ванкомицина",
+    "outcome": "профилактика инфекции",
+    "conditions": "открытые переломы",
+    "dose": "",
+    "timing": "",
+    "thresholds": "",
+    "intervention_type": "preventive",
+    "kr_section": "3.3",
+    "topic_relevance": "indirect",
+    "secondary_citation": false
+   },
+   "pending_auto_update": false,
+   "run_id": "run_20261008_145621_f373"
+  }
+ ],
+ "recommendations": [
+  {
+   "id": "rec_438f21a8e7",
+   "section": "3.3",
+   "kind": "recommendation",
+   "subsection_title": "Антибиотикопрофилактика",
+   "statement": "Рекомендуется введение цефалоспоринов 1-го поколения пациентам с открытыми переломами Gustilo I и II типов с целью профилактики инфекции.",
+   "strength_phrase": "Рекомендуется",
+   "body": "введение цефалоспоринов 1-го поколения пациентам с открытыми переломами Gustilo I и II типов с целью профилактики инфекции",
+   "direction": "positive",
+   "intervention": {
+    "type": "therapeutic",
+    "scale_ref": "udd_treatment",
+    "action": "назначить",
+    "target_population": "пациенты с открытыми переломами Gustilo I и II типов",
+    "comparator": "отсутствие антибиотиков",
+    "outcome": "профилактика ранней инфекции",
+    "mnn": "цефалоспорины 1-го поколения (цефазолин, цефалотин)",
+    "atc_code": null
+   },
+   "evidence_backed_core": "цефалоспорины 1-го поколения обеспечивают охват грамположительных организмов, что показано в клинических рекомендациях",
+   "expert_additions": [
+    {
+     "claim": "конкретная доза и схема введения требуют определения в соответствии с местными протоколами",
+     "basis": "expert_consensus",
+     "refs": []
+    },
+    {
+     "claim": "требуется уточнение срока начала антибиотикопрофилактики (желательно как можно раньше, в первые часы)",
+     "basis": "expert_consensus",
+     "refs": []
+    },
+    {
+     "claim": "Числовые значения 1 в формулировке тезиса",
+     "basis": "expert_consensus",
+     "refs": []
+    }
+   ],
+   "comment": "Источники рекомендуют цефалоспорины 1-го поколения для переломов Gustilo I и II типов на основе необходимости охвата грамположительной флоры. Для переломов Gustilo III требуется расширенное покрытие против грамотрицательных организмов.",
+   "udd": null,
+   "uur": null,
+   "uur_preliminary": true,
+   "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+   "consensus": {
+    "agreement": "single",
+    "conflicting_refs": []
+   },
+   "quality_criterion": {
+    "is_criterion": true,
+    "criterion_text": "Документировано введение цефалоспорина 1-го поколения при поступлении пациента с открытым переломом Gustilo I или II типа",
+    "applicable_stage": "treatment",
+    "measurable": true,
+    "auto_eligible": false
+   },
+   "explicit_source_recommendation": true,
+   "expert_author": null,
+   "evidence_ids": [
+    "ev_e205b1a37d9a",
+    "ev_477ac0833c91"
+   ],
+   "status": "draft",
+   "provenance": "auto",
+   "merged_into": null,
+   "merged_from": [],
+   "review_flags": [
+    "УДД не определён: дизайн источника неизвестен или источник — руководство/обзор",
+    "Числа тезиса не найдены в доказательствах: 1",
+    "Доказательства косвенные: получены не на пациентах с темой КР — применимость к теме требует решения эксперта"
+   ],
+   "orphan": false,
+   "edited_by_expert": false,
+   "auto_value": {
+    "kr_section": "3.3",
+    "subsection_title": "Антибиотикопрофилактика",
+    "strength_phrase": "Рекомендуется",
+    "body": "введение цефалоспоринов 1-го поколения пациентам с открытыми переломами Gustilo I и II типов с целью профилактики инфекции",
+    "statement": "Рекомендуется введение цефалоспоринов 1-го поколения пациентам с открытыми переломами Gustilo I и II типов с целью профилактики инфекции.",
+    "direction": "positive",
+    "intervention": {
+     "type": "therapeutic",
+     "scale_ref": "udd_treatment",
+     "action": "назначить",
+     "target_population": "пациенты с открытыми переломами Gustilo I и II типов",
+     "comparator": "отсутствие антибиотиков",
+     "outcome": "профилактика ранней инфекции",
+     "mnn": "цефалоспорины 1-го поколения (цефазолин, цефалотин)",
+     "atc_code": null
+    },
+    "evidence_backed_core": "цефалоспорины 1-го поколения обеспечивают охват грамположительных организмов, что показано в клинических рекомендациях",
+    "expert_additions": [
+     {
+      "claim": "конкретная доза и схема введения требуют определения в соответствии с местными протоколами",
+      "basis": "expert_consensus",
+      "refs": []
+     },
+     {
+      "claim": "требуется уточнение срока начала антибиотикопрофилактики (желательно как можно раньше, в первые часы)",
+      "basis": "expert_consensus",
+      "refs": []
+     },
+     {
+      "claim": "Числовые значения 1 в формулировке тезиса",
+      "basis": "expert_consensus",
+      "refs": []
+     }
+    ],
+    "comment": "Источники рекомендуют цефалоспорины 1-го поколения для переломов Gustilo I и II типов на основе необходимости охвата грамположительной флоры. Для переломов Gustilo III требуется расширенное покрытие против грамотрицательных организмов.",
+    "udd": null,
+    "uur": null,
+    "uur_preliminary": true,
+    "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+    "consensus": {
+     "agreement": "single",
+     "conflicting_refs": []
+    },
+    "quality_criterion": {
+     "is_criterion": true,
+     "criterion_text": "Документировано введение цефалоспорина 1-го поколения при поступлении пациента с открытым переломом Gustilo I или II типа",
+     "applicable_stage": "treatment",
+     "measurable": true,
+     "auto_eligible": false
+    },
+    "explicit_source_recommendation": true,
+    "_synth": {
+     "cluster_id": "cl_438f21a8e7",
+     "insufficient": false,
+     "body": "введение цефалоспоринов 1-го поколения пациентам с открытыми переломами Gustilo I и II типов с целью профилактики инфекции",
+     "body_genitive": "введения цефалоспоринов 1-го поколения пациентам с открытыми переломами Gustilo I и II типов с целью профилактики инфекции",
+     "direction": "positive",
+     "subsection_title": "Антибиотикопрофилактика",
+     "action": "назначить",
+     "target_population": "пациенты с открытыми переломами Gustilo I и II типов",
+     "comparator": "отсутствие антибиотиков",
+     "outcome": "профилактика ранней инфекции",
+     "mnn": "цефалоспорины 1-го поколения (цефазолин, цефалотин)",
+     "evidence_backed_core": "цефалоспорины 1-го поколения обеспечивают охват грамположительных организмов, что показано в клинических рекомендациях",
+     "expert_additions": [
+      "конкретная доза и схема введения требуют определения в соответствии с местными протоколами",
+      "требуется уточнение срока начала антибиотикопрофилактики (желательно как можно раньше, в первые часы)"
+     ],
+     "comment": "Источники рекомендуют цефалоспорины 1-го поколения для переломов Gustilo I и II типов на основе необходимости охвата грамположительной флоры. Для переломов Gustilo III требуется расширенное покрытие против грамотрицательных организмов.",
+     "quality_criterion": "Документировано введение цефалоспорина 1-го поколения при поступлении пациента с открытым переломом Gustilo I или II типа",
+     "used_card_ids": [
+      "ev_e205b1a37d9a",
+      "ev_477ac0833c91"
+     ]
+    }
+   },
+   "pending_auto_update": false
+  },
+  {
+   "id": "rec_62999adda6",
+   "section": "3.3",
+   "kind": "recommendation",
+   "subsection_title": "Антибиотикопрофилактика",
+   "statement": "Рекомендуется назначение профилактических антибиотиков пациентам с открытыми переломами костей с целью профилактики ранней инфекции.",
+   "strength_phrase": "Рекомендуется",
+   "body": "назначение профилактических антибиотиков пациентам с открытыми переломами костей с целью профилактики ранней инфекции",
+   "direction": "positive",
+   "intervention": {
+    "type": "therapeutic",
+    "scale_ref": "udd_treatment",
+    "action": "назначить",
+    "target_population": "пациенты с открытыми переломами костей",
+    "comparator": "отсутствие антибиотиков или плацебо",
+    "outcome": "снижение риска ранней инфекции на 57% (абсолютное снижение риска 7%)",
+    "mnn": null,
+    "atc_code": null
+   },
+   "evidence_backed_core": "антибиотики имеют защитный эффект против ранней инфекции (RR 0,43, 95% ДИ 0,29–0,65, абсолютное снижение риска 0,07 [95% ДИ 0,03–0,10]) на основе анализа 8 исследований с участием 1106 пациентов",
+   "expert_additions": [
+    {
+     "claim": "выбор конкретного антибиотика определяется типом переломов Gustilo",
+     "basis": "expert_consensus",
+     "refs": []
+    },
+    {
+     "claim": "режим дозирования и продолжительность требуют уточнения в соответствии с типом загрязнения и тяжестью переломов",
+     "basis": "expert_consensus",
+     "refs": []
+    }
+   ],
+   "comment": "Метаанализ 8 исследований (1106 участников) продемонстрировал значительный защитный эффект антибиотиков против ранней инфекции при открытых переломах. Рекомендация поддерживается как исследованиями, так и клиническими рекомендациями.",
+   "udd": null,
+   "uur": null,
+   "uur_preliminary": true,
+   "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+   "consensus": {
+    "agreement": "single",
+    "conflicting_refs": []
+   },
+   "quality_criterion": {
+    "is_criterion": true,
+    "criterion_text": "Назначены профилактические антибиотики пациенту с открытым переломом при поступлении",
+    "applicable_stage": "treatment",
+    "measurable": true,
+    "auto_eligible": false
+   },
+   "explicit_source_recommendation": true,
+   "expert_author": null,
+   "evidence_ids": [
+    "ev_c27820d87b98",
+    "ev_0fcf63d98a46"
+   ],
+   "status": "draft",
+   "provenance": "auto",
+   "merged_into": "rec_26392cda44",
+   "merged_from": [],
+   "review_flags": [
+    "Часть доказательств — вторичное цитирование (пересказ других работ): УДД по ним не присваивается, нужен первоисточник",
+    "УДД не определён: дизайн источника неизвестен или источник — руководство/обзор",
+    "Доказательства косвенные: получены не на пациентах с темой КР — применимость к теме требует решения эксперта"
+   ],
+   "orphan": false,
+   "edited_by_expert": false,
+   "auto_value": {
+    "kr_section": "3.3",
+    "subsection_title": "Антибиотикопрофилактика",
+    "strength_phrase": "Рекомендуется",
+    "body": "назначение профилактических антибиотиков пациентам с открытыми переломами костей с целью профилактики ранней инфекции",
+    "statement": "Рекомендуется назначение профилактических антибиотиков пациентам с открытыми переломами костей с целью профилактики ранней инфекции.",
+    "direction": "positive",
+    "intervention": {
+     "type": "therapeutic",
+     "scale_ref": "udd_treatment",
+     "action": "назначить",
+     "target_population": "пациенты с открытыми переломами костей",
+     "comparator": "отсутствие антибиотиков или плацебо",
+     "outcome": "снижение риска ранней инфекции на 57% (абсолютное снижение риска 7%)",
+     "mnn": null,
+     "atc_code": null
+    },
+    "evidence_backed_core": "антибиотики имеют защитный эффект против ранней инфекции (RR 0,43, 95% ДИ 0,29–0,65, абсолютное снижение риска 0,07 [95% ДИ 0,03–0,10]) на основе анализа 8 исследований с участием 1106 пациентов",
+    "expert_additions": [
+     {
+      "claim": "выбор конкретного антибиотика определяется типом переломов Gustilo",
+      "basis": "expert_consensus",
+      "refs": []
+     },
+     {
+      "claim": "режим дозирования и продолжительность требуют уточнения в соответствии с типом загрязнения и тяжестью переломов",
+      "basis": "expert_consensus",
+      "refs": []
+     }
+    ],
+    "comment": "Метаанализ 8 исследований (1106 участников) продемонстрировал значительный защитный эффект антибиотиков против ранней инфекции при открытых переломах. Рекомендация поддерживается как исследованиями, так и клиническими рекомендациями.",
+    "udd": null,
+    "uur": null,
+    "uur_preliminary": true,
+    "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+    "consensus": {
+     "agreement": "single",
+     "conflicting_refs": []
+    },
+    "quality_criterion": {
+     "is_criterion": true,
+     "criterion_text": "Назначены профилактические антибиотики пациенту с открытым переломом при поступлении",
+     "applicable_stage": "treatment",
+     "measurable": true,
+     "auto_eligible": false
+    },
+    "explicit_source_recommendation": true,
+    "_synth": {
+     "cluster_id": "cl_62999adda6",
+     "insufficient": false,
+     "body": "назначение профилактических антибиотиков пациентам с открытыми переломами костей с целью профилактики ранней инфекции",
+     "body_genitive": "назначения профилактических антибиотиков пациентам с открытыми переломами костей с целью профилактики ранней инфекции",
+     "direction": "positive",
+     "subsection_title": "Антибиотикопрофилактика",
+     "action": "назначить",
+     "target_population": "пациенты с открытыми переломами костей",
+     "comparator": "отсутствие антибиотиков или плацебо",
+     "outcome": "снижение риска ранней инфекции на 57% (абсолютное снижение риска 7%)",
+     "mnn": "",
+     "evidence_backed_core": "антибиотики имеют защитный эффект против ранней инфекции (RR 0,43, 95% ДИ 0,29–0,65, абсолютное снижение риска 0,07 [95% ДИ 0,03–0,10]) на основе анализа 8 исследований с участием 1106 пациентов",
+     "expert_additions": [
+      "выбор конкретного антибиотика определяется типом переломов Gustilo",
+      "режим дозирования и продолжительность требуют уточнения в соответствии с типом загрязнения и тяжестью переломов"
+     ],
+     "comment": "Метаанализ 8 исследований (1106 участников) продемонстрировал значительный защитный эффект антибиотиков против ранней инфекции при открытых переломах. Рекомендация поддерживается как исследованиями, так и клиническими рекомендациями.",
+     "quality_criterion": "Назначены профилактические антибиотики пациенту с открытым переломом при поступлении",
+     "used_card_ids": [
+      "ev_c27820d87b98",
+      "ev_0fcf63d98a46"
+     ]
+    }
+   },
+   "pending_auto_update": false
+  },
+  {
+   "id": "rec_8db9cf5927",
+   "section": "3.3",
+   "kind": "recommendation",
+   "subsection_title": "Антибиотикопрофилактика",
+   "statement": "Не рекомендуется прекращение антибиотикопрофилактики в течение 72 часов после закрытия раны у пациентов с открытыми переломами костей с целью минимизации нежелательных эффектов и развития антибиотикорезистентности.",
+   "strength_phrase": "Не рекомендуется",
+   "body": "прекращение антибиотикопрофилактики в течение 72 часов после закрытия раны у пациентов с открытыми переломами костей с целью минимизации нежелательных эффектов и развития антибиотикорезистентности",
+   "direction": "negative",
+   "intervention": {
+    "type": "therapeutic",
+    "scale_ref": "udd_treatment",
+    "action": "не продолжать",
+    "target_population": "пациенты с открытыми переломами костей",
+    "comparator": "продолжение антибиотиков более 72 часов после закрытия раны",
+    "outcome": "предотвращение избыточного использования антибиотиков",
+    "mnn": null,
+    "atc_code": null
+   },
+   "evidence_backed_core": "антибиотики не должны продолжаться более 72 часов после закрытия раны согласно клиническим рекомендациям",
+   "expert_additions": [
+    {
+     "claim": "для переломов Gustilo III допускается продолжение антибиотиков до 24 часов после закрытия или пластики мягких тканей",
+     "basis": "expert_consensus",
+     "refs": []
+    },
+    {
+     "claim": "может потребоваться адаптация сроков в зависимости от типа перелома и проведённых хирургических вмешательств",
+     "basis": "expert_consensus",
+     "refs": []
+    }
+   ],
+   "comment": "Рекомендация устанавливает чёткий временной лимит антибиотикопрофилактики (72 часа после закрытия раны) для предотвращения избыточного использования антибиотиков и снижения риска развития резистентности.",
+   "udd": null,
+   "uur": null,
+   "uur_preliminary": true,
+   "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+   "consensus": {
+    "agreement": "single",
+    "conflicting_refs": []
+   },
+   "quality_criterion": {
+    "is_criterion": true,
+    "criterion_text": "Прекращена антибиотикопрофилактика не позднее 72 часов после закрытия раны (документировано в истории болезни)",
+    "applicable_stage": "treatment",
+    "measurable": true,
+    "auto_eligible": false
+   },
+   "explicit_source_recommendation": true,
+   "expert_author": null,
+   "evidence_ids": [
+    "ev_80244e0cab05"
+   ],
+   "status": "draft",
+   "provenance": "auto",
+   "merged_into": null,
+   "merged_from": [],
+   "review_flags": [
+    "УДД не определён: дизайн источника неизвестен или источник — руководство/обзор",
+    "Доказательства косвенные: получены не на пациентах с темой КР — применимость к теме требует решения эксперта"
+   ],
+   "orphan": false,
+   "edited_by_expert": false,
+   "auto_value": {
+    "kr_section": "3.3",
+    "subsection_title": "Антибиотикопрофилактика",
+    "strength_phrase": "Не рекомендуется",
+    "body": "прекращение антибиотикопрофилактики в течение 72 часов после закрытия раны у пациентов с открытыми переломами костей с целью минимизации нежелательных эффектов и развития антибиотикорезистентности",
+    "statement": "Не рекомендуется прекращение антибиотикопрофилактики в течение 72 часов после закрытия раны у пациентов с открытыми переломами костей с целью минимизации нежелательных эффектов и развития антибиотикорезистентности.",
+    "direction": "negative",
+    "intervention": {
+     "type": "therapeutic",
+     "scale_ref": "udd_treatment",
+     "action": "не продолжать",
+     "target_population": "пациенты с открытыми переломами костей",
+     "comparator": "продолжение антибиотиков более 72 часов после закрытия раны",
+     "outcome": "предотвращение избыточного использования антибиотиков",
+     "mnn": null,
+     "atc_code": null
+    },
+    "evidence_backed_core": "антибиотики не должны продолжаться более 72 часов после закрытия раны согласно клиническим рекомендациям",
+    "expert_additions": [
+     {
+      "claim": "для переломов Gustilo III допускается продолжение антибиотиков до 24 часов после закрытия или пластики мягких тканей",
+      "basis": "expert_consensus",
+      "refs": []
+     },
+     {
+      "claim": "может потребоваться адаптация сроков в зависимости от типа перелома и проведённых хирургических вмешательств",
+      "basis": "expert_consensus",
+      "refs": []
+     }
+    ],
+    "comment": "Рекомендация устанавливает чёткий временной лимит антибиотикопрофилактики (72 часа после закрытия раны) для предотвращения избыточного использования антибиотиков и снижения риска развития резистентности.",
+    "udd": null,
+    "uur": null,
+    "uur_preliminary": true,
+    "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+    "consensus": {
+     "agreement": "single",
+     "conflicting_refs": []
+    },
+    "quality_criterion": {
+     "is_criterion": true,
+     "criterion_text": "Прекращена антибиотикопрофилактика не позднее 72 часов после закрытия раны (документировано в истории болезни)",
+     "applicable_stage": "treatment",
+     "measurable": true,
+     "auto_eligible": false
+    },
+    "explicit_source_recommendation": true,
+    "_synth": {
+     "cluster_id": "cl_8db9cf5927",
+     "insufficient": false,
+     "body": "прекращение антибиотикопрофилактики в течение 72 часов после закрытия раны у пациентов с открытыми переломами костей с целью минимизации нежелательных эффектов и развития антибиотикорезистентности",
+     "body_genitive": "прекращения антибиотикопрофилактики в течение 72 часов после закрытия раны у пациентов с открытыми переломами костей с целью минимизации нежелательных эффектов и развития антибиотикорезистентности",
+     "direction": "negative",
+     "subsection_title": "Антибиотикопрофилактика",
+     "action": "не продолжать",
+     "target_population": "пациенты с открытыми переломами костей",
+     "comparator": "продолжение антибиотиков более 72 часов после закрытия раны",
+     "outcome": "предотвращение избыточного использования антибиотиков",
+     "mnn": "",
+     "evidence_backed_core": "антибиотики не должны продолжаться более 72 часов после закрытия раны согласно клиническим рекомендациям",
+     "expert_additions": [
+      "для переломов Gustilo III допускается продолжение антибиотиков до 24 часов после закрытия или пластики мягких тканей",
+      "может потребоваться адаптация сроков в зависимости от типа перелома и проведённых хирургических вмешательств"
+     ],
+     "comment": "Рекомендация устанавливает чёткий временной лимит антибиотикопрофилактики (72 часа после закрытия раны) для предотвращения избыточного использования антибиотиков и снижения риска развития резистентности.",
+     "quality_criterion": "Прекращена антибиотикопрофилактика не позднее 72 часов после закрытия раны (документировано в истории болезни)",
+     "used_card_ids": [
+      "ev_80244e0cab05"
+     ]
+    }
+   },
+   "pending_auto_update": false
+  },
+  {
+   "id": "rec_bb814c78fd",
+   "section": "3.3",
+   "kind": "recommendation",
+   "subsection_title": "Антибиотикопрофилактика",
+   "statement": "Рекомендуется добавление антибиотика с анаэробным покрытием (пенициллин, клиндамицин или метронидазол) пациентам с открытыми переломами при потенциальном загрязнении клостридиями с целью профилактики газовой гангрены и других анаэробных инфекций.",
+   "strength_phrase": "Рекомендуется",
+   "body": "добавление антибиотика с анаэробным покрытием (пенициллин, клиндамицин или метронидазол) пациентам с открытыми переломами при потенциальном загрязнении клостридиями с целью профилактики газовой гангрены и других анаэробных инфекций",
+   "direction": "positive",
+   "intervention": {
+    "type": "therapeutic",
+    "scale_ref": "udd_treatment",
+    "action": "назначить",
+    "target_population": "пациенты с открытыми переломами при потенциальном загрязнении клостридиями (фекальное загрязнение или сельскохозяйственные травмы)",
+    "comparator": "отсутствие антибиотика с анаэробным покрытием",
+    "outcome": "профилактика анаэробных инфекций, в том числе газовой гангрены",
+    "mnn": "пенициллин, клиндамицин, метронидазол",
+    "atc_code": null
+   },
+   "evidence_backed_core": "анаэробное покрытие рекомендуется при потенциальном загрязнении клостридиями, особенно при фекальном загрязнении или сельскохозяйственных травмах",
+   "expert_additions": [
+    {
+     "claim": "идентификация факторов риска клостридиального загрязнения требует тщательного анамнеза (характер травмы, окружающая среда)",
+     "basis": "expert_consensus",
+     "refs": []
+    },
+    {
+     "claim": "конкретная доза и схема введения антибиотика с анаэробным покрытием требуют определения",
+     "basis": "expert_consensus",
+     "refs": []
+    }
+   ],
+   "comment": "Рекомендация основана на клинических рекомендациях, учитывающих высокий риск анаэробных инфекций при определённых типах загрязнения. Условная рекомендация предполагает оценку факторов риска в каждом конкретном случае.",
+   "udd": null,
+   "uur": null,
+   "uur_preliminary": true,
+   "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+   "consensus": {
+    "agreement": "single",
+    "conflicting_refs": []
+   },
+   "quality_criterion": {
+    "is_criterion": true,
+    "criterion_text": "Добавлен антибиотик с анаэробным покрытием при документированном факторе риска клостридиального загрязнения",
+    "applicable_stage": "treatment",
+    "measurable": true,
+    "auto_eligible": false
+   },
+   "explicit_source_recommendation": true,
+   "expert_author": null,
+   "evidence_ids": [
+    "ev_6323baf0688e"
+   ],
+   "status": "draft",
+   "provenance": "auto",
+   "merged_into": null,
+   "merged_from": [],
+   "review_flags": [
+    "УДД не определён: дизайн источника неизвестен или источник — руководство/обзор",
+    "Доказательства косвенные: получены не на пациентах с темой КР — применимость к теме требует решения эксперта"
+   ],
+   "orphan": false,
+   "edited_by_expert": false,
+   "auto_value": {
+    "kr_section": "3.3",
+    "subsection_title": "Антибиотикопрофилактика",
+    "strength_phrase": "Рекомендуется",
+    "body": "добавление антибиотика с анаэробным покрытием (пенициллин, клиндамицин или метронидазол) пациентам с открытыми переломами при потенциальном загрязнении клостридиями с целью профилактики газовой гангрены и других анаэробных инфекций",
+    "statement": "Рекомендуется добавление антибиотика с анаэробным покрытием (пенициллин, клиндамицин или метронидазол) пациентам с открытыми переломами при потенциальном загрязнении клостридиями с целью профилактики газовой гангрены и других анаэробных инфекций.",
+    "direction": "positive",
+    "intervention": {
+     "type": "therapeutic",
+     "scale_ref": "udd_treatment",
+     "action": "назначить",
+     "target_population": "пациенты с открытыми переломами при потенциальном загрязнении клостридиями (фекальное загрязнение или сельскохозяйственные травмы)",
+     "comparator": "отсутствие антибиотика с анаэробным покрытием",
+     "outcome": "профилактика анаэробных инфекций, в том числе газовой гангрены",
+     "mnn": "пенициллин, клиндамицин, метронидазол",
+     "atc_code": null
+    },
+    "evidence_backed_core": "анаэробное покрытие рекомендуется при потенциальном загрязнении клостридиями, особенно при фекальном загрязнении или сельскохозяйственных травмах",
+    "expert_additions": [
+     {
+      "claim": "идентификация факторов риска клостридиального загрязнения требует тщательного анамнеза (характер травмы, окружающая среда)",
+      "basis": "expert_consensus",
+      "refs": []
+     },
+     {
+      "claim": "конкретная доза и схема введения антибиотика с анаэробным покрытием требуют определения",
+      "basis": "expert_consensus",
+      "refs": []
+     }
+    ],
+    "comment": "Рекомендация основана на клинических рекомендациях, учитывающих высокий риск анаэробных инфекций при определённых типах загрязнения. Условная рекомендация предполагает оценку факторов риска в каждом конкретном случае.",
+    "udd": null,
+    "uur": null,
+    "uur_preliminary": true,
+    "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+    "consensus": {
+     "agreement": "single",
+     "conflicting_refs": []
+    },
+    "quality_criterion": {
+     "is_criterion": true,
+     "criterion_text": "Добавлен антибиотик с анаэробным покрытием при документированном факторе риска клостридиального загрязнения",
+     "applicable_stage": "treatment",
+     "measurable": true,
+     "auto_eligible": false
+    },
+    "explicit_source_recommendation": true,
+    "_synth": {
+     "cluster_id": "cl_bb814c78fd",
+     "insufficient": false,
+     "body": "добавление антибиотика с анаэробным покрытием (пенициллин, клиндамицин или метронидазол) пациентам с открытыми переломами при потенциальном загрязнении клостридиями с целью профилактики газовой гангрены и других анаэробных инфекций",
+     "body_genitive": "добавления антибиотика с анаэробным покрытием (пенициллин, клиндамицин или метронидазол) пациентам с открытыми переломами при потенциальном загрязнении клостридиями с целью профилактики газовой гангрены и других анаэробных инфекций",
+     "direction": "positive",
+     "subsection_title": "Антибиотикопрофилактика",
+     "action": "назначить",
+     "target_population": "пациенты с открытыми переломами при потенциальном загрязнении клостридиями (фекальное загрязнение или сельскохозяйственные травмы)",
+     "comparator": "отсутствие антибиотика с анаэробным покрытием",
+     "outcome": "профилактика анаэробных инфекций, в том числе газовой гангрены",
+     "mnn": "пенициллин, клиндамицин, метронидазол",
+     "evidence_backed_core": "анаэробное покрытие рекомендуется при потенциальном загрязнении клостридиями, особенно при фекальном загрязнении или сельскохозяйственных травмах",
+     "expert_additions": [
+      "идентификация факторов риска клостридиального загрязнения требует тщательного анамнеза (характер травмы, окружающая среда)",
+      "конкретная доза и схема введения антибиотика с анаэробным покрытием требуют определения"
+     ],
+     "comment": "Рекомендация основана на клинических рекомендациях, учитывающих высокий риск анаэробных инфекций при определённых типах загрязнения. Условная рекомендация предполагает оценку факторов риска в каждом конкретном случае.",
+     "quality_criterion": "Добавлен антибиотик с анаэробным покрытием при документированном факторе риска клостридиального загрязнения",
+     "used_card_ids": [
+      "ev_6323baf0688e"
+     ]
+    }
+   },
+   "pending_auto_update": false
+  },
+  {
+   "id": "rec_ffaa45055f",
+   "section": "3.3",
+   "kind": "recommendation",
+   "subsection_title": "Антибиотикопрофилактика",
+   "statement": "Рекомендуется продолжение антибиотикопрофилактики в течение 72 часов или 24 часов после закрытия либо пластики мягких тканей раны у пациентов с открытыми переломами III типа с целью профилактики инфекции.",
+   "strength_phrase": "Рекомендуется",
+   "body": "продолжение антибиотикопрофилактики в течение 72 часов или 24 часов после закрытия либо пластики мягких тканей раны у пациентов с открытыми переломами III типа с целью профилактики инфекции",
+   "direction": "positive",
+   "intervention": {
+    "type": "therapeutic",
+    "scale_ref": "udd_treatment",
+    "action": "продолжить",
+    "target_population": "пациенты с открытыми переломами III типа",
+    "comparator": "отсутствие антибиотикопрофилактики или более короткая продолжительность",
+    "outcome": "профилактика инфекции при наиболее тяжёлых открытых переломах",
+    "mnn": null,
+    "atc_code": null
+   },
+   "evidence_backed_core": "при переломах III типа рекомендуется 72 часа введения антибиотиков или 24 часа после закрытия либо закрытия мягких тканей раны",
+   "expert_additions": [
+    {
+     "claim": "более длительная антибиотикопрофилактика при переломах III типа обусловлена более высокой степенью загрязнения и большей площадью поражения мягких тканей",
+     "basis": "expert_consensus",
+     "refs": []
+    },
+    {
+     "claim": "выбор антибиотика должен обеспечивать расширенное покрытие против грамотрицательных организмов (аминогликозид или цефалоспорины 3-го поколения)",
+     "basis": "expert_consensus",
+     "refs": []
+    }
+   ],
+   "comment": "Переломы Gustilo III имеют наиболее высокий риск инфекции, что обосновывает более длительное антибиотикопрофилактическое покрытие по сравнению с переломами I и II типов. Рекомендация предусматривает альтернативные критерии окончания (72 часа или 24 часа после мягкотканного закрытия).",
+   "udd": null,
+   "uur": null,
+   "uur_preliminary": true,
+   "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+   "consensus": {
+    "agreement": "single",
+    "conflicting_refs": []
+   },
+   "quality_criterion": {
+    "is_criterion": true,
+    "criterion_text": "Документирована продолжительность антибиотикопрофилактики (до 72 часов или до 24 часов после закрытия мягких тканей) у пациента с открытым переломом III типа",
+    "applicable_stage": "treatment",
+    "measurable": true,
+    "auto_eligible": false
+   },
+   "explicit_source_recommendation": true,
+   "expert_author": null,
+   "evidence_ids": [
+    "ev_20795b869871"
+   ],
+   "status": "draft",
+   "provenance": "auto",
+   "merged_into": null,
+   "merged_from": [],
+   "review_flags": [
+    "УДД не определён: дизайн источника неизвестен или источник — руководство/обзор",
+    "Доказательства косвенные: получены не на пациентах с темой КР — применимость к теме требует решения эксперта"
+   ],
+   "orphan": false,
+   "edited_by_expert": false,
+   "auto_value": {
+    "kr_section": "3.3",
+    "subsection_title": "Антибиотикопрофилактика",
+    "strength_phrase": "Рекомендуется",
+    "body": "продолжение антибиотикопрофилактики в течение 72 часов или 24 часов после закрытия либо пластики мягких тканей раны у пациентов с открытыми переломами III типа с целью профилактики инфекции",
+    "statement": "Рекомендуется продолжение антибиотикопрофилактики в течение 72 часов или 24 часов после закрытия либо пластики мягких тканей раны у пациентов с открытыми переломами III типа с целью профилактики инфекции.",
+    "direction": "positive",
+    "intervention": {
+     "type": "therapeutic",
+     "scale_ref": "udd_treatment",
+     "action": "продолжить",
+     "target_population": "пациенты с открытыми переломами III типа",
+     "comparator": "отсутствие антибиотикопрофилактики или более короткая продолжительность",
+     "outcome": "профилактика инфекции при наиболее тяжёлых открытых переломах",
+     "mnn": null,
+     "atc_code": null
+    },
+    "evidence_backed_core": "при переломах III типа рекомендуется 72 часа введения антибиотиков или 24 часа после закрытия либо закрытия мягких тканей раны",
+    "expert_additions": [
+     {
+      "claim": "более длительная антибиотикопрофилактика при переломах III типа обусловлена более высокой степенью загрязнения и большей площадью поражения мягких тканей",
+      "basis": "expert_consensus",
+      "refs": []
+     },
+     {
+      "claim": "выбор антибиотика должен обеспечивать расширенное покрытие против грамотрицательных организмов (аминогликозид или цефалоспорины 3-го поколения)",
+      "basis": "expert_consensus",
+      "refs": []
+     }
+    ],
+    "comment": "Переломы Gustilo III имеют наиболее высокий риск инфекции, что обосновывает более длительное антибиотикопрофилактическое покрытие по сравнению с переломами I и II типов. Рекомендация предусматривает альтернативные критерии окончания (72 часа или 24 часа после мягкотканного закрытия).",
+    "udd": null,
+    "uur": null,
+    "uur_preliminary": true,
+    "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+    "consensus": {
+     "agreement": "single",
+     "conflicting_refs": []
+    },
+    "quality_criterion": {
+     "is_criterion": true,
+     "criterion_text": "Документирована продолжительность антибиотикопрофилактики (до 72 часов или до 24 часов после закрытия мягких тканей) у пациента с открытым переломом III типа",
+     "applicable_stage": "treatment",
+     "measurable": true,
+     "auto_eligible": false
+    },
+    "explicit_source_recommendation": true,
+    "_synth": {
+     "cluster_id": "cl_ffaa45055f",
+     "insufficient": false,
+     "body": "продолжение антибиотикопрофилактики в течение 72 часов или 24 часов после закрытия либо пластики мягких тканей раны у пациентов с открытыми переломами III типа с целью профилактики инфекции",
+     "body_genitive": "продолжения антибиотикопрофилактики в течение 72 часов или 24 часов после закрытия либо пластики мягких тканей раны у пациентов с открытыми переломами III типа с целью профилактики инфекции",
+     "direction": "positive",
+     "subsection_title": "Антибиотикопрофилактика",
+     "action": "продолжить",
+     "target_population": "пациенты с открытыми переломами III типа",
+     "comparator": "отсутствие антибиотикопрофилактики или более короткая продолжительность",
+     "outcome": "профилактика инфекции при наиболее тяжёлых открытых переломах",
+     "mnn": "",
+     "evidence_backed_core": "при переломах III типа рекомендуется 72 часа введения антибиотиков или 24 часа после закрытия либо закрытия мягких тканей раны",
+     "expert_additions": [
+      "более длительная антибиотикопрофилактика при переломах III типа обусловлена более высокой степенью загрязнения и большей площадью поражения мягких тканей",
+      "выбор антибиотика должен обеспечивать расширенное покрытие против грамотрицательных организмов (аминогликозид или цефалоспорины 3-го поколения)"
+     ],
+     "comment": "Переломы Gustilo III имеют наиболее высокий риск инфекции, что обосновывает более длительное антибиотикопрофилактическое покрытие по сравнению с переломами I и II типов. Рекомендация предусматривает альтернативные критерии окончания (72 часа или 24 часа после мягкотканного закрытия).",
+     "quality_criterion": "Документирована продолжительность антибиотикопрофилактики (до 72 часов или до 24 часов после закрытия мягких тканей) у пациента с открытым переломом III типа",
+     "used_card_ids": [
+      "ev_20795b869871"
+     ]
+    }
+   },
+   "pending_auto_update": false
+  },
+  {
+   "id": "rec_05a5e48d40",
+   "section": "3.3",
+   "kind": "recommendation",
+   "subsection_title": "Антибактериальная профилактика при открытых переломах",
+   "statement": "Рекомендуется рассмотрение дополнительного покрытия против грамотрицательных организмов пациентам с высокоэнергетическими открытыми переломами дистального отдела костей предплечья с целью снижения риска инфекционных осложнений.",
+   "strength_phrase": "Рекомендуется",
+   "body": "рассмотрение дополнительного покрытия против грамотрицательных организмов пациентам с высокоэнергетическими открытыми переломами дистального отдела костей предплечья с целью снижения риска инфекционных осложнений",
+   "direction": "positive",
+   "intervention": {
+    "type": "therapeutic",
+    "scale_ref": "udd_treatment",
+    "action": "рассмотрение дополнительного покрытия против грамотрицательных организмов",
+    "target_population": "пациенты с высокоэнергетическими открытыми переломами дистального отдела костей предплечья",
+    "comparator": "стандартная антибактериальная профилактика",
+    "outcome": "снижение риска инфекционных осложнений",
+    "mnn": null,
+    "atc_code": null
+   },
+   "evidence_backed_core": "При высокоэнергетических открытых переломах следует рассмотреть дополнительное покрытие против грамотрицательных организмов",
+   "expert_additions": [
+    {
+     "claim": "Применимость к пациентам по теме КР (предплеч)",
+     "basis": "expert_consensus",
+     "refs": []
+    }
+   ],
+   "comment": "Источник рекомендует рассмотреть усиленное антибактериальное покрытие при высокоэнергетических открытых переломах, однако конкретные сравнительные данные об эффективности в карточках не приведены. Рекомендация основана на клиническом суждении о более высоком риске полимикробного инфицирования при таких повреждениях.",
+   "udd": null,
+   "uur": null,
+   "uur_preliminary": true,
+   "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+   "consensus": {
+    "agreement": "single",
+    "conflicting_refs": []
+   },
+   "quality_criterion": {
+    "is_criterion": true,
+    "criterion_text": "Рассмотрена возможность дополнительного покрытия против грамотрицательных организмов и обоснованы критерии его назначения",
+    "applicable_stage": "treatment",
+    "measurable": true,
+    "auto_eligible": false
+   },
+   "explicit_source_recommendation": true,
+   "expert_author": null,
+   "evidence_ids": [
+    "ev_df1af7fef237"
+   ],
+   "status": "draft",
+   "provenance": "auto",
+   "merged_into": null,
+   "merged_from": [],
+   "review_flags": [
+    "УДД не определён: дизайн источника неизвестен или источник — руководство/обзор",
+    "Доказательства косвенные: получены не на пациентах с темой КР — применимость к теме требует решения эксперта",
+    "Популяция тезиса подменена темой КР: в доказательствах нет упоминания «предплеч» — исправьте группу пациентов"
+   ],
+   "orphan": false,
+   "edited_by_expert": false,
+   "auto_value": {
+    "kr_section": "3.3",
+    "subsection_title": "Антибактериальная профилактика при открытых переломах",
+    "strength_phrase": "Рекомендуется",
+    "body": "рассмотрение дополнительного покрытия против грамотрицательных организмов пациентам с высокоэнергетическими открытыми переломами дистального отдела костей предплечья с целью снижения риска инфекционных осложнений",
+    "statement": "Рекомендуется рассмотрение дополнительного покрытия против грамотрицательных организмов пациентам с высокоэнергетическими открытыми переломами дистального отдела костей предплечья с целью снижения риска инфекционных осложнений.",
+    "direction": "positive",
+    "intervention": {
+     "type": "therapeutic",
+     "scale_ref": "udd_treatment",
+     "action": "рассмотрение дополнительного покрытия против грамотрицательных организмов",
+     "target_population": "пациенты с высокоэнергетическими открытыми переломами дистального отдела костей предплечья",
+     "comparator": "стандартная антибактериальная профилактика",
+     "outcome": "снижение риска инфекционных осложнений",
+     "mnn": null,
+     "atc_code": null
+    },
+    "evidence_backed_core": "При высокоэнергетических открытых переломах следует рассмотреть дополнительное покрытие против грамотрицательных организмов",
+    "expert_additions": [
+     {
+      "claim": "Применимость к пациентам по теме КР (предплеч)",
+      "basis": "expert_consensus",
+      "refs": []
+     }
+    ],
+    "comment": "Источник рекомендует рассмотреть усиленное антибактериальное покрытие при высокоэнергетических открытых переломах, однако конкретные сравнительные данные об эффективности в карточках не приведены. Рекомендация основана на клиническом суждении о более высоком риске полимикробного инфицирования при таких повреждениях.",
+    "udd": null,
+    "uur": null,
+    "uur_preliminary": true,
+    "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+    "consensus": {
+     "agreement": "single",
+     "conflicting_refs": []
+    },
+    "quality_criterion": {
+     "is_criterion": true,
+     "criterion_text": "Рассмотрена возможность дополнительного покрытия против грамотрицательных организмов и обоснованы критерии его назначения",
+     "applicable_stage": "treatment",
+     "measurable": true,
+     "auto_eligible": false
+    },
+    "explicit_source_recommendation": true,
+    "_synth": {
+     "cluster_id": "cl_05a5e48d40",
+     "insufficient": false,
+     "body": "рассмотрение дополнительного покрытия против грамотрицательных организмов пациентам с высокоэнергетическими открытыми переломами дистального отдела костей предплечья с целью снижения риска инфекционных осложнений",
+     "body_genitive": "рассмотрения дополнительного покрытия против грамотрицательных организмов пациентам с высокоэнергетическими открытыми переломами дистального отдела костей предплечья с целью снижения риска инфекционных осложнений",
+     "direction": "positive",
+     "subsection_title": "Антибактериальная профилактика при открытых переломах",
+     "action": "рассмотрение дополнительного покрытия против грамотрицательных организмов",
+     "target_population": "пациенты с высокоэнергетическими открытыми переломами дистального отдела костей предплечья",
+     "comparator": "стандартная антибактериальная профилактика",
+     "outcome": "снижение риска инфекционных осложнений",
+     "mnn": "",
+     "evidence_backed_core": "При высокоэнергетических открытых переломах следует рассмотреть дополнительное покрытие против грамотрицательных организмов",
+     "expert_additions": [],
+     "comment": "Источник рекомендует рассмотреть усиленное антибактериальное покрытие при высокоэнергетических открытых переломах, однако конкретные сравнительные данные об эффективности в карточках не приведены. Рекомендация основана на клиническом суждении о более высоком риске полимикробного инфицирования при таких повреждениях.",
+     "quality_criterion": "Рассмотрена возможность дополнительного покрытия против грамотрицательных организмов и обоснованы критерии его назначения",
+     "used_card_ids": [
+      "ev_df1af7fef237"
+     ]
+    }
+   },
+   "pending_auto_update": false
+  },
+  {
+   "id": "rec_0926e05872",
+   "section": "3.3",
+   "kind": "recommendation",
+   "subsection_title": "Антибактериальная профилактика при открытых переломах",
+   "statement": "Рекомендуется рассмотреть возможность оценки функции почек до начала антибиотикотерапии аминогликозидами пациентам с открытыми переломами дистального отдела костей предплечья с целью раннего выявления контрапоказаний и предотвращения нефротоксичности.",
+   "strength_phrase": "Рекомендуется рассмотреть возможность",
+   "body": "оценки функции почек до начала антибиотикотерапии аминогликозидами пациентам с открытыми переломами дистального отдела костей предплечья с целью раннего выявления контрапоказаний и предотвращения нефротоксичности",
+   "direction": "positive",
+   "intervention": {
+    "type": "therapeutic",
+    "scale_ref": "udd_treatment",
+    "action": "оценка функции почек",
+    "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья, которым планируется использование аминогликозидов",
+    "comparator": "отсутствие предварительной оценки функции почек",
+    "outcome": "предотвращение нефротоксичности, выявление пациентов с высоким риском осложнений",
+    "mnn": null,
+    "atc_code": null
+   },
+   "evidence_backed_core": "Аминогликозиды могут вызвать нефротоксичность, особенно при заболевании или дисфункции почек; функцию почек следует оценить заранее. При нормальной исходной функции почек гентамицин не приводит к увеличению частоты почечной дисфункции",
+   "expert_additions": [
+    {
+     "claim": "Применимость к пациентам по теме КР (предплеч)",
+     "basis": "expert_consensus",
+     "refs": []
+    }
+   ],
+   "comment": "Карточки указывают на способность аминогликозидов вызывать нефротоксичность и необходимость предварительной оценки. Отдельное исследование показало, что при нормальной исходной функции почек гентамицин безопасен, что подтверждает значимость предварительной оценки как стратегии отбора пациентов.",
+   "udd": null,
+   "uur": null,
+   "uur_preliminary": true,
+   "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+   "consensus": {
+    "agreement": "conflicting",
+    "conflicting_refs": [
+     "ev_5331e73d68ce",
+     "ev_b987b9403434"
+    ]
+   },
+   "quality_criterion": {
+    "is_criterion": true,
+    "criterion_text": "Проведена оценка функции почек (креатинин, скорость клубочковой фильтрации или эквивалент) до начала антибиотикотерапии аминогликозидами",
+    "applicable_stage": "treatment",
+    "measurable": true,
+    "auto_eligible": false
+   },
+   "explicit_source_recommendation": false,
+   "expert_author": null,
+   "evidence_ids": [
+    "ev_b987b9403434",
+    "ev_5331e73d68ce"
+   ],
+   "status": "draft",
+   "provenance": "auto",
+   "merged_into": null,
+   "merged_from": [],
+   "review_flags": [
+    "Тезис предложен системой на основании результатов исследований (явной рекомендации авторов нет) — требуется решение эксперта",
+    "Часть доказательств — вторичное цитирование (пересказ других работ): УДД по ним не присваивается, нужен первоисточник",
+    "УДД не определён: дизайн источника неизвестен или источник — руководство/обзор",
+    "Среди доказательств есть противоречия — см. вкладку «Противоречия»",
+    "Доказательства косвенные: получены не на пациентах с темой КР — применимость к теме требует решения эксперта",
+    "Популяция тезиса подменена темой КР: в доказательствах нет упоминания «предплеч» — исправьте группу пациентов"
+   ],
+   "orphan": false,
+   "edited_by_expert": false,
+   "auto_value": {
+    "kr_section": "3.3",
+    "subsection_title": "Антибактериальная профилактика при открытых переломах",
+    "strength_phrase": "Рекомендуется рассмотреть возможность",
+    "body": "оценки функции почек до начала антибиотикотерапии аминогликозидами пациентам с открытыми переломами дистального отдела костей предплечья с целью раннего выявления контрапоказаний и предотвращения нефротоксичности",
+    "statement": "Рекомендуется рассмотреть возможность оценки функции почек до начала антибиотикотерапии аминогликозидами пациентам с открытыми переломами дистального отдела костей предплечья с целью раннего выявления контрапоказаний и предотвращения нефротоксичности.",
+    "direction": "positive",
+    "intervention": {
+     "type": "therapeutic",
+     "scale_ref": "udd_treatment",
+     "action": "оценка функции почек",
+     "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья, которым планируется использование аминогликозидов",
+     "comparator": "отсутствие предварительной оценки функции почек",
+     "outcome": "предотвращение нефротоксичности, выявление пациентов с высоким риском осложнений",
+     "mnn": null,
+     "atc_code": null
+    },
+    "evidence_backed_core": "Аминогликозиды могут вызвать нефротоксичность, особенно при заболевании или дисфункции почек; функцию почек следует оценить заранее. При нормальной исходной функции почек гентамицин не приводит к увеличению частоты почечной дисфункции",
+    "expert_additions": [
+     {
+      "claim": "Применимость к пациентам по теме КР (предплеч)",
+      "basis": "expert_consensus",
+      "refs": []
+     }
+    ],
+    "comment": "Карточки указывают на способность аминогликозидов вызывать нефротоксичность и необходимость предварительной оценки. Отдельное исследование показало, что при нормальной исходной функции почек гентамицин безопасен, что подтверждает значимость предварительной оценки как стратегии отбора пациентов.",
+    "udd": null,
+    "uur": null,
+    "uur_preliminary": true,
+    "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+    "consensus": {
+     "agreement": "conflicting",
+     "conflicting_refs": [
+      "ev_5331e73d68ce",
+      "ev_b987b9403434"
+     ]
+    },
+    "quality_criterion": {
+     "is_criterion": true,
+     "criterion_text": "Проведена оценка функции почек (креатинин, скорость клубочковой фильтрации или эквивалент) до начала антибиотикотерапии аминогликозидами",
+     "applicable_stage": "treatment",
+     "measurable": true,
+     "auto_eligible": false
+    },
+    "explicit_source_recommendation": false,
+    "_synth": {
+     "cluster_id": "cl_0926e05872",
+     "insufficient": false,
+     "body": "оценка функции почек до начала антибиотикотерапии аминогликозидами пациентам с открытыми переломами дистального отдела костей предплечья с целью раннего выявления контрапоказаний и предотвращения нефротоксичности",
+     "body_genitive": "оценки функции почек до начала антибиотикотерапии аминогликозидами пациентам с открытыми переломами дистального отдела костей предплечья с целью раннего выявления контрапоказаний и предотвращения нефротоксичности",
+     "direction": "positive",
+     "subsection_title": "Антибактериальная профилактика при открытых переломах",
+     "action": "оценка функции почек",
+     "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья, которым планируется использование аминогликозидов",
+     "comparator": "отсутствие предварительной оценки функции почек",
+     "outcome": "предотвращение нефротоксичности, выявление пациентов с высоким риском осложнений",
+     "mnn": "",
+     "evidence_backed_core": "Аминогликозиды могут вызвать нефротоксичность, особенно при заболевании или дисфункции почек; функцию почек следует оценить заранее. При нормальной исходной функции почек гентамицин не приводит к увеличению частоты почечной дисфункции",
+     "expert_additions": [],
+     "comment": "Карточки указывают на способность аминогликозидов вызывать нефротоксичность и необходимость предварительной оценки. Отдельное исследование показало, что при нормальной исходной функции почек гентамицин безопасен, что подтверждает значимость предварительной оценки как стратегии отбора пациентов.",
+     "quality_criterion": "Проведена оценка функции почек (креатинин, скорость клубочковой фильтрации или эквивалент) до начала антибиотикотерапии аминогликозидами",
+     "used_card_ids": [
+      "ev_b987b9403434",
+      "ev_5331e73d68ce"
+     ]
+    }
+   },
+   "pending_auto_update": false
+  },
+  {
+   "id": "rec_1fcb3ca1d5",
+   "section": "3.3",
+   "kind": "recommendation",
+   "subsection_title": "Антибактериальная профилактика при открытых переломах",
+   "statement": "Не рекомендуется отказ от рутинного использования ванкомицина в дополнение к цефазолину пациентам с открытыми переломами дистального отдела костей предплечья с целью избежания необоснованной полипрепаратной терапии.",
+   "strength_phrase": "Не рекомендуется",
+   "body": "отказ от рутинного использования ванкомицина в дополнение к цефазолину пациентам с открытыми переломами дистального отдела костей предплечья с целью избежания необоснованной полипрепаратной терапии",
+   "direction": "negative",
+   "intervention": {
+    "type": "therapeutic",
+    "scale_ref": "udd_treatment",
+    "action": "рутинное использование ванкомицина в дополнение к цефазолину",
+    "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья",
+    "comparator": "монотерапия цефазолином",
+    "outcome": "частота инфекционных осложнений",
+    "mnn": null,
+    "atc_code": null
+   },
+   "evidence_backed_core": "Рандомизированное контролируемое исследование у 101 пациента с открытыми переломами не выявило различий в частоте инфекции между группами ванкомицина с цефазолином (19%) и только цефазолина (15%). Рутинное использование ванкомицина при открытых переломах не может быть рекомендовано",
+   "expert_additions": [
+    {
+     "claim": "Применимость к пациентам по теме КР (предплеч)",
+     "basis": "expert_consensus",
+     "refs": []
+    }
+   ],
+   "comment": "Рандомизированное исследование продемонстрировало отсутствие преимущества комбинации ванкомицина и цефазолина по сравнению с монотерапией цефазолином у пациентов с открытыми переломами. Авторы явно не рекомендуют рутинное применение ванкомицина при таких повреждениях.",
+   "udd": null,
+   "uur": null,
+   "uur_preliminary": true,
+   "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+   "consensus": {
+    "agreement": "conflicting",
+    "conflicting_refs": [
+     "ev_97cc963b7563",
+     "ev_fd79e4fdbd4d"
+    ]
+   },
+   "quality_criterion": {
+    "is_criterion": true,
+    "criterion_text": "Ванкомицин не назначен рутинно; при назначении обоснованы конкретные показания (например, аллергия на бета-лактамы или MRSA-инфекция)",
+    "applicable_stage": "treatment",
+    "measurable": true,
+    "auto_eligible": false
+   },
+   "explicit_source_recommendation": true,
+   "expert_author": null,
+   "evidence_ids": [
+    "ev_97cc963b7563",
+    "ev_fd79e4fdbd4d"
+   ],
+   "status": "draft",
+   "provenance": "auto",
+   "merged_into": null,
+   "merged_from": [],
+   "review_flags": [
+    "Часть доказательств — вторичное цитирование (пересказ других работ): УДД по ним не присваивается, нужен первоисточник",
+    "УДД не определён: дизайн источника неизвестен или источник — руководство/обзор",
+    "Среди доказательств есть противоречия — см. вкладку «Противоречия»",
+    "Доказательства косвенные: получены не на пациентах с темой КР — применимость к теме требует решения эксперта",
+    "Популяция тезиса подменена темой КР: в доказательствах нет упоминания «предплеч» — исправьте группу пациентов"
+   ],
+   "orphan": false,
+   "edited_by_expert": false,
+   "auto_value": {
+    "kr_section": "3.3",
+    "subsection_title": "Антибактериальная профилактика при открытых переломах",
+    "strength_phrase": "Не рекомендуется",
+    "body": "отказ от рутинного использования ванкомицина в дополнение к цефазолину пациентам с открытыми переломами дистального отдела костей предплечья с целью избежания необоснованной полипрепаратной терапии",
+    "statement": "Не рекомендуется отказ от рутинного использования ванкомицина в дополнение к цефазолину пациентам с открытыми переломами дистального отдела костей предплечья с целью избежания необоснованной полипрепаратной терапии.",
+    "direction": "negative",
+    "intervention": {
+     "type": "therapeutic",
+     "scale_ref": "udd_treatment",
+     "action": "рутинное использование ванкомицина в дополнение к цефазолину",
+     "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья",
+     "comparator": "монотерапия цефазолином",
+     "outcome": "частота инфекционных осложнений",
+     "mnn": null,
+     "atc_code": null
+    },
+    "evidence_backed_core": "Рандомизированное контролируемое исследование у 101 пациента с открытыми переломами не выявило различий в частоте инфекции между группами ванкомицина с цефазолином (19%) и только цефазолина (15%). Рутинное использование ванкомицина при открытых переломах не может быть рекомендовано",
+    "expert_additions": [
+     {
+      "claim": "Применимость к пациентам по теме КР (предплеч)",
+      "basis": "expert_consensus",
+      "refs": []
+     }
+    ],
+    "comment": "Рандомизированное исследование продемонстрировало отсутствие преимущества комбинации ванкомицина и цефазолина по сравнению с монотерапией цефазолином у пациентов с открытыми переломами. Авторы явно не рекомендуют рутинное применение ванкомицина при таких повреждениях.",
+    "udd": null,
+    "uur": null,
+    "uur_preliminary": true,
+    "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+    "consensus": {
+     "agreement": "conflicting",
+     "conflicting_refs": [
+      "ev_97cc963b7563",
+      "ev_fd79e4fdbd4d"
+     ]
+    },
+    "quality_criterion": {
+     "is_criterion": true,
+     "criterion_text": "Ванкомицин не назначен рутинно; при назначении обоснованы конкретные показания (например, аллергия на бета-лактамы или MRSA-инфекция)",
+     "applicable_stage": "treatment",
+     "measurable": true,
+     "auto_eligible": false
+    },
+    "explicit_source_recommendation": true,
+    "_synth": {
+     "cluster_id": "cl_1fcb3ca1d5",
+     "insufficient": false,
+     "body": "отказ от рутинного использования ванкомицина в дополнение к цефазолину пациентам с открытыми переломами дистального отдела костей предплечья с целью избежания необоснованной полипрепаратной терапии",
+     "body_genitive": "отказа от рутинного использования ванкомицина в дополнение к цефазолину пациентам с открытыми переломами дистального отдела костей предплечья с целью избежания необоснованной полипрепаратной терапии",
+     "direction": "negative",
+     "subsection_title": "Антибактериальная профилактика при открытых переломах",
+     "action": "рутинное использование ванкомицина в дополнение к цефазолину",
+     "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья",
+     "comparator": "монотерапия цефазолином",
+     "outcome": "частота инфекционных осложнений",
+     "mnn": "",
+     "evidence_backed_core": "Рандомизированное контролируемое исследование у 101 пациента с открытыми переломами не выявило различий в частоте инфекции между группами ванкомицина с цефазолином (19%) и только цефазолина (15%). Рутинное использование ванкомицина при открытых переломах не может быть рекомендовано",
+     "expert_additions": [],
+     "comment": "Рандомизированное исследование продемонстрировало отсутствие преимущества комбинации ванкомицина и цефазолина по сравнению с монотерапией цефазолином у пациентов с открытыми переломами. Авторы явно не рекомендуют рутинное применение ванкомицина при таких повреждениях.",
+     "quality_criterion": "Ванкомицин не назначен рутинно; при назначении обоснованы конкретные показания (например, аллергия на бета-лактамы или MRSA-инфекция)",
+     "used_card_ids": [
+      "ev_97cc963b7563",
+      "ev_fd79e4fdbd4d"
+     ]
+    }
+   },
+   "pending_auto_update": false
+  },
+  {
+   "id": "rec_283c1815e8",
+   "section": "3.3",
+   "kind": "recommendation",
+   "subsection_title": "Антибактериальная профилактика при открытых переломах",
+   "statement": "Рекомендуется введение системных антибиотиков как можно скорее после травмы пациентам с открытыми переломами дистального отдела костей предплечья с целью снижения риска глубокой инфекции.",
+   "strength_phrase": "Рекомендуется",
+   "body": "введение системных антибиотиков как можно скорее после травмы пациентам с открытыми переломами дистального отдела костей предплечья с целью снижения риска глубокой инфекции",
+   "direction": "positive",
+   "intervention": {
+    "type": "therapeutic",
+    "scale_ref": "udd_treatment",
+    "action": "введение системных антибиотиков как можно скорее после травмы",
+    "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья",
+    "comparator": "задержанное введение антибиотиков",
+    "outcome": "снижение риска глубокой инфекции",
+    "mnn": null,
+    "atc_code": null
+   },
+   "evidence_backed_core": "В ретроспективном исследовании пациентов с открытыми переломами III типа введение антибиотиков более чем через 66 минут после травмы было значимо и независимо связано с глубокой инфекцией (ОШ 3,78, 95% ДИ 1,16–12,31). Антибиотики должны вводиться как можно скорее",
+   "expert_additions": [
+    {
+     "claim": "Целевой срок введения — в пределах 66 минут после травмы (основано на результатах исследования открытых переломов III типа большеберцовой кости)",
+     "basis": "expert_consensus",
+     "refs": []
+    },
+    {
+     "claim": "Применимость к пациентам по теме КР (предплеч)",
+     "basis": "expert_consensus",
+     "refs": []
+    }
+   ],
+   "comment": "Ретроспективное исследование показало трёхкратное повышение риска глубокой инфекции при введении антибиотиков позже 66 минут после травмы. Клинические рекомендации подтверждают необходимость ранней антибиотикопрофилактики, хотя идеальный временной порог может варьироваться.",
+   "udd": null,
+   "uur": null,
+   "uur_preliminary": true,
+   "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+   "consensus": {
+    "agreement": "single",
+    "conflicting_refs": []
+   },
+   "quality_criterion": {
+    "is_criterion": true,
+    "criterion_text": "Системные антибиотики введены в сроки, фиксированные в медицинской документации с указанием времени травмы и времени введения препарата",
+    "applicable_stage": "treatment",
+    "measurable": true,
+    "auto_eligible": false
+   },
+   "explicit_source_recommendation": true,
+   "expert_author": null,
+   "evidence_ids": [
+    "ev_773e7fbda054",
+    "ev_6e1e23eba522"
+   ],
+   "status": "draft",
+   "provenance": "auto",
+   "merged_into": "rec_26392cda44",
+   "merged_from": [],
+   "review_flags": [
+    "Часть доказательств — вторичное цитирование (пересказ других работ): УДД по ним не присваивается, нужен первоисточник",
+    "УДД не определён: дизайн источника неизвестен или источник — руководство/обзор",
+    "Доказательства косвенные: получены не на пациентах с темой КР — применимость к теме требует решения эксперта",
+    "Популяция тезиса подменена темой КР: в доказательствах нет упоминания «предплеч» — исправьте группу пациентов"
+   ],
+   "orphan": false,
+   "edited_by_expert": false,
+   "auto_value": {
+    "kr_section": "3.3",
+    "subsection_title": "Антибактериальная профилактика при открытых переломах",
+    "strength_phrase": "Рекомендуется",
+    "body": "введение системных антибиотиков как можно скорее после травмы пациентам с открытыми переломами дистального отдела костей предплечья с целью снижения риска глубокой инфекции",
+    "statement": "Рекомендуется введение системных антибиотиков как можно скорее после травмы пациентам с открытыми переломами дистального отдела костей предплечья с целью снижения риска глубокой инфекции.",
+    "direction": "positive",
+    "intervention": {
+     "type": "therapeutic",
+     "scale_ref": "udd_treatment",
+     "action": "введение системных антибиотиков как можно скорее после травмы",
+     "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья",
+     "comparator": "задержанное введение антибиотиков",
+     "outcome": "снижение риска глубокой инфекции",
+     "mnn": null,
+     "atc_code": null
+    },
+    "evidence_backed_core": "В ретроспективном исследовании пациентов с открытыми переломами III типа введение антибиотиков более чем через 66 минут после травмы было значимо и независимо связано с глубокой инфекцией (ОШ 3,78, 95% ДИ 1,16–12,31). Антибиотики должны вводиться как можно скорее",
+    "expert_additions": [
+     {
+      "claim": "Целевой срок введения — в пределах 66 минут после травмы (основано на результатах исследования открытых переломов III типа большеберцовой кости)",
+      "basis": "expert_consensus",
+      "refs": []
+     },
+     {
+      "claim": "Применимость к пациентам по теме КР (предплеч)",
+      "basis": "expert_consensus",
+      "refs": []
+     }
+    ],
+    "comment": "Ретроспективное исследование показало трёхкратное повышение риска глубокой инфекции при введении антибиотиков позже 66 минут после травмы. Клинические рекомендации подтверждают необходимость ранней антибиотикопрофилактики, хотя идеальный временной порог может варьироваться.",
+    "udd": null,
+    "uur": null,
+    "uur_preliminary": true,
+    "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+    "consensus": {
+     "agreement": "single",
+     "conflicting_refs": []
+    },
+    "quality_criterion": {
+     "is_criterion": true,
+     "criterion_text": "Системные антибиотики введены в сроки, фиксированные в медицинской документации с указанием времени травмы и времени введения препарата",
+     "applicable_stage": "treatment",
+     "measurable": true,
+     "auto_eligible": false
+    },
+    "explicit_source_recommendation": true,
+    "_synth": {
+     "cluster_id": "cl_283c1815e8",
+     "insufficient": false,
+     "body": "введение системных антибиотиков как можно скорее после травмы пациентам с открытыми переломами дистального отдела костей предплечья с целью снижения риска глубокой инфекции",
+     "body_genitive": "введения системных антибиотиков как можно скорее после травмы пациентам с открытыми переломами дистального отдела костей предплечья с целью снижения риска глубокой инфекции",
+     "direction": "positive",
+     "subsection_title": "Антибактериальная профилактика при открытых переломах",
+     "action": "введение системных антибиотиков как можно скорее после травмы",
+     "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья",
+     "comparator": "задержанное введение антибиотиков",
+     "outcome": "снижение риска глубокой инфекции",
+     "mnn": "",
+     "evidence_backed_core": "В ретроспективном исследовании пациентов с открытыми переломами III типа введение антибиотиков более чем через 66 минут после травмы было значимо и независимо связано с глубокой инфекцией (ОШ 3,78, 95% ДИ 1,16–12,31). Антибиотики должны вводиться как можно скорее",
+     "expert_additions": [
+      "Целевой срок введения — в пределах 66 минут после травмы (основано на результатах исследования открытых переломов III типа большеберцовой кости)"
+     ],
+     "comment": "Ретроспективное исследование показало трёхкратное повышение риска глубокой инфекции при введении антибиотиков позже 66 минут после травмы. Клинические рекомендации подтверждают необходимость ранней антибиотикопрофилактики, хотя идеальный временной порог может варьироваться.",
+     "quality_criterion": "Системные антибиотики введены в сроки, фиксированные в медицинской документации с указанием времени травмы и времени введения препарата",
+     "used_card_ids": [
+      "ev_773e7fbda054",
+      "ev_6e1e23eba522"
+     ]
+    }
+   },
+   "pending_auto_update": false
+  },
+  {
+   "id": "rec_c3c4a17c40",
+   "section": "3.3",
+   "kind": "recommendation",
+   "subsection_title": "Антибактериальная профилактика при открытых переломах",
+   "statement": "Рекомендуется рассмотреть возможность ограничения профилактического введения антибиотиков одним днём вместо пяти дней пациентам с открытыми переломами дистального отдела костей предплечья с целью предотвращения необоснованного продления антибиотикотерапии при сохранении эффективности профилактики.",
+   "strength_phrase": "Рекомендуется рассмотреть возможность",
+   "body": "ограничения профилактического введения антибиотиков одним днём вместо пяти дней пациентам с открытыми переломами дистального отдела костей предплечья с целью предотвращения необоснованного продления антибиотикотерапии при сохранении эффективности профилактики",
+   "direction": "positive",
+   "intervention": {
+    "type": "therapeutic",
+    "scale_ref": "udd_treatment",
+    "action": "ограничение профилактического введения антибиотиков одним днём",
+    "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья",
+    "comparator": "профилактическое введение антибиотиков в течение пяти дней",
+    "outcome": "частота инфекционных осложнений, длительность антибиотикотерапии",
+    "mnn": null,
+    "atc_code": null
+   },
+   "evidence_backed_core": "Два исследования сообщили, что частота инфекции была сходна в группе одного дня и в группе пяти дней, что противоречит необходимости пятидневной профилактики",
+   "expert_additions": [
+    {
+     "claim": "Для открытых переломов I и II типов рекомендуемая длительность составляет 24–72 часа после закрытия раны",
+     "basis": "expert_consensus",
+     "refs": []
+    },
+    {
+     "claim": "Применимость к пациентам по теме КР (предплеч)",
+     "basis": "expert_consensus",
+     "refs": []
+    }
+   ],
+   "comment": "Два исследования продемонстрировали эквивалентность одного дня профилактики и пятидневного курса по частоте инфекции, что позволяет избежать ненужного продления антибиотикотерапии. Авторы явно выступают против пятидневной профилактики.",
+   "udd": null,
+   "uur": null,
+   "uur_preliminary": true,
+   "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+   "consensus": {
+    "agreement": "single",
+    "conflicting_refs": []
+   },
+   "quality_criterion": {
+    "is_criterion": true,
+    "criterion_text": "Профилактическое введение антибиотиков ограничено одним днём (или в соответствии с рекомендуемыми временными рамками 24–72 часа после закрытия раны при I–II типах переломов)",
+    "applicable_stage": "treatment",
+    "measurable": true,
+    "auto_eligible": false
+   },
+   "explicit_source_recommendation": false,
+   "expert_author": null,
+   "evidence_ids": [
+    "ev_bd0a6256aa7b"
+   ],
+   "status": "draft",
+   "provenance": "auto",
+   "merged_into": null,
+   "merged_from": [],
+   "review_flags": [
+    "Тезис предложен системой на основании результатов исследований (явной рекомендации авторов нет) — требуется решение эксперта",
+    "Часть доказательств — вторичное цитирование (пересказ других работ): УДД по ним не присваивается, нужен первоисточник",
+    "УДД не определён: дизайн источника неизвестен или источник — руководство/обзор",
+    "Положительный тезис при только отрицательных доказательствах",
+    "Доказательства косвенные: получены не на пациентах с темой КР — применимость к теме требует решения эксперта",
+    "Популяция тезиса подменена темой КР: в доказательствах нет упоминания «предплеч» — исправьте группу пациентов"
+   ],
+   "orphan": false,
+   "edited_by_expert": false,
+   "auto_value": {
+    "kr_section": "3.3",
+    "subsection_title": "Антибактериальная профилактика при открытых переломах",
+    "strength_phrase": "Рекомендуется рассмотреть возможность",
+    "body": "ограничения профилактического введения антибиотиков одним днём вместо пяти дней пациентам с открытыми переломами дистального отдела костей предплечья с целью предотвращения необоснованного продления антибиотикотерапии при сохранении эффективности профилактики",
+    "statement": "Рекомендуется рассмотреть возможность ограничения профилактического введения антибиотиков одним днём вместо пяти дней пациентам с открытыми переломами дистального отдела костей предплечья с целью предотвращения необоснованного продления антибиотикотерапии при сохранении эффективности профилактики.",
+    "direction": "positive",
+    "intervention": {
+     "type": "therapeutic",
+     "scale_ref": "udd_treatment",
+     "action": "ограничение профилактического введения антибиотиков одним днём",
+     "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья",
+     "comparator": "профилактическое введение антибиотиков в течение пяти дней",
+     "outcome": "частота инфекционных осложнений, длительность антибиотикотерапии",
+     "mnn": null,
+     "atc_code": null
+    },
+    "evidence_backed_core": "Два исследования сообщили, что частота инфекции была сходна в группе одного дня и в группе пяти дней, что противоречит необходимости пятидневной профилактики",
+    "expert_additions": [
+     {
+      "claim": "Для открытых переломов I и II типов рекомендуемая длительность составляет 24–72 часа после закрытия раны",
+      "basis": "expert_consensus",
+      "refs": []
+     },
+     {
+      "claim": "Применимость к пациентам по теме КР (предплеч)",
+      "basis": "expert_consensus",
+      "refs": []
+     }
+    ],
+    "comment": "Два исследования продемонстрировали эквивалентность одного дня профилактики и пятидневного курса по частоте инфекции, что позволяет избежать ненужного продления антибиотикотерапии. Авторы явно выступают против пятидневной профилактики.",
+    "udd": null,
+    "uur": null,
+    "uur_preliminary": true,
+    "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+    "consensus": {
+     "agreement": "single",
+     "conflicting_refs": []
+    },
+    "quality_criterion": {
+     "is_criterion": true,
+     "criterion_text": "Профилактическое введение антибиотиков ограничено одним днём (или в соответствии с рекомендуемыми временными рамками 24–72 часа после закрытия раны при I–II типах переломов)",
+     "applicable_stage": "treatment",
+     "measurable": true,
+     "auto_eligible": false
+    },
+    "explicit_source_recommendation": false,
+    "_synth": {
+     "cluster_id": "cl_2c0f337b8a",
+     "insufficient": false,
+     "body": "ограничение профилактического введения антибиотиков одним днём вместо пяти дней пациентам с открытыми переломами дистального отдела костей предплечья с целью предотвращения необоснованного продления антибиотикотерапии при сохранении эффективности профилактики",
+     "body_genitive": "ограничения профилактического введения антибиотиков одним днём вместо пяти дней пациентам с открытыми переломами дистального отдела костей предплечья с целью предотвращения необоснованного продления антибиотикотерапии при сохранении эффективности профилактики",
+     "direction": "positive",
+     "subsection_title": "Антибактериальная профилактика при открытых переломах",
+     "action": "ограничение профилактического введения антибиотиков одним днём",
+     "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья",
+     "comparator": "профилактическое введение антибиотиков в течение пяти дней",
+     "outcome": "частота инфекционных осложнений, длительность антибиотикотерапии",
+     "mnn": "",
+     "evidence_backed_core": "Два исследования сообщили, что частота инфекции была сходна в группе одного дня и в группе пяти дней, что противоречит необходимости пятидневной профилактики",
+     "expert_additions": [
+      "Для открытых переломов I и II типов рекомендуемая длительность составляет 24–72 часа после закрытия раны"
+     ],
+     "comment": "Два исследования продемонстрировали эквивалентность одного дня профилактики и пятидневного курса по частоте инфекции, что позволяет избежать ненужного продления антибиотикотерапии. Авторы явно выступают против пятидневной профилактики.",
+     "quality_criterion": "Профилактическое введение антибиотиков ограничено одним днём (или в соответствии с рекомендуемыми временными рамками 24–72 часа после закрытия раны при I–II типах переломов)",
+     "used_card_ids": [
+      "ev_bd0a6256aa7b"
+     ]
+    }
+   },
+   "pending_auto_update": false
+  },
+  {
+   "id": "rec_2c1be7b0f7",
+   "section": "3.3",
+   "kind": "recommendation",
+   "subsection_title": "Антибактериальная профилактика при открытых переломах",
+   "statement": "Рекомендуется введение системных антибиотиков в течение 24–72 часов после закрытия раны пациентам с открытыми переломами I и II типов дистального отдела костей предплечья с целью достижения адекватной профилактики инфекционных осложнений без необоснованного продления терапии.",
+   "strength_phrase": "Рекомендуется",
+   "body": "введение системных антибиотиков в течение 24–72 часов после закрытия раны пациентам с открытыми переломами I и II типов дистального отдела костей предплечья с целью достижения адекватной профилактики инфекционных осложнений без необоснованного продления терапии",
+   "direction": "positive",
+   "intervention": {
+    "type": "therapeutic",
+    "scale_ref": "udd_treatment",
+    "action": "введение системных антибиотиков на 24–72 часа после закрытия раны",
+    "target_population": "пациенты с открытыми переломами I и II типов дистального отдела костей предплечья",
+    "comparator": "отсутствие антибиотикопрофилактики или бесконечная терапия",
+    "outcome": "профилактика инфекционных осложнений, оптимальная длительность лечения",
+    "mnn": null,
+    "atc_code": null
+   },
+   "evidence_backed_core": "При открытых переломах I и II типов рекомендуется введение антибиотиков не менее чем на 24 часа после закрытия раны, но не превышая 72 часа",
+   "expert_additions": [
+    {
+     "claim": "Применимость к пациентам по теме КР (предплеч)",
+     "basis": "expert_consensus",
+     "refs": []
+    }
+   ],
+   "comment": "Источник даёт чёткие временные рамки для профилактической антибиотикотерапии при открытых переломах I–II типов, основанные на клиническом анализе имеющихся данных. Это рекомендация консенсуса в отсутствие больших рандомизированных исследований.",
+   "udd": null,
+   "uur": null,
+   "uur_preliminary": true,
+   "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+   "consensus": {
+    "agreement": "conflicting",
+    "conflicting_refs": [
+     "ev_60b20dc57d11",
+     "ev_d3a61fbf71b9"
+    ]
+   },
+   "quality_criterion": {
+    "is_criterion": true,
+    "criterion_text": "Зафиксирована дата и время закрытия раны; антибиотикотерапия продолжена на 24–72 часа после этого момента с документированием сроков введения и отмены препаратов",
+    "applicable_stage": "treatment",
+    "measurable": true,
+    "auto_eligible": false
+   },
+   "explicit_source_recommendation": true,
+   "expert_author": null,
+   "evidence_ids": [
+    "ev_60b20dc57d11"
+   ],
+   "status": "draft",
+   "provenance": "auto",
+   "merged_into": null,
+   "merged_from": [],
+   "review_flags": [
+    "УДД не определён: дизайн источника неизвестен или источник — руководство/обзор",
+    "Среди доказательств есть противоречия — см. вкладку «Противоречия»",
+    "Доказательства косвенные: получены не на пациентах с темой КР — применимость к теме требует решения эксперта",
+    "Популяция тезиса подменена темой КР: в доказательствах нет упоминания «предплеч» — исправьте группу пациентов"
+   ],
+   "orphan": false,
+   "edited_by_expert": false,
+   "auto_value": {
+    "kr_section": "3.3",
+    "subsection_title": "Антибактериальная профилактика при открытых переломах",
+    "strength_phrase": "Рекомендуется",
+    "body": "введение системных антибиотиков в течение 24–72 часов после закрытия раны пациентам с открытыми переломами I и II типов дистального отдела костей предплечья с целью достижения адекватной профилактики инфекционных осложнений без необоснованного продления терапии",
+    "statement": "Рекомендуется введение системных антибиотиков в течение 24–72 часов после закрытия раны пациентам с открытыми переломами I и II типов дистального отдела костей предплечья с целью достижения адекватной профилактики инфекционных осложнений без необоснованного продления терапии.",
+    "direction": "positive",
+    "intervention": {
+     "type": "therapeutic",
+     "scale_ref": "udd_treatment",
+     "action": "введение системных антибиотиков на 24–72 часа после закрытия раны",
+     "target_population": "пациенты с открытыми переломами I и II типов дистального отдела костей предплечья",
+     "comparator": "отсутствие антибиотикопрофилактики или бесконечная терапия",
+     "outcome": "профилактика инфекционных осложнений, оптимальная длительность лечения",
+     "mnn": null,
+     "atc_code": null
+    },
+    "evidence_backed_core": "При открытых переломах I и II типов рекомендуется введение антибиотиков не менее чем на 24 часа после закрытия раны, но не превышая 72 часа",
+    "expert_additions": [
+     {
+      "claim": "Применимость к пациентам по теме КР (предплеч)",
+      "basis": "expert_consensus",
+      "refs": []
+     }
+    ],
+    "comment": "Источник даёт чёткие временные рамки для профилактической антибиотикотерапии при открытых переломах I–II типов, основанные на клиническом анализе имеющихся данных. Это рекомендация консенсуса в отсутствие больших рандомизированных исследований.",
+    "udd": null,
+    "uur": null,
+    "uur_preliminary": true,
+    "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+    "consensus": {
+     "agreement": "conflicting",
+     "conflicting_refs": [
+      "ev_60b20dc57d11",
+      "ev_d3a61fbf71b9"
+     ]
+    },
+    "quality_criterion": {
+     "is_criterion": true,
+     "criterion_text": "Зафиксирована дата и время закрытия раны; антибиотикотерапия продолжена на 24–72 часа после этого момента с документированием сроков введения и отмены препаратов",
+     "applicable_stage": "treatment",
+     "measurable": true,
+     "auto_eligible": false
+    },
+    "explicit_source_recommendation": true,
+    "_synth": {
+     "cluster_id": "cl_2c1be7b0f7",
+     "insufficient": false,
+     "body": "введение системных антибиотиков в течение 24–72 часов после закрытия раны пациентам с открытыми переломами I и II типов дистального отдела костей предплечья с целью достижения адекватной профилактики инфекционных осложнений без необоснованного продления терапии",
+     "body_genitive": "введения системных антибиотиков в течение 24–72 часов после закрытия раны пациентам с открытыми переломами I и II типов дистального отдела костей предплечья с целью достижения адекватной профилактики инфекционных осложнений без необоснованного продления терапии",
+     "direction": "positive",
+     "subsection_title": "Антибактериальная профилактика при открытых переломах",
+     "action": "введение системных антибиотиков на 24–72 часа после закрытия раны",
+     "target_population": "пациенты с открытыми переломами I и II типов дистального отдела костей предплечья",
+     "comparator": "отсутствие антибиотикопрофилактики или бесконечная терапия",
+     "outcome": "профилактика инфекционных осложнений, оптимальная длительность лечения",
+     "mnn": "",
+     "evidence_backed_core": "При открытых переломах I и II типов рекомендуется введение антибиотиков не менее чем на 24 часа после закрытия раны, но не превышая 72 часа",
+     "expert_additions": [],
+     "comment": "Источник даёт чёткие временные рамки для профилактической антибиотикотерапии при открытых переломах I–II типов, основанные на клиническом анализе имеющихся данных. Это рекомендация консенсуса в отсутствие больших рандомизированных исследований.",
+     "quality_criterion": "Зафиксирована дата и время закрытия раны; антибиотикотерапия продолжена на 24–72 часа после этого момента с документированием сроков введения и отмены препаратов",
+     "used_card_ids": [
+      "ev_60b20dc57d11"
+     ]
+    }
+   },
+   "pending_auto_update": false
+  },
+  {
+   "id": "rec_26392cda44",
+   "section": "3.3",
+   "kind": "recommendation",
+   "subsection_title": "Антибактериальная профилактика при открытых переломах",
+   "statement": "Рекомендуется введение системных антибиотиков как можно скорее после травмы пациентам с открытыми переломами дистального отдела костей предплечья с целью снижения риска глубокой инфекции.",
+   "strength_phrase": "Рекомендуется",
+   "body": "введение системных антибиотиков как можно скорее после травмы пациентам с открытыми переломами дистального отдела костей предплечья с целью снижения риска глубокой инфекции",
+   "direction": "positive",
+   "intervention": {
+    "type": "therapeutic",
+    "scale_ref": "udd_treatment",
+    "action": "введение системных антибиотиков как можно скорее после травмы",
+    "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья",
+    "comparator": "задержанное введение антибиотиков",
+    "outcome": "снижение риска глубокой инфекции",
+    "mnn": null,
+    "atc_code": null
+   },
+   "evidence_backed_core": "В ретроспективном исследовании пациентов с открытыми переломами III типа введение антибиотиков более чем через 66 минут после травмы было значимо и независимо связано с глубокой инфекцией (ОШ 3,78, 95% ДИ 1,16–12,31). Антибиотики должны вводиться как можно скорее",
+   "expert_additions": [
+    {
+     "claim": "Целевой срок введения — в пределах 66 минут после травмы (основано на результатах исследования открытых переломов III типа большеберцовой кости)",
+     "basis": "expert_consensus",
+     "refs": []
+    },
+    {
+     "claim": "Применимость к пациентам по теме КР (предплеч)",
+     "basis": "expert_consensus",
+     "refs": []
+    }
+   ],
+   "comment": "Ретроспективное исследование показало трёхкратное повышение риска глубокой инфекции при введении антибиотиков позже 66 минут после травмы. Клинические рекомендации подтверждают необходимость ранней антибиотикопрофилактики, хотя идеальный временной порог может варьироваться.",
+   "udd": null,
+   "uur": null,
+   "uur_preliminary": true,
+   "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+   "consensus": {
+    "agreement": "single",
+    "conflicting_refs": []
+   },
+   "quality_criterion": {
+    "is_criterion": true,
+    "criterion_text": "Системные антибиотики введены в сроки, фиксированные в медицинской документации с указанием времени травмы и времени введения препарата",
+    "applicable_stage": "treatment",
+    "measurable": true,
+    "auto_eligible": false
+   },
+   "explicit_source_recommendation": true,
+   "expert_author": null,
+   "evidence_ids": [
+    "ev_773e7fbda054",
+    "ev_6e1e23eba522",
+    "ev_c27820d87b98",
+    "ev_0fcf63d98a46"
+   ],
+   "status": "draft",
+   "provenance": "auto",
+   "merged_into": null,
+   "merged_from": [
+    "rec_283c1815e8",
+    "rec_62999adda6"
+   ],
+   "review_flags": [
+    "Часть доказательств — вторичное цитирование (пересказ других работ): УДД по ним не присваивается, нужен первоисточник",
+    "УДД не определён: дизайн источника неизвестен или источник — руководство/обзор",
+    "Доказательства косвенные: получены не на пациентах с темой КР — применимость к теме требует решения эксперта",
+    "Популяция тезиса подменена темой КР: в доказательствах нет упоминания «предплеч» — исправьте группу пациентов",
+    "Объединено из 2 тезисов: Оба тезиса рекомендуют введение системных профилактических антибиотиков при открытых переломах костей с целью профилактики инфекции, различаются только формулировкой специфики введения"
+   ],
+   "orphan": false,
+   "edited_by_expert": false,
+   "auto_value": {
+    "kr_section": "3.3",
+    "subsection_title": "Антибактериальная профилактика при открытых переломах",
+    "strength_phrase": "Рекомендуется",
+    "body": "введение системных антибиотиков как можно скорее после травмы пациентам с открытыми переломами дистального отдела костей предплечья с целью снижения риска глубокой инфекции",
+    "statement": "Рекомендуется введение системных антибиотиков как можно скорее после травмы пациентам с открытыми переломами дистального отдела костей предплечья с целью снижения риска глубокой инфекции.",
+    "direction": "positive",
+    "intervention": {
+     "type": "therapeutic",
+     "scale_ref": "udd_treatment",
+     "action": "введение системных антибиотиков как можно скорее после травмы",
+     "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья",
+     "comparator": "задержанное введение антибиотиков",
+     "outcome": "снижение риска глубокой инфекции",
+     "mnn": null,
+     "atc_code": null
+    },
+    "evidence_backed_core": "В ретроспективном исследовании пациентов с открытыми переломами III типа введение антибиотиков более чем через 66 минут после травмы было значимо и независимо связано с глубокой инфекцией (ОШ 3,78, 95% ДИ 1,16–12,31). Антибиотики должны вводиться как можно скорее",
+    "expert_additions": [
+     {
+      "claim": "Целевой срок введения — в пределах 66 минут после травмы (основано на результатах исследования открытых переломов III типа большеберцовой кости)",
+      "basis": "expert_consensus",
+      "refs": []
+     },
+     {
+      "claim": "Применимость к пациентам по теме КР (предплеч)",
+      "basis": "expert_consensus",
+      "refs": []
+     }
+    ],
+    "comment": "Ретроспективное исследование показало трёхкратное повышение риска глубокой инфекции при введении антибиотиков позже 66 минут после травмы. Клинические рекомендации подтверждают необходимость ранней антибиотикопрофилактики, хотя идеальный временной порог может варьироваться.",
+    "udd": null,
+    "uur": null,
+    "uur_preliminary": true,
+    "grade_rationale": "УДД не определён; УУР — (предварительно): УДД источников не определён (дизайн неизвестен или это руководство) — УУР не предлагается; источников: 1",
+    "consensus": {
+     "agreement": "single",
+     "conflicting_refs": []
+    },
+    "quality_criterion": {
+     "is_criterion": true,
+     "criterion_text": "Системные антибиотики введены в сроки, фиксированные в медицинской документации с указанием времени травмы и времени введения препарата",
+     "applicable_stage": "treatment",
+     "measurable": true,
+     "auto_eligible": false
+    },
+    "explicit_source_recommendation": true,
+    "_synth": {
+     "cluster_id": "cl_283c1815e8",
+     "insufficient": false,
+     "body": "введение системных антибиотиков как можно скорее после травмы пациентам с открытыми переломами дистального отдела костей предплечья с целью снижения риска глубокой инфекции",
+     "body_genitive": "введения системных антибиотиков как можно скорее после травмы пациентам с открытыми переломами дистального отдела костей предплечья с целью снижения риска глубокой инфекции",
+     "direction": "positive",
+     "subsection_title": "Антибактериальная профилактика при открытых переломах",
+     "action": "введение системных антибиотиков как можно скорее после травмы",
+     "target_population": "пациенты с открытыми переломами дистального отдела костей предплечья",
+     "comparator": "задержанное введение антибиотиков",
+     "outcome": "снижение риска глубокой инфекции",
+     "mnn": "",
+     "evidence_backed_core": "В ретроспективном исследовании пациентов с открытыми переломами III типа введение антибиотиков более чем через 66 минут после травмы было значимо и независимо связано с глубокой инфекцией (ОШ 3,78, 95% ДИ 1,16–12,31). Антибиотики должны вводиться как можно скорее",
+     "expert_additions": [
+      "Целевой срок введения — в пределах 66 минут после травмы (основано на результатах исследования открытых переломов III типа большеберцовой кости)"
+     ],
+     "comment": "Ретроспективное исследование показало трёхкратное повышение риска глубокой инфекции при введении антибиотиков позже 66 минут после травмы. Клинические рекомендации подтверждают необходимость ранней антибиотикопрофилактики, хотя идеальный временной порог может варьироваться.",
+     "quality_criterion": "Системные антибиотики введены в сроки, фиксированные в медицинской документации с указанием времени травмы и времени введения препарата",
+     "used_card_ids": [
+      "ev_773e7fbda054",
+      "ev_6e1e23eba522"
+     ]
+    },
+    "merged_from": [
+     "rec_283c1815e8",
+     "rec_62999adda6"
+    ]
+   },
+   "pending_auto_update": false
+  }
+ ],
+ "conflicts": [
+  {
+   "id": "cf_a097358b18",
+   "card_ids": [
+    "ev_60b20dc57d11",
+    "ev_d3a61fbf71b9"
+   ],
+   "description": "Длительность профилактики: рекомендация 24–72 часа (ev_60b20dc57d11) vs. данные исследования о том, что однодневная профилактика не хуже (ev_d3a61fbf71b9)",
+   "kind": "numbers",
+   "status": "open",
+   "resolution": null,
+   "origin": "auto"
+  },
+  {
+   "id": "cf_1fcb3ca1d5",
+   "card_ids": [
+    "ev_97cc963b7563",
+    "ev_fd79e4fdbd4d"
+   ],
+   "description": "Рутинное использование ванкомицина: исследование не выявило различий (ev_97cc963b7563) vs. рекомендация против рутинного использования (ev_fd79e4fdbd4d)",
+   "kind": "direction",
+   "status": "open",
+   "resolution": null,
+   "origin": "auto"
+  },
+  {
+   "id": "cf_0926e05872",
+   "card_ids": [
+    "ev_b987b9403434",
+    "ev_5331e73d68ce"
+   ],
+   "description": "Нефротоксичность гентамицина: риск при дисфункции почек (ev_b987b9403434) vs. отсутствие увеличения частоты при нормальной функции почек (ev_5331e73d68ce)",
+   "kind": "population",
+   "status": "open",
+   "resolution": null,
+   "origin": "auto"
+  }
+ ],
+ "quality_criteria": [
+  {
+   "id": "qc_438f21a8e7",
+   "thesis_id": "rec_438f21a8e7",
+   "criterion_text": "Документировано введение цефалоспорина 1-го поколения при поступлении пациента с открытым переломом Gustilo I или II типа",
+   "applicable_stage": "treatment",
+   "auto_eligible": false,
+   "status": "requires_expert_review"
+  },
+  {
+   "id": "qc_8db9cf5927",
+   "thesis_id": "rec_8db9cf5927",
+   "criterion_text": "Прекращена антибиотикопрофилактика не позднее 72 часов после закрытия раны (документировано в истории болезни)",
+   "applicable_stage": "treatment",
+   "auto_eligible": false,
+   "status": "requires_expert_review"
+  },
+  {
+   "id": "qc_bb814c78fd",
+   "thesis_id": "rec_bb814c78fd",
+   "criterion_text": "Добавлен антибиотик с анаэробным покрытием при документированном факторе риска клостридиального загрязнения",
+   "applicable_stage": "treatment",
+   "auto_eligible": false,
+   "status": "requires_expert_review"
+  },
+  {
+   "id": "qc_ffaa45055f",
+   "thesis_id": "rec_ffaa45055f",
+   "criterion_text": "Документирована продолжительность антибиотикопрофилактики (до 72 часов или до 24 часов после закрытия мягких тканей) у пациента с открытым переломом III типа",
+   "applicable_stage": "treatment",
+   "auto_eligible": false,
+   "status": "requires_expert_review"
+  },
+  {
+   "id": "qc_05a5e48d40",
+   "thesis_id": "rec_05a5e48d40",
+   "criterion_text": "Рассмотрена возможность дополнительного покрытия против грамотрицательных организмов и обоснованы критерии его назначения",
+   "applicable_stage": "treatment",
+   "auto_eligible": false,
+   "status": "requires_expert_review"
+  },
+  {
+   "id": "qc_0926e05872",
+   "thesis_id": "rec_0926e05872",
+   "criterion_text": "Проведена оценка функции почек (креатинин, скорость клубочковой фильтрации или эквивалент) до начала антибиотикотерапии аминогликозидами",
+   "applicable_stage": "treatment",
+   "auto_eligible": false,
+   "status": "requires_expert_review"
+  },
+  {
+   "id": "qc_1fcb3ca1d5",
+   "thesis_id": "rec_1fcb3ca1d5",
+   "criterion_text": "Ванкомицин не назначен рутинно; при назначении обоснованы конкретные показания (например, аллергия на бета-лактамы или MRSA-инфекция)",
+   "applicable_stage": "treatment",
+   "auto_eligible": false,
+   "status": "requires_expert_review"
+  },
+  {
+   "id": "qc_c3c4a17c40",
+   "thesis_id": "rec_c3c4a17c40",
+   "criterion_text": "Профилактическое введение антибиотиков ограничено одним днём (или в соответствии с рекомендуемыми временными рамками 24–72 часа после закрытия раны при I–II типах переломов)",
+   "applicable_stage": "treatment",
+   "auto_eligible": false,
+   "status": "requires_expert_review"
+  },
+  {
+   "id": "qc_2c1be7b0f7",
+   "thesis_id": "rec_2c1be7b0f7",
+   "criterion_text": "Зафиксирована дата и время закрытия раны; антибиотикотерапия продолжена на 24–72 часа после этого момента с документированием сроков введения и отмены препаратов",
+   "applicable_stage": "treatment",
+   "auto_eligible": false,
+   "status": "requires_expert_review"
+  },
+  {
+   "id": "qc_26392cda44",
+   "thesis_id": "rec_26392cda44",
+   "criterion_text": "Системные антибиотики введены в сроки, фиксированные в медицинской документации с указанием времени травмы и времени введения препарата",
+   "applicable_stage": "treatment",
+   "auto_eligible": false,
+   "status": "requires_expert_review"
+  }
+ ],
+ "expert_edits": [],
+ "processing_report": {
+  "documents": [
+   {
+    "doc_id": "doc_a9b19f06d87a_202ef1",
+    "filename": "311.pdf",
+    "status": "done",
+    "detail": "фрагментов 1/1; карточек 18",
+    "duplicate_of": null,
+    "n_pages": 2,
+    "pages_processed": 2,
+    "coverage": 1.0,
+    "skipped_pages": []
+   }
+  ],
+  "llm_by_purpose": [
+   {
+    "purpose": "biblio",
+    "model": "claude-haiku-4-5",
+    "calls": 1,
+    "cache_hits": 1,
+    "errors": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cache_read_tokens": 0,
+    "cost_usd": 0.0,
+    "duration_ms": 0
+   },
+   {
+    "purpose": "cluster",
+    "model": "claude-haiku-4-5",
+    "calls": 1,
+    "cache_hits": 0,
+    "errors": 0,
+    "input_tokens": 4028,
+    "output_tokens": 1275,
+    "cache_read_tokens": 0,
+    "cost_usd": 0.024767,
+    "duration_ms": 14008
+   },
+   {
+    "purpose": "extract",
+    "model": "claude-haiku-4-5",
+    "calls": 1,
+    "cache_hits": 1,
+    "errors": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cache_read_tokens": 0,
+    "cost_usd": 0.0,
+    "duration_ms": 0
+   },
+   {
+    "purpose": "judge",
+    "model": "claude-haiku-4-5",
+    "calls": 2,
+    "cache_hits": 0,
+    "errors": 0,
+    "input_tokens": 15947,
+    "output_tokens": 2456,
+    "cache_read_tokens": 0,
+    "cost_usd": 0.053913,
+    "duration_ms": 28331
+   },
+   {
+    "purpose": "merge",
+    "model": "claude-haiku-4-5",
+    "calls": 1,
+    "cache_hits": 0,
+    "errors": 0,
+    "input_tokens": 4841,
+    "output_tokens": 558,
+    "cache_read_tokens": 0,
+    "cost_usd": 0.007631000000000001,
+    "duration_ms": 8102
+   },
+   {
+    "purpose": "synth",
+    "model": "claude-haiku-4-5",
+    "calls": 3,
+    "cache_hits": 0,
+    "errors": 0,
+    "input_tokens": 11522,
+    "output_tokens": 8178,
+    "cache_read_tokens": 0,
+    "cost_usd": 0.08924599999999999,
+    "duration_ms": 76434
+   }
+  ],
+  "llm_total": {
+   "calls": 9,
+   "cache_hits": 2,
+   "errors": 0,
+   "input_tokens": 36338,
+   "output_tokens": 12467,
+   "cost_usd": 0.175557,
+   "duration_ms": 126875
+  },
+  "runs": [
+   {
+    "id": "run_20261008_145621_f373",
+    "started_at": 1791435381.4744203,
+    "finished_at": null,
+    "status": "running",
+    "error": null,
+    "wall_s": 70.5,
+    "llm": {
+     "calls": 9,
+     "hits": 2,
+     "inp": 36338,
+     "outp": 12467,
+     "cost": 0.175557,
+     "errors": 0
+    },
+    "model": "claude-haiku-4-5"
+   }
+  ],
+  "card_status": {
+   "needs_review": 1,
+   "verified": 17
+  },
+  "duplicates_merged": 0,
+  "recent_errors": [],
+  "cost_note": "cost_usd — эквивалент по прейскуранту API, который сообщает Claude Agent SDK; фактически расходуются лимиты подписки Claude. Кэш-попадания стоят 0."
+ }
+}
