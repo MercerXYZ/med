@@ -2,7 +2,7 @@
 
 | Что | Где |
 |---|---|
-| Сайт | https://test.savkin.xyz (вход: `krgen` / пароль из nginx) |
+| Сайт | https://test.savkin.xyz (вход по паролю nginx, логин `root`) |
 | Код | `/opt/krgen` — клон этого репозитория, пользователь `krgen` |
 | Данные (база, кэш ответов модели, PDF, снимки) | `/var/lib/krgen` — вне репозитория, обновления кода их не трогают |
 | Программа | служба `krgen` (`krgen.service`), слушает 127.0.0.1:8765 |
@@ -36,6 +36,6 @@ krgen-set-token
 ```
 systemctl status krgen
 journalctl -u krgen -f
-htpasswd /etc/nginx/krgen.htpasswd krgen
+htpasswd /etc/nginx/krgen.htpasswd root
 ```
 Последняя команда меняет пароль на сайт.

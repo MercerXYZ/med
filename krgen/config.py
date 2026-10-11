@@ -40,8 +40,8 @@ def _default_cli() -> str | None:
 @dataclass
 class Settings:
     # --- LLM (Claude Agent SDK, авторизация подпиской Claude, не API-ключом) ---
-    model: str = os.environ.get("KRGEN_MODEL", "claude-haiku-4-5")
-    judge_model: str = os.environ.get("KRGEN_JUDGE_MODEL", "claude-haiku-4-5")
+    model: str = os.environ.get("KRGEN_MODEL", "claude-haiku-5-5")
+    judge_model: str = os.environ.get("KRGEN_JUDGE_MODEL", "claude-haiku-5-5")
     cli_path: str | None = field(default_factory=_default_cli)
     force_subscription: bool = True  # удаляет ANTHROPIC_API_KEY из окружения CLI
     concurrency: int = int(os.environ.get("KRGEN_CONCURRENCY", "4"))
