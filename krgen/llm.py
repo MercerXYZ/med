@@ -50,13 +50,9 @@ def reset_fault_counter() -> None:
     _calls_made = 0
 
 
-def _thinking(budget: int) -> dict:
-    return {"type": "enabled", "budget_tokens": max(1024, budget)} if budget else {"type": "disabled"}
-
-
-def _cache_key(model: str, purpose: str, system: str, prompt: str, schema: dict, budget: int) -> str:
+def _cache_key(model: str, purpose: str, system: str, prompt: str, schema: dict, effort: str) -> str:
     h = hashlib.sha256()
-    for part in (model, purpose, f"thinking={budget}", PROMPT_VERSIONS.get(purpose, "?"), system, prompt,
+    for part in (model, purpose, f"effort={effort}", PROMPT_VERSIONS.get(purpose, "?"), system, prompt,
                  json.dumps(schema, sort_keys=True)):
         h.update(part.encode("utf-8"))
         h.update(b"\x00")
@@ -93,7 +89,7 @@ def _parse_json(text: str | None):
             return None
 
 
-async def _sdk_call(model: str, system: str, prompt: str, schema: dict, budget: int):
+async def _sdk_call(model: str, system: str, prompt: str, schema: dict, effort: str):
     from claude_agent_sdk import ClaudeAgentOptions, ResultMessage, query
 
     if SETTINGS.force_subscription:
@@ -106,7 +102,7 @@ async def _sdk_call(model: str, system: str, prompt: str, schema: dict, budget: 
         setting_sources=[],
         max_turns=4,
         cli_path=SETTINGS.cli_path,
-        thinking=_thinking(budget),
+        effort=effort,
         output_format={"type": "json_schema", "schema": schema},
     )
     result = None
@@ -163,8 +159,8 @@ async def call_json(purpose: str, system: str, prompt: str, schema: dict, ctx: C
     """Структурированный вызов модели с кэшем, проверкой схемы, повторами и журналом."""
     global _calls_made
     model = model or SETTINGS.model
-    budget = SETTINGS.judge_thinking_budget if purpose == "judge" else SETTINGS.thinking_budget
-    key = _cache_key(model, purpose, system, prompt, schema, budget)
+    effort = SETTINGS.judge_effort if purpose == "judge" else SETTINGS.effort
+    key = _cache_key(model, purpose, system, prompt, schema, effort)
     cache_file = CACHE_DIR / f"{key}.json"
     if SETTINGS.use_cache and cache_file.exists():
         data = _read_cache(cache_file, schema)
@@ -189,7 +185,7 @@ async def call_json(purpose: str, system: str, prompt: str, schema: dict, ctx: C
                     raise LLMError(f"Тестовый сбой API: лимит {SETTINGS.fail_after_calls} запросов "
                                    f"исчерпан (KRGEN_FAIL_AFTER)")
                 data, usage, cost = await asyncio.wait_for(
-                    _sdk_call(model, system, prompt, schema, budget), timeout=SETTINGS.call_timeout_s)
+                    _sdk_call(model, system, prompt, schema, effort), timeout=SETTINGS.call_timeout_s)
                 bad = _validate(data, schema)
                 if bad:
                     _log(ctx, purpose, model, key, False, usage, cost, int((time.time() - t0) * 1000),

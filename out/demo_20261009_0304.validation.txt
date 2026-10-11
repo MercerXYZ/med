@@ -1,1 +1,0 @@
-OK: соответствует schemas/krgen_export.schema.json

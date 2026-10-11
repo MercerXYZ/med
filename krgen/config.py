@@ -48,11 +48,12 @@ class Settings:
     max_retries: int = 2
     call_timeout_s: int = 240
     use_cache: bool = True
-    # Бюджет размышлений (extended thinking). 0 — выключено. По умолчанию Haiku
-    # «думает» на 15–25 тыс. токенов на фрагмент (2–4 мин); для извлечения по
-    # жёсткой схеме это дорого. Влияние на качество — предмет эксперимента.
-    thinking_budget: int = int(os.environ.get("KRGEN_THINKING", "0"))
-    judge_thinking_budget: int = int(os.environ.get("KRGEN_JUDGE_THINKING", "0"))
+    # Уровень усилия (рассуждений) модели: low | medium | high. Haiku 5.5 рассуждения
+    # выключить не даёт; low — минимум рассуждений, самые быстрые и дешёвые ответы.
+    # Для извлечения по жёсткой схеме глубокие рассуждения дороги (на Haiku 4.5 —
+    # ×6 стоимости); влияние на качество — предмет эксперимента.
+    effort: str = os.environ.get("KRGEN_EFFORT", "low")
+    judge_effort: str = os.environ.get("KRGEN_JUDGE_EFFORT", "low")
 
     # --- Разбиение документов ---
     chunk_chars: int = 9000          # ~2 страницы статьи на один запрос

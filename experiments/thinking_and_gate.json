@@ -1,6 +1,6 @@
 {
   "name": "thinking_and_gate",
-  "question": "1) Повышает ли фильтр верификации (только verified) точность принятых карточек и какой ценой по полноте? 2) Улучшает ли extended thinking извлечение настолько, чтобы оправдать ~6-кратный рост стоимости?",
+  "question": "1) Повышает ли фильтр верификации (только verified) точность принятых карточек и какой ценой по полноте? 2) Улучшает ли более глубокое рассуждение модели (effort medium против low) извлечение настолько, чтобы оправдать рост стоимости?",
   "gold": "gold/example_gold_p1.json",
   "docs": [
     "Статьи Разбор клинреков/Caruso_и_др_2019_Below_elbow_or_above_elbow_cast_for_conservative.pdf",
@@ -12,7 +12,7 @@
   "repeats": 1,
   "use_cache": true,
   "variants": [
-    {"id": "think0", "settings": {"thinking_budget": 0}},
-    {"id": "think4k", "settings": {"thinking_budget": 4096}}
+    {"id": "effort_low", "settings": {"effort": "low"}},
+    {"id": "effort_medium", "settings": {"effort": "medium"}}
   ]
 }

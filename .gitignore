@@ -8,3 +8,8 @@ data/krgen.sqlite-wal
 Клинические рекомендации/
 data/uploads/
 .gitattributes
+# рабочие данные и выгрузки (создаются программой); старое демо — в *_demo_backup
+data/
+out/
+data_demo_backup/
+out_demo_backup/

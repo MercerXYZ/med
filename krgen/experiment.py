@@ -6,12 +6,12 @@
 карточек (all / reviewable / verified) считаются внутри evaluate без новых
 вызовов модели.
 
-  python -m krgen.experiment experiments/thinking_vs_gate.json
+  python -m krgen.experiment experiments/thinking_and_gate.json
 Спецификация:
   {"name": "...", "question": "...", "gold": "gold/x.json", "docs": ["path.pdf", ...],
    "project": {"title": "...", "age": "mixed", "icd": ["S52.5"], "org": "..."},
    "repeats": 1, "use_cache": true,
-   "variants": [{"id": "think0", "settings": {"thinking_budget": 0}}, ...]}
+   "variants": [{"id": "think0", "settings": {"effort": "low"}}, ...]}
 """
 from __future__ import annotations
 
