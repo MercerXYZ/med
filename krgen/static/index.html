@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>KRGen</title>
+<link rel="stylesheet" href="/static/style.css?v=8">
+</head>
+<body>
+<header class="top">
+  <div class="top-row">
+    <a class="brand" href="#/">KRGen</a>
+    <div class="proj">
+      <select id="projectSel" aria-label="Проект" hidden></select>
+      <button class="btn ghost" type="button" data-act="newProject">Новый проект</button>
+    </div>
+    <div class="top-right">
+      <a id="runInd" class="run-ind" hidden></a>
+      <button id="runBtn" class="btn primary" type="button" data-act="run" hidden>Обработать</button>
+      <a id="historyLink" class="nav-link" hidden>История</a>
+    </div>
+  </div>
+  <nav id="tabs" class="tabs" aria-label="Шаги" hidden>
+    <a data-tab="pdf"><span class="step">1</span><span>Документы</span></a>
+    <a data-tab="facts"><span class="step">2</span><span>Факты</span></a>
+    <a data-tab="groups"><span class="step">3</span><span>Группы<span class="wide"> и противоречия</span></span></a>
+    <a data-tab="kr"><span class="step">4</span><span><span class="wide">Клиническая рекомендация</span><span class="narrow">КР</span></span></a>
+  </nav>
+</header>
+
+<main id="main" class="main"></main>
+
+<dialog id="projDlg" class="dlg" aria-labelledby="projDlgTitle">
+  <form id="projForm" novalidate>
+    <h2 id="projDlgTitle">Новый проект</h2>
+    <label class="field"><span>Тема</span>
+      <input name="title" value="Переломы дистального отдела костей предплечья" autocomplete="off"></label>
+    <label class="field"><span>Возрастная группа</span>
+      <select name="age_category">
+        <option value="mixed">Взрослые и дети</option>
+        <option value="adults">Взрослые</option>
+        <option value="children">Дети</option>
+      </select></label>
+    <label class="field"><span>Коды МКБ-10</span>
+      <input name="icd" value="S52.5, S52.6, S52.8" autocomplete="off"><small>через запятую</small></label>
+    <label class="field"><span>Организация-разработчик</span>
+      <input name="org" autocomplete="off"></label>
+    <p class="form-error" hidden></p>
+    <div class="dlg-actions">
+      <button class="btn ghost" type="button" data-act="closeDlg">Отмена</button>
+      <button class="btn primary" type="submit">Создать</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="thesisDlg" class="dlg" aria-labelledby="thesisDlgTitle">
+  <form id="thesisForm" novalidate>
+    <h2 id="thesisDlgTitle">Новый тезис</h2>
+    <label class="field"><span>Раздел</span><select name="section"></select></label>
+    <label class="field"><span>Вводная фраза</span>
+      <select name="phrase">
+        <option>Рекомендуется</option>
+        <option>Рекомендуется рассмотреть возможность</option>
+        <option>Не рекомендуется</option>
+        <option>Не рекомендуется рассматривать</option>
+        <option value="">Без вводной фразы</option>
+      </select></label>
+    <label class="field"><span>Текст</span><textarea name="body" rows="4"></textarea></label>
+    <label class="field"><span>Комментарий</span><input name="comment" autocomplete="off"></label>
+    <p class="form-error" hidden></p>
+    <div class="dlg-actions">
+      <button class="btn ghost" type="button" data-act="closeDlg">Отмена</button>
+      <button class="btn primary" type="submit">Добавить</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="/static/app.js?v=8"></script>
+</body>
+</html>

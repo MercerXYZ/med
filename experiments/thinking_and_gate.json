@@ -1,0 +1,18 @@
+{
+  "name": "thinking_and_gate",
+  "question": "1) Повышает ли фильтр верификации (только verified) точность принятых карточек и какой ценой по полноте? 2) Улучшает ли более глубокое рассуждение модели (effort medium против low) извлечение настолько, чтобы оправдать рост стоимости?",
+  "gold": "gold/example_gold_p1.json",
+  "docs": [
+    "Статьи Разбор клинреков/Caruso_и_др_2019_Below_elbow_or_above_elbow_cast_for_conservative.pdf",
+    "Статьи Разбор клинреков/crawford2012.pdf",
+    "Статьи Разбор клинреков/Firth_и_Robertson_2017_Treatment_of_distal_radius_metaphyseal_fractures.pdf"
+  ],
+  "project": {"title": "Переломы дистального отдела костей предплечья", "age": "mixed",
+              "icd": ["S52.5", "S52.6", "S52.8"], "org": "АТОР"},
+  "repeats": 1,
+  "use_cache": true,
+  "variants": [
+    {"id": "effort_low", "settings": {"effort": "low"}},
+    {"id": "effort_medium", "settings": {"effort": "medium"}}
+  ]
+}

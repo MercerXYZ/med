@@ -1,0 +1,10 @@
+[Unit]
+Description=KRGen: проверка обновлений на GitHub раз в минуту
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1min
+Unit=krgen-sync.service
+
+[Install]
+WantedBy=timers.target

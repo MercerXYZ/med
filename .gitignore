@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+# служебные файлы SQLite (содержимое уже в krgen.sqlite)
+data/krgen.sqlite-shm
+data/krgen.sqlite-wal
+# документы (статьи, КР, загруженные PDF) в репозиторий не кладём
+Статьи Разбор клинреков/
+Клинические рекомендации/
+data/uploads/
+.gitattributes
+# рабочие данные и выгрузки (создаются программой); старое демо — в *_demo_backup
+data/
+out/
+data_demo_backup/
+out_demo_backup/
+.claude/
