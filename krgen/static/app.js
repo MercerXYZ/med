@@ -29,6 +29,8 @@ const SECTIONS = [
   ["7", "Дополнительная информация"],
 ];
 const SECTION_TITLE = Object.fromEntries(SECTIONS);
+const UNASSIGNED = ["none", "Категория не определена"];
+const SECTION_OPTS = [...SECTIONS.map(([k, t]) => [k, `${k} ${t}`]), UNASSIGNED];
 const NARRATIVE = new Set(["1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "7"]);
 
 const FACT_STATE = {
@@ -57,6 +59,7 @@ const STAGE = {
   keywords: "Ключевые слова",
   extract: "Извлечение фактов",
   verify: "Проверка фактов",
+  classify: "Разделы КР",
   group: "Группировка",
   resolve: "Противоречия",
   kr: "Сборка КР",
@@ -175,7 +178,7 @@ function plural(n, one, few, many) {
 }
 const count = (n, one, few, many) => `${n} ${plural(n, one, few, many)}`;
 const short = (s, n) => { const t = String(s ?? ""); return t.length > n ? t.slice(0, n - 1) + "…" : t; };
-const secLabel = (k) => (k ? `${k} ${SECTION_TITLE[k] || ""}`.trim() : "");
+const secLabel = (k) => (k === UNASSIGNED[0] ? UNASSIGNED[1] : k ? `${k} ${SECTION_TITLE[k] || ""}`.trim() : "");
 const stageLabel = (s) => STAGE[s] || s || "";
 const numFmt = (v) => (v == null ? null : Number(v).toLocaleString("ru"));
 const money = (v) => (v == null || isNaN(v) ? null : `$${Number(v).toFixed(2)}`);
@@ -626,7 +629,7 @@ function factsLayout() {
     ${headHtml("Факты", "", ` <span class="count" id="factsCount"></span>`)}
     <div class="filters">
       <select id="fStatus" aria-label="Статус">${optionsHtml(FACT_FILTERS, f.status, "Все статусы")}</select>
-      <select id="fSection" aria-label="Раздел КР">${optionsHtml(SECTIONS.map(([k, t]) => [k, `${k} ${t}`]), f.section, "Все разделы")}</select>
+      <select id="fSection" aria-label="Раздел КР">${optionsHtml(SECTION_OPTS, f.section, "Все разделы")}</select>
       <select id="fDoc" aria-label="Документ">${docOptions(f.doc)}</select>
       <input id="fQ" type="search" placeholder="Поиск по тексту" value="${esc(f.q)}" aria-label="Поиск">
     </div>
@@ -707,7 +710,7 @@ function drawFactList() {
 }
 
 function factRow(f) {
-  const meta = [f.section && `раздел ${f.section}`, f.filename, f.page && `с. ${f.page}`].filter(Boolean).join(" · ");
+  const meta = [f.section && (f.section === UNASSIGNED[0] ? UNASSIGNED[1].toLowerCase() : `раздел ${f.section}`), f.filename, f.page && `с. ${f.page}`].filter(Boolean).join(" · ");
   return `<li><a class="fact-row" href="${esc(link("facts", f.id))}" data-fid="${esc(f.id)}">
     ${factPill(f.user_status || f.status)}
     <span class="fact-text">${esc(f.statement)}</span>
@@ -811,7 +814,7 @@ function factHtml(f) {
     <h3>Проверки</h3>
     ${checksHtml(f)}
     ${factDetailsHtml(f)}
-    ${f.group_id ? `<p class="group-link"><a href="${esc(link("groups"))}" data-act="openGroup" data-id="${esc(f.group_id)}">Группа этого факта ›</a></p>` : ""}`;
+    ${f.group_id ? `<p class="group-link"><a href="${esc(link("groups", f.group_id))}" data-act="openGroup" data-id="${esc(f.group_id)}">Группа этого факта ›</a></p>` : ""}`;
 }
 
 function factPendingHtml(f) {
@@ -863,7 +866,7 @@ function factFormHtml(f) {
     ${field("Формулировка", `<textarea name="statement_ru" rows="3">${esc(f.statement)}</textarea>`)}
     ${field("Цитата", `<textarea name="quote" rows="3">${esc(f.quote)}</textarea>`)}
     <div class="grid2">
-      ${field("Раздел КР", `<select name="kr_section">${optionsHtml(SECTIONS.map(([k, t]) => [k, `${k} ${t}`]), f.section)}</select>`)}
+      ${field("Раздел КР", `<select name="kr_section">${optionsHtml(SECTION_OPTS, f.section)}</select>`)}
       ${field("Страница", `<input name="page" type="number" min="1" value="${esc(f.page ?? "")}">`)}
       ${field("Тип", sel("claim_type", CLAIM, f.claim_type))}
       ${field("Направление", sel("polarity", POLARITY, f.polarity))}
@@ -947,6 +950,7 @@ function applyFact(full) {
 
 async function viewGroups(r, seq) {
   S.view = "groups";
+  if (r.id) S.focusGroup = r.id;
   setMain(`<section class="view">
     ${headHtml("Группы и противоречия", "Похожие факты собраны в группы. Противоречия нужно решить до сборки КР.")}
     <div id="krHint"></div>
@@ -1053,12 +1057,18 @@ function groupsHtml(data) {
   const secs = (data?.sections || []).filter((s) => (s.groups || []).length);
   S.groups = new Map();
   secs.forEach((s) => s.groups.forEach((g) => S.groups.set(g.id, g)));
-  if (!secs.length) return emptyHtml("Групп пока нет", "Они появятся после обработки документов.");
+  const un = data?.unassigned || [];
+  if (!secs.length && !un.length) return emptyHtml("Групп пока нет", "Они появятся после обработки документов.");
   return secs.map((s) => `<section class="gsec">
     <div class="gsec-head"><h2>${esc(`${s.section} ${s.title}`)}</h2>
       <span class="muted small">${count(s.groups.length, "группа", "группы", "групп")}</span></div>
     <div class="groups">${s.groups.map(groupHtml).join("")}</div>
-  </section>`).join("");
+  </section>`).join("") + (un.length ? `<section class="gsec">
+    <div class="gsec-head"><h2>${esc(UNASSIGNED[1])}</h2>
+      <span class="muted small">${count(un.length, "факт", "факта", "фактов")} · в КР не входят</span></div>
+    <p class="muted small">Раздел КР для этих фактов не определён. Чтобы факт попал в КР, укажите раздел у факта.</p>
+    <ul class="unassigned">${un.map(groupFactHtml).join("")}</ul>
+  </section>` : "");
 }
 
 function groupHtml(g) {
@@ -1261,7 +1271,14 @@ function krItemHtml(it) {
     ${it.comment ? `<p class="kr-comment"><span class="muted">Комментарий:</span> ${esc(it.comment)}</p>` : ""}
     ${marks ? `<div class="kr-marks">${marks}</div>` : ""}
     ${flags.length ? `<ul class="kr-flags">${flags.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}
+    ${groupLinksHtml(it.group_ids)}
   </div>`;
+}
+
+function groupLinksHtml(ids) {
+  if (!ids || !ids.length) return "";
+  const one = ids.length === 1;
+  return `<p class="kr-src">${ids.map((g, i) => `<a href="${esc(link("groups", g))}" data-act="openGroup" data-id="${esc(g)}">${one ? "Группа фактов" : `Группа фактов ${i + 1}`} ›</a>`).join("")}</p>`;
 }
 
 function textWithRefs(text, refs) {
@@ -1652,7 +1669,7 @@ const ACT = {
   factStatus: (el) => setFactStatus(el.dataset.id, el.dataset.status || null),
   factPending: (el) => factPending(el),
   toggleFactEdit: () => toggleFactEdit(),
-  openGroup: (el) => { S.focusGroup = el.dataset.id; go(link("groups")); },
+  openGroup: (el) => { S.focusGroup = el.dataset.id; go(link("groups", el.dataset.id)); },
   decide: (el) => decide(el),
   editGroup: (el) => editGroup(el),
   saveGroup: (el) => saveGroup(el),

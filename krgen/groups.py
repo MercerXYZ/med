@@ -32,7 +32,7 @@ def live_facts(project_id: str) -> dict[str, dict]:
         doc = docs.get(r["doc_id"]) or {}
         c = db.effective(r)
         if st not in ("verified", "confirmed") or doc.get("status") == "duplicate" \
-                or c.get("topic_relevance") == "none":
+                or c.get("topic_relevance") == "none" or c.get("kr_section") == P.UNASSIGNED:
             continue
         b = doc.get("biblio") or {}
         c.update(_id=r["id"], _doc=r["doc_id"], _status=st, _src=source_key(r["doc_id"], b),

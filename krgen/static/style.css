@@ -718,3 +718,6 @@ input:focus, select:focus, textarea:focus {
   .run-ind .run-text { max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .table td, .table th { padding: 10px; }
 }
+
+.kr-src { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 6px 0 0; font-size: 13px; }
+.unassigned { display: grid; gap: 6px; margin: 10px 0 0; padding-left: 18px; font-size: 14px; }

@@ -72,6 +72,7 @@ CREATE TABLE IF NOT EXISTS runs(
 MIGRATIONS = [
     "ALTER TABLE theses ADD COLUMN merged_into TEXT",
     "ALTER TABLE cards ADD COLUMN merge_lock TEXT",
+    "ALTER TABLE cards ADD COLUMN cls_section TEXT",  # раздел от отдельного запроса классификации
     "UPDATE cards SET merge_lock=user_status, user_status=NULL WHERE user_status IN ('merged','unmerged')",
     "CREATE INDEX IF NOT EXISTS ix_cards_project ON cards(project_id)",
     "CREATE INDEX IF NOT EXISTS ix_cards_doc ON cards(doc_id)",
@@ -195,5 +196,7 @@ def log_edit(project_id: str, entity: str, entity_id: str, action: str,
 
 def effective(row: dict) -> dict:
     out = dict(row.get("auto") or {})
+    if row.get("cls_section"):
+        out["kr_section"] = row["cls_section"]
     out.update(row.get("override") or {})
     return out

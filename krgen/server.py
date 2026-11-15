@@ -436,9 +436,20 @@ def groups(pid: str):
     for row in db.q("SELECT * FROM clusters WHERE project_id=?", [pid]):
         g = _group_out(row, ctx)
         by_sec.setdefault(g["section"], []).append(g)
+    unassigned = []
+    dup = {r["id"] for r in db.q("SELECT id FROM documents WHERE project_id=? AND status='duplicate'", [pid])}
+    for r in ctx["cards"].values():
+        c = db.effective(r)
+        if c.get("kr_section") != P.UNASSIGNED or r.get("user_status") == "rejected" or r["doc_id"] in dup:
+            continue
+        d = ctx["docs"].get(r["doc_id"]) or {}
+        unassigned.append(dict(id=r["id"], statement=c.get("statement_ru") or "", filename=d.get("filename"),
+                               page=_page(r, c), status=export.fact_status(r)))
+    unassigned.sort(key=lambda f: (f["filename"] or "", f["page"] if isinstance(f["page"], int) else 0, f["id"]))
     return dict(sections=[dict(section=s, title=P.SECTIONS.get(s, s),
                                groups=sorted(gs, key=lambda g: (-g["n_facts"], g["id"])))
-                          for s, gs in sorted(by_sec.items(), key=lambda x: _section_order(x[0]))])
+                          for s, gs in sorted(by_sec.items(), key=lambda x: _section_order(x[0]))],
+                unassigned=unassigned, unassigned_title=P.UNASSIGNED_TITLE)
 
 
 @app.patch("/api/groups/{gid}")

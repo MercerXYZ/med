@@ -216,7 +216,9 @@ def narrative_markers(project_id: str, thesis_id: str, text: str) -> str:
 def kr_model(project_id: str, include_rejected: bool = False) -> dict:
     """КР как документ: разделы 103н с тезисами и абзацами, литература, критерии качества."""
     p = _project(project_id)
-    facts = {fact_id(f): f for fs in kr_evidence(project_id).values() for f in fs}
+    evidence = kr_evidence(project_id)
+    facts = {fact_id(f): f for fs in evidence.values() for f in fs}
+    fact_group = {fact_id(f): gid for gid, fs in evidence.items() for f in fs}
     card_doc = {r["id"]: r["doc_id"] for r in db.q("SELECT id, doc_id FROM cards WHERE project_id=?", [project_id])}
     docs = {d["id"]: d for d in db.q("SELECT id, filename, biblio FROM documents WHERE project_id=?", [project_id])}
 
@@ -249,7 +251,9 @@ def kr_model(project_id: str, include_rejected: bool = False) -> dict:
     def item(r: dict, t: dict, ids: list[str]) -> dict:
         rejected = r["status"] == "rejected"  # виден только в окне 4; без ссылок, нумерация как в Word
         cit = (lambda _: []) if rejected else cite
-        common = dict(id=r["id"], section=r.get("section"), fact_ids=ids, flags=list(r.get("review_flags") or []),
+        gids = [g for g in [r.get("cluster_id"), *(fact_group.get(i) for i in ids)] if g]
+        common = dict(id=r["id"], section=r.get("section"), fact_ids=ids, group_ids=list(dict.fromkeys(gids)),
+                      flags=list(r.get("review_flags") or []),
                       edited=bool(r.get("override")), status=r["status"], pending=bool(r.get("pending_auto")),
                       provenance=r.get("provenance"))
         if t.get("kind") == "narrative":

@@ -10,6 +10,7 @@ import traceback
 import uuid
 
 from . import db
+from .classify import classify_project
 from .config import SETTINGS
 from .extract import ensure_keywords, extract_biblio, extract_document
 from .groups import group_project
@@ -19,7 +20,7 @@ from .resolve import resolve_project
 from .synth import build_kr
 from .verify import verify_cards
 
-STAGES = ["keywords", "extract", "verify", "group", "resolve", "kr"]
+STAGES = ["keywords", "extract", "verify", "classify", "group", "resolve", "kr"]
 ALIVE_WINDOW = 300
 _running: dict[str, asyncio.Task] = {}
 _live: set[str] = set()  # run_id прогонов этого процесса
@@ -212,6 +213,8 @@ def _open_run(project_id: str) -> str:
 async def run_project(project_id: str, doc_ids: list[str] | None = None, only_failed: bool = False,
                       stages: list[str] | None = None, use_judge: bool = True, run_id: str | None = None) -> str:
     stages = _check_stages(stages)
+    if not db.q1("SELECT 1 FROM projects WHERE id=?", [project_id]):
+        raise ValueError(f"Проект не найден: {project_id}")
     run_id = run_id or _open_run(project_id)
     reset_fault_counter()
     ctx = CallCtx(project_id=project_id, run_id=run_id)
@@ -230,6 +233,9 @@ async def run_project(project_id: str, doc_ids: list[str] | None = None, only_fa
         if "verify" in stages:
             _progress(run_id, "verify", msg="Проверка фактов")
             await verify_cards(project_id, ctx, use_judge=use_judge)
+        if "classify" in stages:
+            _progress(run_id, "classify", msg="Определение разделов КР")
+            await classify_project(db.q1("SELECT * FROM projects WHERE id=?", [project_id]), ctx)
         if "group" in stages:
             _progress(run_id, "group", msg="Группировка фактов")
             await group_project(project_id, ctx)

@@ -20,6 +20,7 @@ PROMPT_VERSIONS = {
     "keywords": "k2",
     "extract": "e7",
     "judge": "j6",
+    "classify": "cl1",
     "group": "gr2",
     "group_merge": "gm2",
     "synth": "s11",

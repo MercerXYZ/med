@@ -135,6 +135,11 @@ def _opposite(k1: tuple, k2: tuple) -> bool:
     return k1[0] == k2[0] and k1[2] == k2[2] and {k1[1], k2[1]} == {"positive", "negative"}
 
 
+def a_classify(prompt):
+    return {"results": [dict(id=it["id"], section=SPEC[it["statement"]][0])
+                        for it in _json_after(prompt, "Факты:\n") if it["statement"] in SPEC]}
+
+
 def a_group(prompt):
     buckets: dict[tuple, list[str]] = {}
     for it in _json_after(prompt, "Факты:\n"):
@@ -189,7 +194,7 @@ def a_narrative(prompt):
     return {"paragraphs": paras}
 
 
-ANSWERS = dict(keywords=a_keywords, biblio=a_biblio, extract=a_extract, judge=a_judge, group=a_group,
+ANSWERS = dict(keywords=a_keywords, biblio=a_biblio, extract=a_extract, judge=a_judge, classify=a_classify, group=a_group,
                group_merge=a_group_merge, synth=a_synth, narrative=a_narrative)
 
 
@@ -214,7 +219,7 @@ def patch_model():
     llm._sdk_call = no_sdk
     llm.call_json = fake_call_json
     import importlib
-    for name in ("extract", "verify", "groups", "synth", "pipeline", "server"):
+    for name in ("extract", "verify", "classify", "groups", "synth", "pipeline", "server"):
         importlib.import_module("krgen." + name)
     for name, mod in list(sys.modules.items()):
         if name.startswith("krgen.") and hasattr(mod, "call_json"):
@@ -707,6 +712,29 @@ def no_disclaimers() -> None:
     check("нет дисклеймеров", not bad, bad)
 
 
+def part_sections(pid: str) -> None:
+    from fastapi.testclient import TestClient
+    from krgen import groups, pipeline, server
+    with TestClient(server.app) as c:
+        kr = c.get(f"/api/projects/{pid}/kr").json()
+        items = [it for s in kr["sections"] for it in s["items"] if it.get("id") and it.get("provenance") != "manual"]
+        check("пункты КР ссылаются на группы", items and all(it.get("group_ids") for it in items),
+              [it["id"] for it in items if not it.get("group_ids")])
+        known = {g["id"] for s in c.get(f"/api/projects/{pid}/groups").json()["sections"] for g in s["groups"]}
+        check("ссылки КР ведут на существующие группы", all(g in known for it in items for g in it["group_ids"]))
+        live = groups.live_facts(pid)
+        fid = sorted(live)[0]
+        db.update("cards", fid, cls_section=P.UNASSIGNED)
+        check("факт без раздела не идёт в группы", fid not in groups.live_facts(pid))
+        asyncio.run(pipeline.run_project(pid, stages=server.RUN_STAGES["kr"]))
+        g = c.get(f"/api/projects/{pid}/groups").json()
+        check("факт без раздела показан отдельно", fid in {f["id"] for f in g["unassigned"]}, g.get("unassigned"))
+        in_groups = {f["id"] for s in g["sections"] for gr in s["groups"] for f in gr["facts"]}
+        check("факт без раздела убран из групп", fid not in in_groups)
+        f = c.get(f"/api/facts/{fid}").json()
+        check("раздел факта — none", f["section"] == P.UNASSIGNED, f["section"])
+
+
 def main() -> int:
     if not all(f.exists() for f in PDFS):
         print("Нет тестовых PDF:", [str(f) for f in PDFS if not f.exists()])
@@ -718,6 +746,7 @@ def main() -> int:
         pid = part_pipeline()
         part_api(pid)
         part_regressions(pid)
+        part_sections(pid)
         no_disclaimers()
     except Exception:  # noqa: BLE001 — падение теста тоже результат
         import traceback

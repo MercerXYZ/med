@@ -21,7 +21,7 @@ python -m krgen.server
 |---|---|
 | `init --title "…" --icd S52.5 S52.6 [--age adults\|children\|mixed] [--org "…"] [--id myproj]` | создать проект, печатает его id. По умолчанию `--age mixed` |
 | `add <проект> файл1.pdf файл2.pdf …` | загрузить PDF; для каждого печатает id, статус и число страниц |
-| `run <проект>` | все этапы: keywords, extract, verify, group, resolve, kr |
+| `run <проект>` | все этапы: keywords, extract, verify, classify, group, resolve, kr |
 | `run <проект> --stages group resolve kr` | только сборка КР (как «Собрать КР заново») |
 | `run <проект> --only-failed` | повторить только фрагменты, которые не обработались |
 | `run <проект> --docs <id> <id>` | извлекать факты только из указанных документов |
