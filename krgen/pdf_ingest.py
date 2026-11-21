@@ -66,8 +66,12 @@ def add_document(project_id: str, src: Path, original_name: str | None = None) -
                created_at=now, updated_at=now)
     try:
         pdf = pymupdf.open(dest)
-    except Exception as e:  # битый/зашифрованный файл
-        row.update(status="error", status_detail=f"Не удалось открыть PDF: {e}")
+    except Exception as e:  # noqa: BLE001 — битый файл
+        pdf, error = None, f"Не удалось открыть PDF: {e}"
+    else:
+        error = "PDF защищён паролем" if pdf.needs_pass else None
+    if error:
+        row.update(status="error", status_detail=error)
         db.upsert("documents", row)
         return row
 
@@ -85,7 +89,7 @@ def add_document(project_id: str, src: Path, original_name: str | None = None) -
     db.upsert("documents", row)
 
     in_refs = False
-    for i, (page, text) in enumerate(zip(pdf, texts), start=1):
+    for i, text in enumerate(texts, start=1):
         chars = len(text.strip())
         kind, reason = "body", ""
         m = REF_HEADING.search(text)
@@ -99,13 +103,8 @@ def add_document(project_id: str, src: Path, original_name: str | None = None) -
             # литература начинается посреди страницы: текст до заголовка — тело
             in_refs = True
             text = text[: m.start()]
-        try:
-            label = page.get_label() or ""
-        except Exception:
-            label = ""
         db.upsert("pages", dict(doc_id=doc_id, page_no=i, chars=chars, kind=kind, relevance=0.0,
-                                printed_label=label, status="pending", reason=reason, text=text),
-                  key=("doc_id", "page_no"))
+                                status="pending", reason=reason, text=text), key=("doc_id", "page_no"))
     if row["status"] != "duplicate":
         body = db.q1("SELECT COUNT(*) n FROM pages WHERE doc_id=? AND kind='body'", [doc_id])["n"]
         if body == 0:

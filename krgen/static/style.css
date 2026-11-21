@@ -541,9 +541,6 @@ input:focus, select:focus, textarea:focus {
 
 .kr-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 16px; }
 .kr-exports { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
-.schema-state { font-size: 12.5px; color: var(--muted); }
-.schema-state.ok { color: var(--ok); }
-.schema-state.warn { color: var(--warn); }
 .kr-add { margin-left: auto; }
 .kr-doc {
   max-width: 880px;

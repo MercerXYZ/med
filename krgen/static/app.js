@@ -70,29 +70,26 @@ const STAGE = {
 const KIND = {
   direction: "Противоположные выводы",
   numbers: "Несовместимые числа",
-  population: "Разные группы пациентов",
   other: "Расхождение",
 };
 const DECISIONS = ["keep_both", "prefer_a", "prefer_b", "exclude"];
 const DECISION = { keep_both: "Оставить оба", prefer_a: "Верно A", prefer_b: "Верно B", exclude: "Исключить оба" };
 const PHRASES = ["Рекомендуется", "Рекомендуется рассмотреть возможность", "Не рекомендуется", "Не рекомендуется рассматривать"];
-const CLAIM = { source_recommendation: "рекомендация источника", study_finding: "результат исследования", background_fact: "справочный факт" };
-const POLARITY = { positive: "положительное", negative: "отрицательное", conditional: "условное", descriptive: "описательное" };
+const ITYPE = { "": "нет вмешательства", diagnostic: "диагностика", therapeutic: "лечение", preventive: "профилактика", rehab: "реабилитация" };
 const AGE = { adults: "взрослые", children: "дети", mixed: "взрослые и дети", unspecified: "не указано" };
 const AGE_CAT = { mixed: "Взрослые и дети", adults: "Взрослые", children: "Дети" };
 const RELEVANCE = { direct: "прямая", indirect: "косвенная", none: "нет" };
 const FACT_FIELDS = [
   ["section", "Раздел КР", (v) => secLabel(v)],
-  ["claim_type", "Тип", (v) => CLAIM[v] || v],
-  ["polarity", "Направление", (v) => POLARITY[v] || v],
+  ["subject", "Субъект"],
+  ["predicate", "Отношение"],
+  ["object", "Объект"],
+  ["negation", "Отрицательное доказательство", (v) => (v ? "да" : "")],
+  ["intervention_type", "Тип вмешательства", (v) => ITYPE[v ?? ""]],
   ["age_group", "Возраст", (v) => AGE[v] || v],
   ["population", "Пациенты"],
-  ["intervention", "Вмешательство"],
-  ["comparator", "Сравнение"],
-  ["outcome", "Исход"],
   ["dose", "Доза"],
   ["timing", "Сроки"],
-  ["thresholds", "Пороги"],
   ["conditions", "Условия"],
   ["topic_relevance", "Связь с темой", (v) => RELEVANCE[v] || v],
   ["secondary_citation", "Пересказ чужой работы", (v) => (v ? "да" : "")],
@@ -868,19 +865,18 @@ function factFormHtml(f) {
     <div class="grid2">
       ${field("Раздел КР", `<select name="kr_section">${optionsHtml(SECTION_OPTS, f.section)}</select>`)}
       ${field("Страница", `<input name="page" type="number" min="1" value="${esc(f.page ?? "")}">`)}
-      ${field("Тип", sel("claim_type", CLAIM, f.claim_type))}
-      ${field("Направление", sel("polarity", POLARITY, f.polarity))}
+      ${field("Тип вмешательства", sel("intervention_type", ITYPE, f.intervention_type ?? ""))}
       ${field("Возраст", sel("age_group", AGE, f.age_group))}
       ${field("Связь с темой", sel("topic_relevance", RELEVANCE, f.topic_relevance))}
       ${inp("population", "Пациенты")}
-      ${inp("intervention", "Вмешательство")}
-      ${inp("comparator", "Сравнение")}
-      ${inp("outcome", "Исход")}
+      ${inp("subject", "Субъект")}
+      ${inp("predicate", "Отношение")}
+      ${inp("object", "Объект")}
       ${inp("dose", "Доза")}
       ${inp("timing", "Сроки")}
-      ${inp("thresholds", "Пороги")}
       ${inp("conditions", "Условия")}
     </div>
+    <label class="check"><input type="checkbox" name="negation"${f.negation ? " checked" : ""}> Отрицательное доказательство</label>
     <label class="check"><input type="checkbox" name="secondary_citation"${f.secondary_citation ? " checked" : ""}> Пересказ чужой работы</label>
     ${field("Комментарий", `<input name="comment" placeholder="необязательно" autocomplete="off">`)}
     <div class="actions">
@@ -907,12 +903,13 @@ async function saveFact(form) {
   const data = new FormData(form);
   const changed = {};
   for (const [k, raw] of data.entries()) {
-    if (k === "comment" || k === "secondary_citation") continue;
+    if (k === "comment" || k === "secondary_citation" || k === "negation") continue;
     const v = String(raw).trim();
     if (v !== String(f[FORM_KEYS[k] || k] ?? "").trim()) changed[k] = k === "page" ? (v ? Number(v) : null) : v;
   }
-  const sc = form.elements.secondary_citation.checked;
-  if (sc !== !!f.secondary_citation) changed.secondary_citation = sc;
+  for (const k of ["secondary_citation", "negation"]) {
+    if (form.elements[k].checked !== !!f[k]) changed[k] = form.elements[k].checked;
+  }
   if (!Object.keys(changed).length) return toast("Изменений нет");
   if ("statement_ru" in changed && !changed.statement_ru) return toast("Формулировка не может быть пустой", "bad");
   setBusy(form, true);
@@ -1178,8 +1175,6 @@ async function viewKr(r, seq) {
         <a class="btn" href="${exp("docx")}" download>Скачать Word</a>
         <a class="btn ghost" href="${exp("md")}" download>Markdown</a>
         <a class="btn ghost" href="${exp("json")}" download>JSON</a>
-        <a class="btn ghost" href="${exp("kr_schema")}" download>JSON по схеме kr_recommendation</a>
-        <span class="schema-state" id="schemaState"></span>
       </div>
       <button class="btn ghost kr-add" data-act="addThesis">Добавить тезис</button>
     </div>
@@ -1187,7 +1182,6 @@ async function viewKr(r, seq) {
     <div id="krDoc">${loadingHtml()}</div>
   </section>`);
   await loadKr(seq);
-  checkSchema(seq);
 }
 
 async function loadKr(seq = S.seq, keepScroll = false) {
@@ -1433,20 +1427,6 @@ function cancelItem(btn) {
   $(`.kr-edit-btn[data-id="${CSS.escape(id)}"]`)?.focus();
 }
 
-async function checkSchema(seq) {
-  let res;
-  try {
-    res = await api(P("/export/kr_schema_check"));
-  } catch {
-    return;
-  }
-  const el = $("#schemaState");
-  if (seq !== S.seq || !el) return;
-  el.className = `schema-state ${res.valid ? "ok" : "warn"}`;
-  el.textContent = res.valid ? "схема: без ошибок" : `схема: ${count(res.errors.length, "ошибка", "ошибки", "ошибок")}`;
-  el.title = res.errors.slice(0, 20).join("\n");
-}
-
 // ---------- история
 
 async function viewHistory(r, seq) {
@@ -1472,25 +1452,19 @@ async function refreshRuns(seq = S.seq) {
   $("#runsBox").innerHTML = runs.length ? runsTableHtml(runs) : emptyHtml("Обработок ещё не было");
 }
 
-// в старых снимках: n_cards и cards, theses_in_draft или theses, conflicts — число
-const SUM = {
-  facts: (s) => s.n_facts ?? s.n_cards,
-  theses: (s) => s.n_theses ?? s.theses_in_draft ?? s.theses,
-};
-
 function runsTableHtml(runs) {
   const cell = (v) => (v == null ? `<span class="muted">—</span>` : esc(v));
   const rows = runs.map((run) => {
-    const s = run.summary || {}, u = s.run_usage || {}, href = esc(link("history", run.id));
+    const s = run.summary || {}, href = esc(link("history", run.id));
     return `<tr class="clickable" data-act="goto" data-href="${href}">
       <td><a href="${href}">${esc(fmtDate(run.started_at))}</a></td>
       <td>${pill(RUN_STATE, run.status)}</td>
       <td class="num">${cell(s.n_documents)}</td>
-      <td class="num">${cell(SUM.facts(s))}</td>
+      <td class="num">${cell(s.n_facts)}</td>
       <td class="num">${cell(s.n_groups)}</td>
-      <td class="num">${cell(SUM.theses(s))}</td>
-      <td class="num">${cell(numFmt(u.calls))}</td>
-      <td class="num">${cell(money(u.cost_usd))}</td>
+      <td class="num">${cell(s.n_theses)}</td>
+      <td class="num">${cell(numFmt(s.calls))}</td>
+      <td class="num">${cell(money(s.cost_usd))}</td>
     </tr>`;
   }).join("");
   return `<div class="table-wrap"><table class="table">
@@ -1547,23 +1521,14 @@ function runDetailHtml(run, s, log, files) {
 }
 
 function runKpisHtml(s) {
-  const u = s.run_usage || {};
-  const parts = (list) => list.filter(([, v]) => v != null && v !== 0).map(([k, v]) => `${k} ${v}`).join(" · ");
-  const fs = s.facts || s.cards;
-  const cs = s.n_conflicts != null ? s.conflicts : null;
-  const tokens = u.input_tokens != null || u.output_tokens != null
-    ? `${numFmt(u.input_tokens || 0)} / ${numFmt(u.output_tokens || 0)}` : null;
   const kpi = (k, v, sub) => `<div class="kpi"><span class="k">${esc(k)}</span><span class="v">${esc(v ?? "—")}</span>${sub ? `<span class="s">${esc(sub)}</span>` : ""}</div>`;
   return [
     kpi("Документы", s.n_documents),
-    kpi("Факты", SUM.facts(s), fs && parts([
-      ["подтверждено", fs.verified], ["экспертом", fs.confirmed], ["на проверке", fs.needs_review],
-      ["не подтверждено", fs.unverified], ["отклонено", fs.rejected]])),
-    kpi("Группы", s.n_groups, s.groups && parts([["исключено", s.groups.excluded]])),
-    kpi("Противоречия", cs ? cs.total : s.conflicts, cs && parts([
-      ["решено авто", cs.auto], ["экспертом", cs.expert], ["ждут", cs.open]])),
-    kpi("Тезисы в КР", SUM.theses(s)),
-    kpi("Запросы к модели", numFmt(u.calls), parts([["токены", tokens], ["стоимость", money(u.cost_usd)]])),
+    kpi("Факты", s.n_facts, `подтверждено ${s.n_facts_verified}`),
+    kpi("Группы", s.n_groups),
+    kpi("Противоречия", s.n_conflicts, s.n_conflicts_open ? `ждут решения ${s.n_conflicts_open}` : ""),
+    kpi("Тезисы в КР", s.n_theses, `абзацев ${s.n_texts} · источников ${s.n_references}`),
+    kpi("Запросы к модели", numFmt(s.calls), `из кэша ${numFmt(s.cache_hits)} · ${money(s.cost_usd)}`),
   ].join("");
 }
 

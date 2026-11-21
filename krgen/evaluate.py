@@ -22,12 +22,12 @@ SECTION_CAT = {"1": "background", "2": "diagnosis", "3": "treatment", "4": "reha
                "5": "prevention", "6": "organization", "7": "other"}
 CAT_RU = {"background": "Краткая информация", "diagnosis": "Диагностика", "treatment": "Лечение",
           "rehabilitation": "Реабилитация", "prevention": "Профилактика", "organization": "Организация",
-          "other": "Прочее", "negative": "Отрицательные утверждения", "conditional": "Условные утверждения"}
+          "other": "Прочее", "negative": "Отрицательные утверждения"}
 GATES = {
     "all": lambda c: True,
     "reviewable": lambda c: c["status"] in ("verified", "needs_review") or c["user_status"] == "confirmed",
     "verified": lambda c: c["status"] == "verified" or c["user_status"] == "confirmed",
-    # без LLM-рецензента
+    # без модели-рецензента
     "deterministic_only": lambda c: c["det_ok"],
     "quote_only": lambda c: c["quote_found"],
 }
@@ -55,13 +55,11 @@ def _system_cards(project_id: str, doc_id: str, pages: list[int] | None) -> list
         # in_scope — со страниц эталона; кандидаты для полноты — все факты документа
         out.append(dict(id=r["id"], in_scope=not pages or c.get("page") in pages,
                         statement=c.get("statement_ru"), page=c.get("page"),
-                        section=c.get("kr_section"), polarity=c.get("polarity"),
+                        section=c.get("kr_section"), negation=bool(c.get("negation")),
                         age=c.get("age_group"), dose=c.get("dose"), timing=c.get("timing"),
-                        status=r["status"], user_status=r.get("user_status"),
-                        quote_ok=q.get("status") in ("exact", "fuzzy"),
+                        status=r["status"], user_status=r["user_status"],
                         quote_found=q.get("status") in ("exact", "fuzzy"),
-                        det_ok=all(k["ok"] or k["severity"] == "info" for k in v.get("checks") or []) and
-                        bool(v.get("checks")),
+                        det_ok=bool(v.get("checks")) and all(k["ok"] for k in v["checks"]),
                         judge=(v.get("judge") or {}).get("entailment")))
     return out
 
@@ -69,7 +67,7 @@ def _system_cards(project_id: str, doc_id: str, pages: list[int] | None) -> list
 async def _match_one(gold: dict, cands: list[dict], ctx: CallCtx) -> dict:
     if not cands:
         return dict(match_id="", near_miss_id="", reason="нет кандидатов")
-    items = [dict(id=c["id"], statement=c["statement"], page=c["page"], age=c["age"], polarity=c["polarity"],
+    items = [dict(id=c["id"], statement=c["statement"], page=c["page"], age=c["age"], negation=c["negation"],
                   dose=c["dose"], timing=c["timing"]) for c in cands]
     prompt = (f"ЭТАЛОН: {json.dumps({k: gold.get(k) for k in ('statement_ru', 'page', 'polarity', 'age_group', 'key_params')}, ensure_ascii=False)}\n"
               f"КАНДИДАТЫ:\n{json.dumps(items, ensure_ascii=False, indent=0)}")
@@ -160,10 +158,10 @@ async def evaluate(project_id: str, gold_path: Path, extras_review: Path | None 
         overall["unreviewed_extras"] = unreviewed
         by_cat = {}
         cats = sorted({g["category"] for g in all_gold} | {_cat(c["section"]) for c in cards})
-        for cat in cats + ["negative", "conditional"]:
-            if cat in ("negative", "conditional"):
-                gsel = [g for g in all_gold if g.get("polarity") == cat]
-                csel = [c for c in cards if c["polarity"] == cat]
+        for cat in cats + ["negative"]:
+            if cat == "negative":
+                gsel = [g for g in all_gold if g.get("polarity") == "negative"]
+                csel = [c for c in cards if c["negation"]]
             else:
                 gsel = [g for g in all_gold if g["category"] == cat]
                 csel = [c for c in cards if _cat(c["section"]) == cat]
@@ -175,7 +173,7 @@ async def evaluate(project_id: str, gold_path: Path, extras_review: Path | None 
             by_cat[CAT_RU.get(cat, cat)] = dict(n_gold=len(gsel), n_system=len(csel), **m)
         out["gates"][gname] = dict(
             n_system=len(cards), n_matched=len(assign), overall=overall, by_category=by_cat,
-            quote_verifiability=(sum(c["quote_ok"] for c in cards) / len(cards)) if cards else None,
+            quote_verifiability=(sum(c["quote_found"] for c in cards) / len(cards)) if cards else None,
             semantic_support=(sum(c["judge"] == "supported" for c in cards if c["judge"]) /
                               max(1, sum(1 for c in cards if c["judge"]))) if cards else None,
             duplicate_rate=len(dup_cards) / len(cards) if cards else None,

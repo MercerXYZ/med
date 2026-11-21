@@ -37,7 +37,7 @@ def main(argv=None):
     p = sub.add_parser("snapshot", help="снимок результата последнего (или указанного) прогона")
     p.add_argument("project")
     p.add_argument("--run")
-    p = sub.add_parser("export", help="выгрузить КР: JSON, Markdown, Word")
+    p = sub.add_parser("export", help="выгрузить КР: Word, Markdown и полный JSON")
     p.add_argument("project")
     p.add_argument("out")
     a = ap.parse_args(argv)
@@ -58,14 +58,14 @@ def main(argv=None):
         try:
             rid = asyncio.run(run_project(a.project, doc_ids=a.docs, only_failed=a.only_failed,
                                           stages=stages, use_judge=not a.no_judge))
-        except RuntimeError as e:
+        except (RuntimeError, ValueError) as e:
             sys.exit(str(e))
         run = db.q1("SELECT status, error FROM runs WHERE id=?", [rid])
         print(rid, run["status"], run["error"] or "")
     elif a.cmd == "report":
         print(json.dumps(processing_report(a.project), ensure_ascii=False, indent=1, default=str))
     elif a.cmd == "snapshot":
-        from .snapshots import take
+        from .snapshots import SNAP_DIR, take
         rid = a.run
         if rid:
             run = db.q1("SELECT project_id FROM runs WHERE id=?", [rid])
@@ -77,7 +77,8 @@ def main(argv=None):
             if not last:
                 sys.exit("Нет завершённых прогонов")
             rid = last["id"]
-        print(take(a.project, rid))
+        take(a.project, rid)
+        print(SNAP_DIR / rid)
     elif a.cmd == "export":
         from .export import export_all
         for p in export_all(a.project, Path(a.out)):

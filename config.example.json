@@ -1,9 +1,7 @@
 {
   "model": "claude-haiku-5-5",
-  "judge_model": "claude-haiku-5-5",
-  "concurrency": 4,
   "effort": "low",
-  "judge_effort": "low",
+  "concurrency": 4,
   "max_pages_per_doc": 60,
   "chunk_chars": 9000,
   "quote_fuzzy_threshold": 90.0,

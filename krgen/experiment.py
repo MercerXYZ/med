@@ -25,13 +25,10 @@ async def run_variant(spec: dict, variant: dict, rep: int) -> dict:
             setattr(SETTINGS, k, v)
         SETTINGS.use_cache = spec.get("use_cache", True)
         pid = f"exp_{spec['name']}_{variant['id']}_r{rep}"
-        for t in ("cards", "chunks", "clusters", "conflicts", "theses", "llm_calls", "runs", "expert_edits"):
-            col = "project_id" if t != "chunks" else "doc_id"
-            if t == "chunks":
-                db.ex("DELETE FROM chunks WHERE doc_id IN (SELECT id FROM documents WHERE project_id=?)", [pid])
-            else:
-                db.ex(f"DELETE FROM {t} WHERE {col}=?", [pid])
-        db.ex("DELETE FROM pages WHERE doc_id IN (SELECT id FROM documents WHERE project_id=?)", [pid])
+        for t in ("chunks", "pages"):
+            db.ex(f"DELETE FROM {t} WHERE doc_id IN (SELECT id FROM documents WHERE project_id=?)", [pid])
+        for t in ("cards", "fact_groups", "conflicts", "theses", "llm_calls", "runs", "expert_edits"):
+            db.ex(f"DELETE FROM {t} WHERE project_id=?", [pid])
         db.ex("DELETE FROM documents WHERE project_id=?", [pid])
         pr = spec["project"]
         create_project(pr["title"], pr.get("age", "mixed"), pr["icd"], pr.get("org", ""), pid)
@@ -43,7 +40,7 @@ async def run_variant(spec: dict, variant: dict, rep: int) -> dict:
         res = await evaluate(pid, Path(spec["gold"]))
         write_outputs(res, DATA_DIR / "eval")
         u = db.q1("SELECT COUNT(*) calls, SUM(cache_hit) hits, SUM(input_tokens) inp, SUM(output_tokens) outp, "
-                  "SUM(cache_read_tokens) cread, SUM(cost_usd) cost, SUM(duration_ms) dur, "
+                  "SUM(cost_usd) cost, SUM(duration_ms) dur, "
                   "SUM(CASE WHEN error IS NOT NULL THEN 1 ELSE 0 END) errors FROM llm_calls "
                   "WHERE project_id=? AND run_id=?", [pid, run_id])
         return dict(variant=variant["id"], rep=rep, project=pid, wall_s=round(wall, 1), usage=u,
