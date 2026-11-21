@@ -189,7 +189,10 @@ async def run_project(project_id: str, doc_ids: list[str] | None = None, only_fa
                              "возьмутся из кэша.")
         _progress(run_id, "snapshot", "Сохранение снимка")
         from .snapshots import take
-        take(project_id, run_id)
+        try:
+            take(project_id, run_id)
+        except Exception as e:  # noqa: BLE001 — без снимка результат всё равно в базе
+            errors.append(f"Снимок не сохранён: {type(e).__name__}: {e}")
         status = "completed_with_errors" if errors else "completed"
         db.update("runs", run_id, status=status, finished_at=time.time(), error="\n".join(errors) or None)
         _progress(run_id, "done", "Готово" if status == "completed" else "Готово, есть ошибки")

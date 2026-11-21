@@ -21,6 +21,7 @@ from .projects import get
 from .resolve import DECISIONS, excluded_fact_ids
 from .snapshots import FILES as SNAP_FILES, SNAP_DIR, load_summary
 from .synth import kr_evidence
+from .verify import JUDGE_ISSUES
 
 STATIC = Path(__file__).parent / "static"
 RUN_STAGES = {"all": None, "kr": ["group", "resolve", "kr"]}
@@ -231,6 +232,7 @@ def fact_checks(v: dict) -> list[dict]:
     else:
         out.append(dict(ok={"supported": True, "partial": None}.get(j["entailment"], False),
                         text=JUDGE_TEXT[j["entailment"]]))
+        out += [dict(ok=False, text=text) for k, text in JUDGE_ISSUES.items() if j.get(k) is False]
     return out
 
 
