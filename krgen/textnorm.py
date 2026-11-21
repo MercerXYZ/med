@@ -40,7 +40,10 @@ _NUM_RE = re.compile(r"(?<![\w.])(\d+(?:[.,]\d+)?)")
 
 def numbers(text: str) -> set[str]:
     """Числа из текста: запятая → точка, без хвостовых нулей, без номеров ссылок [1, 2]."""
-    t = unicodedata.normalize("NFKC", text or "")
+    # разделитель тысяч: неразрывный пробел «1 000» (до NFKC) и запятая «1,000» (но «0,005» — дробь)
+    t = re.sub(r"(?<=\d)[\u00a0\u202f\u2009](?=\d{3}(?!\d))", "", text or "")
+    t = unicodedata.normalize("NFKC", t)
+    t = re.sub(r"(?<![\d.,])([1-9]\d{0,2}),(?=\d{3}(?![\d.,]))", r"\1", t)
     t = re.sub(r"\[[\d,\s\-–]+\]", " ", t)
     return {format(Decimal(m.group(1).replace(",", ".")).normalize(), "f") for m in _NUM_RE.finditer(t)}
 

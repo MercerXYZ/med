@@ -52,12 +52,6 @@ async def run_variant(spec: dict, variant: dict, rep: int) -> dict:
             setattr(SETTINGS, k, v)
 
 
-def _fmt(v, pct=True):
-    if v is None:
-        return "—"
-    return f"{v * 100:.1f}%" if pct else f"{v:.3f}"
-
-
 def report(spec: dict, results: list[dict]) -> str:
     L = [f"# Эксперимент: {spec['name']}", "", f"**Вопрос:** {spec.get('question', '')}", "",
          f"Эталон: `{spec['gold']}`; документов: {len(spec['docs'])}; модель: {SETTINGS.model}; "

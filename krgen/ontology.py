@@ -61,10 +61,6 @@ def fields(name: str, keys: list[str]) -> dict:
 
 
 SECTIONS_ENUM = enum("kr_section_enum")
-STUDY_DESIGNS = enum("study_design_enum")
-INTERVENTION_TYPES = enum("intervention_type_enum")
 PHRASES = DEFS["recommendation_thesis"]["properties"]["strength_phrase"]["enum"]
 AGE_CATEGORIES = DEFS["kr_meta"]["properties"]["age_category"]["enum"]
-ADDITION_BASIS = DEFS["recommendation_thesis"]["properties"]["expert_additions"]["items"]["properties"]["basis"]["enum"]
-STAGES = DEFS["quality_criterion"]["properties"]["applicable_stage"]["enum"]
 ICD_PATTERN = DEFS["kr_meta"]["properties"]["icd_codes"]["items"]["pattern"]
